@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { font-family: 'Arial', sans-serif; }
-        .hero { background: linear-gradient(135deg, #007bff, #28a745); color: white; padding: 120px 0; text-align: center; }
+         .hero { background: linear-gradient(135deg, #007bff, #28a745); color: white; padding: 120px 0; text-align: center; }
         .hero h1 { font-size: 3rem; font-weight: bold; }
         .hero p { font-size: 1.2rem; margin-bottom: 30px; }
         .course-card { transition: transform 0.3s; border: none; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
@@ -19,6 +19,274 @@
         .footer a { color: #ffc107; text-decoration: none; }
     </style>
 </head>
+<!-- WhatsApp Floating Button -->
+<a href="https://wa.me/917838942468?text=Hello%20I%20want%20details%20about%20JEE%20and%20IIT%20JAM%20coaching"
+   class="whatsapp-float"
+   target="_blank"
+   title="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<style>
+.whatsapp-float {
+    position: fixed;
+    width: 55px;
+    height: 55px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: #FFF;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+.whatsapp-float i {
+    margin-top: 12px;
+}
+.pricing-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 32px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    height: 100%;
+}
+/* ===== Course Curriculum Section ===== */
+.curriculum-section {
+    padding: 80px 0;
+}
+
+.curriculum-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    height: 100%;
+}
+
+.curriculum-card h4 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.curriculum-card h4 i {
+    color: #2563eb;
+}
+
+.curriculum-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.curriculum-card ul li {
+    margin-bottom: 12px;
+    padding-left: 26px;
+    position: relative;
+    color: #374151;
+}
+
+.curriculum-card ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #2563eb;
+    font-weight: bold;
+}
+
+
+.pricing-card h4 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.pricing-card h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.pricing-card h2 span {
+    font-size: 1rem;
+    color: #6b7280;
+    font-weight: 400;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.pricing-card ul li {
+    margin-bottom: 10px;
+    padding-left: 26px;
+    position: relative;
+    color: #374151;
+}
+
+.pricing-card ul li::before {
+    content: "✔";
+    color: #22c55e;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.pricing-card h6 {
+    margin-top: 22px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* Popular Card */
+.pricing-card.popular {
+    border: 2px solid #2563eb;
+    box-shadow: 0 12px 35px rgba(37,99,235,0.15);
+}
+
+.badge-popular {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: #fff;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 999px;
+}
+
+/* Buttons */
+.pricing-card .btn {
+    margin-top: 25px;
+    padding: 12px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+/* ===== Class Timings / Demo Section ===== */
+.class-timing-section {
+    padding: 70px 0;
+}
+
+.class-timing-wrapper {
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.class-timing-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+.timing-card {
+    background: #f8fafc;
+    border-radius: 16px;
+    padding: 25px;
+    height: 100%;
+}
+
+.timing-card.blue {
+    background: #eff6ff;
+}
+
+.timing-card.green {
+    background: #ecfdf5;
+}
+
+.timing-card h6 {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.timing-card .highlight {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.timing-card.blue .highlight {
+    color: #2563eb;
+}
+
+.timing-card.green .highlight {
+    color: #16a34a;
+}
+
+.demo-book-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: #111827;
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.demo-book-btn:hover {
+    background: #000;
+    color: #fff;
+}
+
+/* ===== Footer ===== */
+.site-footer {
+    background: linear-gradient(135deg, #0f172a, #020617);
+    color: #cbd5f5;
+    padding: 60px 0 20px;
+}
+
+.site-footer h5 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.site-footer p {
+    color: #94a3b8;
+    line-height: 1.6;
+}
+
+.footer-links a {
+    display: block;
+    color: #94a3b8;
+    text-decoration: none;
+    margin-bottom: 8px;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+}
+
+.footer-contact p {
+    margin-bottom: 8px;
+    color: #94a3b8;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 40px;
+    padding-top: 20px;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+
+
+</style>
+
 <body>
     <!-- Header -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -43,68 +311,207 @@
     <section id="home" class="hero">
         <div class="container">
             <h1>Master JEE Math & IIT JAM</h1>
-            <p>Expert coaching for JEE Main, Advanced, and now IIT JAM. Achieve your dreams with personalized guidance.</p>
+            <p>Expert coaching for JEE Main, Advanced, and now IIT JAM. Achieve your dreams with personalized guidance.
+            Personalized coaching for Class 11 & 12 students by Sarthak Tiwari, MSc in Mathematics from IIT Hyderabad</p>
             <a href="#courses" class="btn btn-light btn-lg me-3"><i class="fas fa-book"></i> Explore Courses</a>
-            <a href="#contact" class="btn btn-outline-light btn-lg"><i class="fas fa-envelope"></i> Get in Touch</a>
+            <a href="#demo" class="btn btn-outline-light btn-lg">
+    <i class="fas fa-calendar-check"></i> Book Free Demo
+</a>
+
         </div>
     </section>
 
     <!-- Courses Section -->
-    <section id="courses" class="py-5">
-        <div class="container">
-            <h2 class="text-center mb-5">Our Courses</h2>
-            <div class="row">
-                <!-- JEE Main Course -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card course-card h-100">
-                        <img src="https://via.placeholder.com/400x250/007bff/ffffff?text=JEE+Main+Math" class="card-img-top" alt="JEE Main">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><i class="fas fa-calculator"></i> JEE Main Math</h5>
-                            <p class="card-text">Comprehensive coaching covering algebra, calculus, coordinate geometry, and trigonometry. Includes mock tests and video lectures.</p>
-                            <ul class="list-unstyled mb-3">
-                                <li><i class="fas fa-check text-success"></i> 200+ Hours of Content</li>
-                                <li><i class="fas fa-check text-success"></i> Doubt Clearing Sessions</li>
-                                <li><i class="fas fa-check text-success"></i> Rank Improvement Guarantee</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary mt-auto">Enroll Now - ₹5000</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- JEE Advanced Course -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card course-card h-100">
-                        <img src="https://via.placeholder.com/400x250/28a745/ffffff?text=JEE+Advanced+Math" class="card-img-top" alt="JEE Advanced">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><i class="fas fa-brain"></i> JEE Advanced Math</h5>
-                            <p class="card-text">Advanced problem-solving for vectors, 3D geometry, probability, and more. Designed for top ranks.</p>
-                            <ul class="list-unstyled mb-3">
-                                <li><i class="fas fa-check text-success"></i> Expert Faculty</li>
-                                <li><i class="fas fa-check text-success"></i> Previous Year Papers</li>
-                                <li><i class="fas fa-check text-success"></i> One-on-One Mentoring</li>
-                            </ul>
-                            <a href="#" class="btn btn-primary mt-auto">Enroll Now - ₹7000</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- IIT JAM Course (Newly Added) -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card course-card h-100">
-                        <img src="https://via.placeholder.com/400x250/ff6b35/ffffff?text=IIT+JAM+Math" class="card-img-top" alt="IIT JAM">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><i class="fas fa-university"></i> IIT JAM Mathematics</h5>
-                            <p class="card-text">Specialized preparation for IIT JAM M.Sc. admissions. Covers real analysis, linear algebra, abstract algebra, differential equations, and more.</p>
-                            <ul class="list-unstyled mb-3">
-                                <li><i class="fas fa-check text-success"></i> Full Syllabus Coverage</li>
-                                <li><i class="fas fa-check text-success"></i> Mock Tests & Analytics</li>
-                                <li><i class="fas fa-check text-success"></i> Admission to IITs & IISc</li>
-                            </ul>
-                            <a href="#" class="btn btn-success mt-auto">Enroll for IIT JAM - ₹6000</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    
+<section id="courses" class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Class Plans</h2>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- One-to-One -->
+      <div class="col-md-4">
+        <div class="pricing-card popular">
+          <div class="badge-popular">Most Popular</div>
+          <h4>One-to-One</h4>
+          <h2>₹500 <span>/ hour</span></h2>
+
+          <h6>Features:</h6>
+          <ul>
+            <li>Personalized attention</li>
+            <li>Customized study plan</li>
+            <li>Flexible timing</li>
+            <li>Doubt clearing sessions</li>
+            <li>Progress tracking</li>
+          </ul>
+
+          <h6>Schedule Options:</h6>
+          <p>📅 2 / 3 / 4 classes per week</p>
+
+          <a href="#contact" class="btn btn-dark w-100">Get Started</a>
         </div>
-    </section>
+      </div>
+
+      <!-- Group Classes -->
+      <div class="col-md-4">
+        <div class="pricing-card">
+          <h4>Group Classes</h4>
+          <h2>₹300 <span>/ hour</span></h2>
+
+          <h6>Features:</h6>
+          <ul>
+            <li>Small batch size</li>
+            <li>Interactive learning</li>
+            <li>Peer discussion</li>
+            <li>Competitive environment</li>
+            <li>Regular assessments</li>
+          </ul>
+
+          <h6>Schedule Options:</h6>
+          <p>📅 2 / 3 / 4 classes per week</p>
+
+          <a href="#contact" class="btn btn-outline-dark w-100">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Weekend Batch -->
+      <div class="col-md-4">
+        <div class="pricing-card">
+          <h4>Weekend Batch</h4>
+          <h2>₹300 <span>/ hour</span></h2>
+
+          <h6>Features:</h6>
+          <ul>
+            <li>2 hours on Saturday</li>
+            <li>2 hours on Sunday</li>
+            <li>Perfect for working students</li>
+            <li>Intensive coverage</li>
+            <li>Practice sessions included</li>
+          </ul>
+
+          <h6>Schedule Options:</h6>
+          <p>📅 Saturday & Sunday (2 hrs each)</p>
+
+          <a href="#contact" class="btn btn-outline-dark w-100">Get Started</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="curriculum-section bg-white">
+  <div class="container">
+    
+    <div class="text-center mb-5">
+      <h2 class="fw-bold">Course Curriculum</h2>
+      <p class="text-muted">
+        Comprehensive coverage of JEE Mains and Advanced mathematics syllabus
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- JEE Mains -->
+      <div class="col-md-4">
+        <div class="curriculum-card">
+          <h4><i class="fas fa-book-open"></i> JEE Mains</h4>
+          <ul>
+            <li>Algebra – Complex Numbers, Quadratic Equations, Sequences & Series</li>
+            <li>Calculus – Limits, Continuity, Differentiation, Integration</li>
+            <li>Trigonometry – Ratios, Identities, Equations, Inverse Functions</li>
+            <li>Coordinate Geometry – Straight Lines, Circles, Parabola, Ellipse, Hyperbola</li>
+            <li>Vectors & 3D Geometry</li>
+            <li>Probability & Statistics</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- JEE Advanced -->
+      <div class="col-md-4">
+        <div class="curriculum-card">
+          <h4><i class="fas fa-graduation-cap"></i> JEE Advanced</h4>
+          <ul>
+            <li>Advanced Calculus – Differential Equations, Area Under Curves</li>
+            <li>Advanced Algebra – Matrices, Determinants, Complex Analysis</li>
+            <li>Advanced Coordinate Geometry – Conic Sections (Deep Dive)</li>
+            <li>Vector Algebra & 3D Applications</li>
+            <li>Combinatorics & Probability Theory</li>
+            <li>Mathematical Reasoning & Logic</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Problem Solving -->
+      <div class="col-md-4">
+        <div class="curriculum-card">
+          <h4><i class="fas fa-lightbulb"></i> Problem Solving</h4>
+          <ul>
+            <li>Previous Year Questions (PYQs) Analysis</li>
+            <li>Pattern Recognition & Shortcut Techniques</li>
+            <li>Time Management Strategies</li>
+            <li>Mock Tests & Performance Review</li>
+            <li>Concept Application in Real Problems</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="demo" class="class-timing-section">
+  <div class="container">
+
+    <div class="class-timing-wrapper">
+
+      <div class="class-timing-title">
+        <i class="fas fa-clock text-primary"></i>
+        <h4 class="mb-0">Class Timings</h4>
+      </div>
+
+      <div class="row g-4">
+
+        <!-- Available Slots -->
+        <div class="col-md-4">
+          <div class="timing-card blue">
+            <h6>Available Slots</h6>
+            <div class="highlight">6:00 PM - 10:00 PM</div>
+            <p class="mb-0 text-muted">Monday to Sunday</p>
+          </div>
+        </div>
+
+        <!-- Class Duration -->
+        <div class="col-md-4">
+          <div class="timing-card">
+            <h6>Class Duration</h6>
+            <div class="highlight">1 Hour</div>
+            <p class="mb-0 text-muted">Per session</p>
+          </div>
+        </div>
+
+        <!-- Demo Class -->
+        <div class="col-md-4">
+          <div class="timing-card green">
+            <h6>Demo Class</h6>
+            <div class="highlight">Free</div>
+            <p class="mb-2 text-muted">First class free</p>
+
+            <a href="https://wa.me/917838942468?text=Hello%20I%20want%20to%20book%20a%20FREE%20demo%20class."
+               target="_blank"
+               class="demo-book-btn">
+               Book Demo Class
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+                    
+
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
@@ -155,25 +562,35 @@
             <h2 class="text-center mb-4">Contact Us</h2>
             <div class="row">
                 <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+<form action="https://formspree.io/f/xwvkareg" method="POST">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Number</label>
+        <input type="number" name="number" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Message</label>
+        <textarea name="message" class="form-control" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Message</button>
+</form>
                 </div>
                 <div class="col-md-6">
                     <h5>Get in Touch</h5>
-                    <p><i class="fas fa-map-marker-alt"></i> Iit hyderabad S.N. Boss hostell iith road, sangareddy Mamidipalle, TELANGANA 502285 India</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Iit hyderabad S.N. Boss hostell 
+iith road, sangareddy
+Mamidipalle, TELANGANA 502285
+India</p>
                     <p><i class="fas fa-phone"></i> +91 7838942468</p>
                     <p><i class="fas fa-envelope"></i> info@jeemathcoaching.com</p>
                 </div>
@@ -182,16 +599,44 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer text-center">
-        <div class="container">
-            <p>&copy; 2023 JEE Math Coaching. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
-            <p>Follow us: 
-                <a href="#"><i class="fab fa-facebook-f me-2"></i></a>
-                <a href="#"><i class="fab fa-twitter me-2"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </p>
-        </div>
-    </footer>
+    <footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Brand -->
+      <div class="col-md-4">
+        <h5>
+          <i class="fas fa-graduation-cap"></i> JEE Mathematics
+        </h5>
+        <p>
+          Expert coaching for JEE aspirants by IIT Hyderabad 
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 footer-links">
+        <h5>Quick Links</h5>
+        <a href="#about">About Tutor</a>
+        <a href="#courses">Pricing</a>
+        <a href="#home">Curriculum</a>
+        <a href="#demo">Demo Class</a>
+      </div>
+
+      <!-- Contact -->
+      <div class="col-md-4 footer-contact">
+        <h5>Contact</h5>
+        <p><i class="fas fa-phone"></i> +91 7838942468</p>
+        <p><i class="fas fa-clock"></i> 6:00 PM - 10:00 PM</p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 JEE Mathematics Coaching by Sarthak Tiwari. All rights reserved.
+    </div>
+  </div>
+</footer>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
