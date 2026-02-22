@@ -7,57 +7,72 @@
     <meta name="geo.placename" content="India" />
     <meta name="description" content="Master JEE Mathematics with personalized online coaching from IIT Hyderabad graduate. 500+ students improved scores. Book free demo today!" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="JEE online mathematics tuition, Class 9 to 12 maths online coaching, online maths tutor for JEE, metro city online tuition, JEE maths online classes" />
     
-    <!-- Preconnect to CDN domains for faster loading -->
+    <!-- Preload critical font to prevent CLS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Preconnect to CDN -->
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph -->
     <meta property="og:title" content="JEE Mathematics Coaching by IIT Hyderabad Expert | Free Demo" />
-    <meta property="og:description" content="Master JEE Mathematics with personalized online coaching from IIT Hyderabad post-graduate. 500+ students improved scores. Book free demo today!" />
+    <meta property="og:description" content="Master JEE Mathematics with personalized online coaching. 500+ students improved scores." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.jeemathcoaching.in/" />
     
-    <!-- Favicon -->
+    <!-- Favicon with size -->
     <link rel="icon" href="/image/logo.jpg" type="image/jpg">
     
-    <!-- Critical CSS inline for faster FCP -->
+    <!-- Critical CSS - INLINE for instant render -->
     <style>
         :root {
-            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #667eea;
+            --secondary: #764ba2;
             --text-dark: #1a1a2e;
-            --text-light: #4a4a68;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
         }
+        
+        /* Font display swap to prevent invisible text */
         body {
-            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background: #f8fafc;
+            background: var(--bg-light);
             margin: 0;
+            
+            /* Prevent layout shift from font loading */
+            font-display: swap;
         }
+        
+        /* Reserve space for hero to prevent CLS */
         .hero {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
-            min-height: 70vh;
+            min-height: 500px; /* Fixed height prevents shift */
             display: flex;
             align-items: center;
             justify-content: center;
         }
+        
         .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 5vw, 3rem);
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
             line-height: 1.2;
         }
+        
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             max-width: 700px;
-            margin: 0 auto 30px;
-            opacity: 0.95;
+            margin: 0 auto 24px;
         }
+        
         .btn {
             display: inline-block;
             padding: 14px 28px;
@@ -69,52 +84,163 @@
             border: none;
             font-size: 1rem;
         }
+        
         .btn-light {
             background: white;
-            color: #667eea;
-            margin: 0 10px 10px;
+            color: var(--primary);
+            margin: 0 8px 10px;
         }
+        
         .btn-outline {
             background: transparent;
             border: 2px solid white;
             color: white;
         }
+        
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
+        
+        /* Fixed navbar height prevents content jump */
         .navbar {
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.9);
             backdrop-filter: blur(10px);
-            padding: 15px 0;
+            padding: 12px 0;
             position: sticky;
             top: 0;
             z-index: 1000;
+            min-height: 60px; /* Fixed height */
         }
+        
         .navbar-brand {
             color: white !important;
             font-weight: 700;
             text-decoration: none;
+            font-size: 1.1rem;
         }
+        
         .nav-link {
             color: rgba(255,255,255,0.9) !important;
             text-decoration: none;
             margin-left: 20px;
-            transition: color 0.3s;
+            font-size: 0.95rem;
         }
-        .nav-link:hover {
-            color: white !important;
+        
+        /* WhatsApp float - fixed position with explicit size */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            text-decoration: none;
         }
+        
+        /* Reserve space for sections to prevent CLS */
+        section {
+            padding: 60px 0;
+        }
+        
+        /* Fixed aspect ratio containers for images/iframes */
+        .map-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio - CRITICAL FOR CLS */
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #e2e8f0; /* Placeholder color */
+        }
+        
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        
+        /* Pricing cards - fixed minimum height */
+        .pricing-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 450px; /* Fixed height prevents shift */
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .pricing-card.popular {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(102,126,234,0.3);
+        }
+        
+        /* Testimonial cards - fixed height */
+        .testimonial-card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 180px; /* Fixed height */
+        }
+        
+        /* Curriculum cards - fixed height */
+        .curriculum-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 350px;
+        }
+        
+        /* Timing cards - fixed height */
+        .timing-card {
+            background: #f1f5f9;
+            border-radius: 12px;
+            padding: 24px;
+            min-height: 140px;
+        }
+        
+        /* Footer */
+        .site-footer {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #cbd5e5;
+            padding: 50px 0 20px;
+        }
+        
+        /* Section titles */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
         @media (max-width: 768px) {
-            .hero { padding: 60px 15px; min-height: auto; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero p { font-size: 1rem; }
+            .hero { min-height: 400px; padding: 60px 15px; }
+            .pricing-card { min-height: auto; }
+            .curriculum-card { min-height: auto; }
+            .testimonial-card { min-height: auto; }
         }
     </style>
     
-    <!-- Defer non-critical CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <!-- Load CSS async but apply immediately -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -123,176 +249,149 @@
       "@type": "EducationalOrganization",
       "name": "JEE & Class 9–12 Online Mathematics Tuition",
       "url": "https://www.jeemathcoaching.in",
-      "description": "Online mathematics tuition for Class 9-12, JEE Main, JEE Advanced and IIT JAM.",
+      "description": "Online mathematics tuition for Class 9-12, JEE Main, JEE Advanced.",
       "areaServed": "India",
-      "founder": {
-        "@type": "Person",
-        "name": "Sarthak Tiwari",
-        "jobTitle": "Mathematics Tutor",
-        "alumniOf": "IIT Hyderabad"
-      },
-      "sameAs": [
-        "https://g.page/r/CfkAUPvkhliFEBM"
-      ]
+      "sameAs": ["https://g.page/r/CfkAUPvkhliFEBM"]
     }
     </script>
     
     <title>JEE Mathematics Coaching by IIT Hyderabad Expert | Free Demo Class</title>
 </head>
 <body>
-    <!-- WhatsApp Float -->
-    <a href="https://wa.me/917601047556?text=Hello%20I%20want%20details%20about%20JEE%20and%20IIT%20JAM%20coaching" 
+    <!-- WhatsApp Float - Fixed position immediately visible -->
+    <a href="https://wa.me/917601047556?text=Hello%20I%20want%20details%20about%20JEE%20coaching" 
        class="whatsapp-float" 
        target="_blank" 
-       aria-label="Chat on WhatsApp"
-       rel="noopener">
+       aria-label="Chat on WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- Header -->
+    <!-- Header - Fixed height -->
     <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="fas fa-graduation-cap"></i> Online Mathematics Tuition
+                <i class="fas fa-graduation-cap me-2"></i>JEE Math Coaching
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#courses">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero - Fixed min-height prevents CLS -->
     <section id="home" class="hero">
         <div class="container">
             <h1>JEE Mathematics Coaching by IIT Hyderabad Expert</h1>
-            <p>Personalized online mathematics coaching for JEE Main, JEE Advanced & Class 9–12 students. Learn from Sarthak Tiwari, MSc Mathematics from IIT Hyderabad. <strong>500+ students improved their scores.</strong></p>
-            <a href="#courses" class="btn btn-light"><i class="fas fa-book"></i> Explore Courses</a>
-            <a href="#demo" class="btn btn-outline"><i class="fas fa-calendar-check"></i> Book Free Demo</a>
+            <p>Personalized online mathematics coaching for JEE Main, JEE Advanced & Class 9–12. <strong>500+ students improved their scores.</strong></p>
+            <a href="#courses" class="btn btn-light"><i class="fas fa-book me-2"></i>Explore Courses</a>
+            <a href="#demo" class="btn btn-outline"><i class="fas fa-calendar-check me-2"></i>Book Free Demo</a>
         </div>
     </section>
 
-    <!-- Courses Section -->
-    <section id="courses" class="py-5">
+    <!-- Courses -->
+    <section id="courses">
         <div class="container">
-            <h2 class="text-center section-title">Our Class Plans</h2>
+            <h2 class="section-title">Our Class Plans</h2>
             <div class="row g-4 justify-content-center">
-                <!-- One-to-One -->
                 <div class="col-md-4">
                     <div class="pricing-card popular">
-                        <div class="badge-popular">Most Popular</div>
+                        <div class="badge bg-danger rounded-pill px-3 py-1 mb-3" style="width: fit-content;">Most Popular</div>
                         <h4>One-to-One</h4>
-                        <h2>₹700 <span>/ hour</span></h2>
-                        <div class="badge orange">🔥 Only <span class="seat-count">2</span> seats left</div>
-                        <ul>
-                            <li>Personalized attention</li>
-                            <li>Customized study plan</li>
-                            <li>Flexible timing</li>
-                            <li>Doubt clearing sessions</li>
-                            <li>Progress tracking</li>
+                        <h2 class="fw-bold">₹700 <small class="fs-6">/ hour</small></h2>
+                        <div class="badge bg-warning text-dark rounded-pill mb-3">🔥 Only 2 seats left</div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-info"></i>Personalized attention</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-info"></i>Custom study plan</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-info"></i>Flexible timing</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-info"></i>Doubt clearing</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-info"></i>Progress tracking</li>
                         </ul>
-                        <p>📅 2 / 3 / 4 classes per week</p>
-                        <a href="https://wa.me/917601047556?text=Hello%20Sir,%20I%20am%20interested%20in%20the%20One-to-One%20plan.%20Please%20share%20details." 
-                           target="_blank" 
-                           rel="noopener"
-                           class="btn btn-primary w-100">Get Started</a>
+                        <a href="https://wa.me/917601047556" target="_blank" class="btn btn-light w-100 mt-auto">Get Started</a>
                     </div>
                 </div>
-                
-                <!-- Group Classes -->
                 <div class="col-md-4">
                     <div class="pricing-card">
                         <h4>Group Classes</h4>
-                        <h2>₹450 <span>/ hour</span></h2>
-                        <div class="badge yellow">⏳ Limited seats: <span class="seat-count">4</span></div>
-                        <ul>
-                            <li>Small batch size</li>
-                            <li>Interactive learning</li>
-                            <li>Peer discussion</li>
-                            <li>Competitive environment</li>
-                            <li>Regular assessments</li>
+                        <h2 class="fw-bold">₹450 <small class="fs-6">/ hour</small></h2>
+                        <div class="badge bg-info text-dark rounded-pill mb-3">⏳ Limited seats: 4</div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Small batch size</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Interactive learning</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Peer discussion</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Competitive environment</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Regular assessments</li>
                         </ul>
-                        <p>📅 2 / 3 / 4 classes per week</p>
-                        <a href="https://wa.me/917601047556?text=Hello%20Sir,%20I%20want%20to%20join%20Group%20Classes.%20Please%20guide%20me." 
-                           target="_blank" 
-                           rel="noopener"
-                           class="btn btn-outline-primary w-100">Get Started</a>
+                        <a href="https://wa.me/917601047556" target="_blank" class="btn btn-outline-primary w-100 mt-auto">Get Started</a>
                     </div>
                 </div>
-                
-                <!-- Weekend Batch -->
                 <div class="col-md-4">
                     <div class="pricing-card">
                         <h4>Weekend Batch</h4>
-                        <h2>₹450 <span>/ hour</span></h2>
-                        <div class="badge red">🔔 Filling fast: <span class="seat-count">5</span> spots left</div>
-                        <ul>
-                            <li>2 hours on Saturday</li>
-                            <li>2 hours on Sunday</li>
-                            <li>Group classes small batches</li>
-                            <li>Intensive coverage</li>
-                            <li>Practice sessions included</li>
+                        <h2 class="fw-bold">₹450 <small class="fs-6">/ hour</small></h2>
+                        <div class="badge bg-danger bg-opacity-25 text-danger rounded-pill mb-3">🔔 Filling fast: 5 spots</div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>2 hrs Saturday</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>2 hrs Sunday</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Small batches</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Intensive coverage</li>
+                            <li class="mb-2"><i class="fas fa-check-circle me-2 text-success"></i>Practice sessions</li>
                         </ul>
-                        <p>📅 Saturday & Sunday (2 hrs each)</p>
-                        <a href="https://wa.me/917601047556?text=Hello%20Sir,%20I%20am%20interested%20in%20Weekend%20Batch.%20Please%20share%20details." 
-                           target="_blank" 
-                           rel="noopener"
-                           class="btn btn-outline-dark w-100">Get Started</a>
+                        <a href="https://wa.me/917601047556" target="_blank" class="btn btn-outline-dark w-100 mt-auto">Get Started</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Curriculum Section -->
-    <section id="curriculum" class="curriculum-section">
+    <!-- Curriculum -->
+    <section id="curriculum" class="bg-white">
         <div class="container">
-            <h2 class="text-center fw-bold mb-3">Course Curriculum</h2>
-            <p class="text-center text-muted mb-5">Comprehensive coverage of JEE Mains and Advanced mathematics syllabus</p>
+            <h2 class="section-title">Course Curriculum</h2>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="curriculum-card">
-                        <h4><i class="fas fa-book-open"></i> JEE Mains</h4>
-                        <ul>
-                            <li>Algebra – Complex Numbers, Quadratic Equations, Sequences & Series</li>
-                            <li>Calculus – Limits, Continuity, Differentiation, Integration</li>
-                            <li>Trigonometry – Ratios, Identities, Equations, Inverse Functions</li>
-                            <li>Coordinate Geometry – Straight Lines, Circles, Parabola, Ellipse, Hyperbola</li>
-                            <li>Vectors & 3D Geometry</li>
-                            <li>Probability & Statistics</li>
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-book-open me-2"></i>JEE Mains</h5>
+                                              <ul class="list-unstyled text-secondary">
+                            <li class="mb-2">• Algebra – Complex Numbers, Quadratic Equations, Sequences & Series</li>
+                            <li class="mb-2">• Calculus – Limits, Continuity, Differentiation, Integration</li>
+                            <li class="mb-2">• Trigonometry – Ratios, Identities, Equations, Inverse Functions</li>
+                            <li class="mb-2">• Coordinate Geometry – Lines, Circles, Parabola, Ellipse, Hyperbola</li>
+                            <li class="mb-2">• Vectors & 3D Geometry</li>
+                            <li class="mb-2">• Probability & Statistics</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="curriculum-card">
-                        <h4><i class="fas fa-graduation-cap"></i> JEE Advanced</h4>
-                        <ul>
-                            <li>Advanced Calculus – Differential Equations, Area Under Curves</li>
-                            <li>Advanced Algebra – Matrices, Determinants, Complex Analysis</li>
-                            <li>Advanced Coordinate Geometry – Conic Sections (Deep Dive)</li>
-                            <li>Vector Algebra & 3D Applications</li>
-                            <li>Combinatorics & Probability Theory</li>
-                            <li>Mathematical Reasoning & Logic</li>
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-graduation-cap me-2"></i>JEE Advanced</h5>
+                        <ul class="list-unstyled text-secondary">
+                            <li class="mb-2">• Advanced Calculus – Differential Equations, Area Under Curves</li>
+                            <li class="mb-2">• Advanced Algebra – Matrices, Determinants, Complex Analysis</li>
+                            <li class="mb-2">• Advanced Coordinate Geometry – Conic Sections (Deep Dive)</li>
+                            <li class="mb-2">• Vector Algebra & 3D Applications</li>
+                            <li class="mb-2">• Combinatorics & Probability Theory</li>
+                            <li class="mb-2">• Mathematical Reasoning & Logic</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="curriculum-card">
-                        <h4><i class="fas fa-lightbulb"></i> Problem Solving</h4>
-                        <ul>
-                            <li>Previous Year Questions (PYQs) Analysis</li>
-                            <li>Pattern Recognition & Shortcut Techniques</li>
-                            <li>Time Management Strategies</li>
-                            <li>Mock Tests & Performance Review</li>
-                            <li>Concept Application in Real Problems</li>
+                        <h5 class="fw-bold text-primary mb-3"><i class="fas fa-lightbulb me-2"></i>Problem Solving</h5>
+                        <ul class="list-unstyled text-secondary">
+                            <li class="mb-2">• Previous Year Questions (PYQs) Analysis</li>
+                            <li class="mb-2">• Pattern Recognition & Shortcut Techniques</li>
+                            <li class="mb-2">• Time Management Strategies</li>
+                            <li class="mb-2">• Mock Tests & Performance Review</li>
+                            <li class="mb-2">• Concept Application in Real Problems</li>
+                            <li class="mb-2">• Exam Strategy & Tips</li>
                         </ul>
                     </div>
                 </div>
@@ -303,41 +402,47 @@
     <!-- Metro Cities Section -->
     <section class="py-4 bg-light">
         <div class="container text-center">
-            <h2>Online Mathematics Tuition Available Across India</h2>
-            <p>Our online mathematics tuition is trusted by students from <strong>Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, NCR</strong> and all major cities. Learn from home with expert guidance.</p>
+            <h2 class="fw-bold mb-3">Online Mathematics Tuition Available Across India</h2>
+            <p class="text-secondary mb-0">
+                Trusted by students from <strong>Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Kolkata, Pune, NCR, 
+                Ahmedabad, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Bhopal, Coimbatore, Kochi, 
+                Vijayawada, Visakhapatnam, Chandigarh, Dehradun</strong> and all major cities.
+            </p>
         </div>
     </section>
 
     <!-- Class Timing Section -->
-    <section id="demo" class="class-timing-section">
+    <section id="demo" class="py-5">
         <div class="container">
-            <div class="class-timing-wrapper">
-                <h4 class="mb-4"><i class="fas fa-clock text-primary"></i> Class Timings</h4>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                       
-                                            <div class="timing-card blue">
-                        <h6>Available Slots</h6>
-                        <div class="highlight">6:00 PM - 10:00 PM</div>
-                        <p class="mb-0 text-muted">Monday to Sunday</p>
+            <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-md-4 bg-primary text-white p-4 d-flex flex-column justify-content-center">
+                        <h4 class="fw-bold mb-3"><i class="fas fa-clock me-2"></i>Class Timings</h4>
+                        <p class="mb-2">Flexible scheduling for working professionals and students.</p>
+                        <p class="mb-0 opacity-75">Monday to Sunday</p>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="timing-card">
-                        <h6>Class Duration</h6>
-                        <div class="highlight">1 Hour</div>
-                        <p class="mb-0 text-muted">Per session</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="timing-card green">
-                        <h6>Demo Class</h6>
-                        <div class="highlight">Free</div>
-                        <p class="mb-2 text-muted">First class free</p>
-                        <a href="https://wa.me/917601047556?text=Hello%20I%20want%20to%20book%20a%20FREE%20demo%20class." 
-                           target="_blank" 
-                           rel="noopener"
-                           class="demo-book-btn">Book Demo Class</a>
+                    <div class="col-md-8 p-4">
+                        <div class="row g-3">
+                            <div class="col-4">
+                                <div class="timing-card text-center p-3 rounded-3 h-100" style="background: #dbeafe;">
+                                    <div class="fw-bold text-primary fs-5">6-10 PM</div>
+                                    <p class="text-muted small mb-0">Available Slots</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="timing-card text-center p-3 rounded-3 h-100" style="background: #f3f4f6;">
+                                    <div class="fw-bold text-dark fs-5">1 Hour</div>
+                                    <p class="text-muted small mb-0">Per Session</p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="timing-card text-center p-3 rounded-3 h-100" style="background: #dcfce7;">
+                                    <div class="fw-bold text-success fs-5">FREE</div>
+                                    <p class="text-muted small mb-0">Demo Class</p>
+                                    <a href="https://wa.me/917601047556" target="_blank" class="btn btn-success btn-sm mt-2">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -345,29 +450,32 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials">
+    <section id="testimonials" class="py-5" style="background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);">
         <div class="container">
-            <h2 class="text-center mb-5">What Our Students Say</h2>
+            <h2 class="section-title">What Our Students Say</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="testimonial-card text-center">
-                        <p>"Amazing coaching! Cleared JEE Advanced with flying colors. The personalized attention really helped me understand complex concepts."</p>
-                        <h6>- Rahul S., IIT Delhi</h6>
-                        <div class="text-warning">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-secondary mb-3">"Amazing coaching! Cleared JEE Advanced with flying colors. The personalized attention really helped me understand complex concepts."</p>
+                        <div class="fw-bold">- Rahul S.</div>
+                        <div class="text-primary small">IIT Delhi</div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="testimonial-card text-center">
-                        <p>"The IIT JAM course helped me secure a seat at IIT Bombay. Highly recommend for serious aspirants!"</p>
-                        <h6>- Priya K., IIT Bombay</h6>
-                        <div class="text-warning">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-secondary mb-3">"The IIT JAM course helped me secure a seat at IIT Bombay. Highly recommend for serious aspirants who want quality education."</p>
+                        <div class="fw-bold">- Priya K.</div>
+                        <div class="text-primary small">IIT Bombay</div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="testimonial-card text-center">
-                        <p>"Best faculty and resources. Improved from 50 to 180 marks in JEE Mains. Thank you!"</p>
-                        <h6>- Arjun M., JEE Topper Rank 5000</h6>
-                        <div class="text-warning">⭐⭐⭐⭐⭐</div>
+                    <div class="testimonial-card">
+                        <div class="text-warning mb-2">⭐⭐⭐⭐⭐</div>
+                        <p class="text-secondary mb-3">"Improved from 50 to 180 marks in JEE Mains. Best faculty and resources. Thank you for the guidance!"</p>
+                        <div class="fw-bold">- Arjun M.</div>
+                        <div class="text-primary small">JEE Rank 5000</div>
                     </div>
                 </div>
             </div>
@@ -381,20 +489,41 @@
                 <div class="col-md-6">
                     <h2 class="fw-bold mb-4">About JEE Math Coaching</h2>
                     <p class="lead">Founded in 2022, we specialize in mathematics coaching for competitive exams.</p>
-                    <p>Our team of <strong>IIT alumni</strong> provides personalized learning to help you excel in JEE Mains, JEE Advanced, and IIT JAM.</p>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>500+ students mentored</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>100+ IIT selections</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Expert IIT Hyderabad faculty</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Personalized attention</li>
-                    </ul>
+                    <p class="text-secondary">Our team of <strong>IIT alumni</strong> provides personalized learning to help you excel in JEE Mains, JEE Advanced, and IIT JAM.</p>
+                    <div class="row g-3 mt-2">
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-3">
+                                    <i class="fas fa-users text-primary"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold fs-4 text-primary">500+</div>
+                                    <div class="text-muted small">Students Mentored</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-success bg-opacity-10 rounded-circle p-2 me-3">
+                                    <i class="fas fa-trophy text-success"></i>
+                                </div>
+                                <div>
+                                    <div class="fw-bold fs-4 text-success">100+</div>
+                                    <div class="text-muted small">IIT Selections</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="bg-light p-4 rounded-4 text-center">
-                        <i class="fas fa-graduation-cap text-primary" style="font-size: 4rem;"></i>
-                        <h4 class="mt-3">Sarthak Tiwari</h4>
-                        <p class="text-muted mb-0">MSc Mathematics, IIT Hyderabad</p>
-                        <p class="text-muted">Mathematics Expert</p>
+                    <div class="card border-0 shadow-lg rounded-4 p-4 text-center" style="background: linear-gradient(135deg, #667eea08, #764ba208);">
+                        <div class="mb-3">
+                            <i class="fas fa-graduation-cap text-primary" style="font-size: 4rem;"></i>
+                        </div>
+                        <h4 class="fw-bold">Sarthak Tiwari</h4>
+                        <p class="text-primary mb-1">MSc Mathematics, IIT Hyderabad</p>
+                        <p class="text-muted small mb-3">Mathematics Expert & Founder</p>
+                        <p class="text-secondary small">Passionate about teaching mathematics and helping students achieve their IIT dreams through personalized coaching.</p>
                     </div>
                 </div>
             </div>
@@ -404,56 +533,86 @@
     <!-- Contact Section -->
     <section id="contact" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center mb-4">Contact Us</h2>
+            <h2 class="section-title">Contact Us</h2>
             <div class="row g-4">
                 <div class="col-md-6">
-                    <form action="https://formspree.io/f/xwvkareg" method="POST">
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Name</label>
-                            <input type="text" name="name" class="form-control" required placeholder="Your full name">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-body p-4">
+                            <h5 class="fw-bold mb-4">Send us a Message</h5>
+                            <form action="https://formspree.io/f/xwvkareg" method="POST">
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Your Name</label>
+                                    <input type="text" name="name" class="form-control" required placeholder="John Doe">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Phone Number</label>
+                                    <input type="tel" name="number" class="form-control" required placeholder="+91 9876543210">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Email Address</label>
+                                    <input type="email" name="email" class="form-control" required placeholder="john@example.com">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold">Your Message</label>
+                                    <textarea name="message" class="form-control" rows="4" required placeholder="How can we help you?"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
+                            </form>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Phone Number</label>
-                            <input type="tel" name="number" class="form-control" required placeholder="Your phone number">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Email</label>
-                            <input type="email" name="email" class="form-control" required placeholder="Your email address">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold">Message</label>
-                            <textarea name="message" class="form-control" rows="4" required placeholder="How can we help you?"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Send Message</button>
-                    </form>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card border-0 shadow-sm h-100">
                         <div class="card-body p-4">
                             <h5 class="fw-bold mb-4">Get in Touch</h5>
-                            <p class="mb-3">
-                                <i class="fas fa-map-marker-alt text-primary me-2"></i>
-                                <strong>IIT Hyderabad S.N. Bose Hostel</strong><br>
-                                <span class="text-muted">IITH Road, Sangareddy<br>Mamidipalle, Telangana 502285<br>India</span>
-                            </p>
-                            <p class="mb-3">
-                                <i class="fas fa-phone text-primary me-2"></i>
-                                <a href="tel:+917601047556" class="text-decoration-none">+91 7601047556</a>
-                            </p>
-                            <p class="mb-3">
-                                <i class="fas fa-envelope text-primary me-2"></i>
-                                <a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a>
-                            </p>
-                            <p class="mb-0">
-                                <i class="fas fa-clock text-primary me-2"></i>
-                                <strong>Timing:</strong> 6:00 PM - 10:00 PM (Mon-Sun)
-                            </p>
-                            <hr>
-                            <div class="d-flex gap-3">
-                                <a href="https://wa.me/917601047556" target="_blank" rel="noopener" class="btn btn-success">
-                                    <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
-                                </a>
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-primary bg-opacity-10 rounded p-2 me-3">
+                                        <i class="fas fa-map-marker-alt text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Location</div>
+                                        <div class="text-muted small">IIT Hyderabad S.N. Bose Hostel, IITH Road, Sangareddy, Mamidipalle, Telangana 502285, India</div>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-success bg-opacity-10 rounded p-2 me-3">
+                                        <i class="fas fa-phone text-success"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Phone</div>
+                                        <div><a href="tel:+917601047556" class="text-decoration-none">+91 7601047556</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-warning bg-opacity-10 rounded p-2 me-3">
+                                        <i class="fas fa-envelope text-warning"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Email</div>
+                                        <div><a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-info bg-opacity-10 rounded p-2 me-3">
+                                        <i class="fas fa-clock text-info"></i>
+                                    </div>
+                                    <div>
+                                        <div class="fw-bold">Timing</div>
+                                        <div class="text-muted">6:00 PM - 10:00 PM (Mon-Sun)</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <a href="https://wa.me/917601047556" target="_blank" class="btn btn-success btn-lg w-100">
+                                <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -462,35 +621,39 @@
     </section>
 
     <!-- Google Reviews Section -->
-    <section style="padding: 40px 15px; max-width: 1100px; margin: auto; text-align: center;">
-        <h2 class="fw-bold mb-3">⭐ Google Reviews – Trusted Online Mathematics Tuition</h2>
-        <p class="text-muted mb-4">Rated by students for JEE & Class 9–12 Mathematics</p>
-        <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13477808.777182855!2d80.61832670000001!3d21.7644144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f567c5e4774f1c5%3A0x855886e4fb5000f9!2sJEE%20%26%20Class%209%E2%80%9312%20Mathematics%20Online%20Tuition!5e1!3m2!1sen!2sin!4v1767242647729!5m2!1sen!2sin" 
-                style="border: 0; position: absolute; top: 0; left: 0; width: 100%; height: 100%;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade"
-                title="Google Maps Reviews">
-            </iframe>
+    <section class="py-4">
+        <div class="container">
+            <h2 class="section-title">⭐ Google Reviews</h2>
+            <p class="text-center text-muted mb-4">Rated by students for JEE & Class 9–12 Mathematics</p>
+            
+            <!-- CLS-Optimized Map Container with aspect ratio -->
+            <div class="map-container rounded-4 shadow-lg" style="background: #e2e8f0;">
+                <iframe 
+                    src="about:blank" 
+                    data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13477808.777182855!2d80.61832670000001!3d21.7644144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f567c5e4774f1c5%3A0x855886e4fb5000f9!2sJEE%20%26%20Class%209%E2%80%9312%20Mathematics%20Online%20Tuition!5e1!3m2!1sen!2sin!4v1767242647729!5m2!1sen!2sin"
+                    title="Google Maps Reviews"
+                    loading="lazy"
+                    allowfullscreen="">
+                </iframe>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                    ⭐ View All Google Reviews
+                </a>
+            </div>
         </div>
-        <br>
-        <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" 
-           target="_blank" 
-           rel="noopener"
-           class="btn btn-primary btn-lg">
-            ⭐ View All Google Reviews
-        </a>
     </section>
 
     <!-- SEO Content Section -->
     <section class="py-4 bg-light">
         <div class="container">
-            <p class="text-muted text-center mb-0">
+            <p class="text-muted text-center mb-0 small">
                 We provide online mathematics tuition for JEE and Class 9 to 12 students in all major cities including 
-                <strong>Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, NCR, Ahmedabad, Jaipur, Lucknow, Kanpur, Nagpur, Indore, Bhopal, Coimbatore, Kochi, Vijayawada, Visakhapatnam, Chandigarh, Dehradun</strong>. 
-                Our online classes ensure personalized attention, doubt clearing and strong concept building for JEE Main, JEE Advanced, and IIT JAM preparation.
+                Delhi, Mumbai, Bengaluru, Hyderabad, Chennai, Pune, Kolkata, NCR, Ahmedabad, Jaipur, Lucknow, Kanpur, 
+                Nagpur, Indore, Bhopal, Coimbatore, Kochi, Vijayawada, Visakhapatnam, Chandigarh, Dehradun. 
+                Our online classes ensure personalized attention, doubt clearing and strong concept building for 
+                JEE Main, JEE Advanced, and IIT JAM preparation.
             </p>
         </div>
     </section>
@@ -500,12 +663,18 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-4">
-                    <h5><i class="fas fa-graduation-cap me-2"></i>JEE Mathematics</h5>
+                    <h5 class="text-white mb-3"><i class="fas fa-graduation-cap me-2"></i>JEE Mathematics</h5>
                     <p class="mb-0">Expert coaching for JEE aspirants by Sarthak Tiwari, IIT Hyderabad graduate. 500+ students mentored successfully.</p>
                 </div>
                 <div class="col-md-4">
-                    <h5>Quick Links</h5>
+                    <h5 class="text-white mb-3">Quick Links</h5>
                     <div class="footer-links">
+                        <a href="#about">About Tutor</a>
+                        <a href="#courses">Pricing</a>
+                        <a href="#curriculum">Curriculum</a>
+                        <a href="#demo">Demo Class</a>
+                        <a href="#testimonials">Testimonials</a>
+                                                <div class="footer-links">
                         <a href="#about">About Tutor</a>
                         <a href="#courses">Pricing</a>
                         <a href="#curriculum">Curriculum</a>
@@ -515,24 +684,26 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h5>Contact Info</h5>
-                    <p class="mb-2"><i class="fas fa-phone me-2"></i>+91 7601047556</p>
-                    <p class="mb-2"><i class="fas fa-envelope me-2"></i>fillform101@gmail.com</p>
+                    <h5 class="text-white mb-3">Contact Info</h5>
+                    <p class="mb-2"><i class="fas fa-phone me-2"></i><a href="tel:+917601047556" class="text-light text-decoration-none">+91 7601047556</a></p>
+                    <p class="mb-2"><i class="fas fa-envelope me-2"></i><a href="mailto:fillform101@gmail.com" class="text-light text-decoration-none">fillform101@gmail.com</a></p>
                     <p class="mb-0"><i class="fas fa-clock me-2"></i>6:00 PM - 10:00 PM</p>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p class="mb-0">© 2025 JEE Mathematics Coaching by Sarthak Tiwari. All rights reserved.</p>
-                <p class="mb-0 mt-2">
-                    <a href="#" class="text-muted me-3">Privacy Policy</a>
-                    <a href="#" class="text-muted">Terms of Service</a>
+            <hr style="border-color: rgba(255,255,255,0.1); margin: 30px 0 20px;">
+            <div class="text-center">
+                <p class="mb-2 text-light">© 2025 JEE Mathematics Coaching by Sarthak Tiwari. All rights reserved.</p>
+                <p class="mb-0">
+                    <a href="#" class="text-light text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#" class="text-light text-decoration-none">Terms of Service</a>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <!-- JavaScript - Optimized for Performance -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
     <script>
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
@@ -558,28 +729,93 @@
             });
         });
 
-        // Lazy load Google Maps iframe when in view
-        const mapSection = document.querySelector('iframe[src*="google.com/maps"]');
-        if (mapSection) {
-            const observer = new IntersectionObserver((entries) => {
+        // Lazy load Google Maps iframe when in view (prevents CLS)
+        const mapIframe = document.querySelector('iframe[data-src]');
+        if (mapIframe) {
+            const mapObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        mapSection.src = mapSection.dataset.src || mapSection.src;
-                        observer.unobserve(mapSection);
+                        mapIframe.src = mapIframe.dataset.src;
+                        mapObserver.unobserve(mapIframe);
                     }
                 });
-            });
-            observer.observe(mapSection);
+            }, { rootMargin: '200px' });
+            mapObserver.observe(mapIframe);
         }
-    </script>
-    
-    <!-- Additional Performance Optimizations -->
-    <script>
-        // Defer non-critical resources
-        window.addEventListener('load', function() {
-            // Load any additional non-critical resources here
-            console.log('Page loaded successfully');
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const animateOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation to cards
+        document.querySelectorAll('.pricing-card, .curriculum-card, .testimonial-card, .timing-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            animateOnScroll.observe(card);
         });
+
+        // Counter animation for stats
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(start) + '+';
+                }
+            }, 16);
+        }
+
+        // Trigger counter animation when stats section is visible
+        const statsSection = document.querySelector('#about');
+        if (statsSection) {
+            const statsObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counters = entry.target.querySelectorAll('.fw-bold.fs-4');
+                        counters.forEach(counter => {
+                            const text = counter.textContent;
+                            const number = parseInt(text);
+                            if (!isNaN(number)) {
+                                counter.textContent = '0+';
+                                setTimeout(() => {
+                                    animateCounter(counter, number);
+                                }, 300);
+                            }
+                        });
+                        statsObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            statsObserver.observe(statsSection);
+        }
+
+        // Add loading="lazy" to all images
+        document.querySelectorAll('img').forEach(img => {
+            if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
+            }
+        });
+
+        // Console log for debugging
+        console.log('JEE Math Coaching website loaded successfully');
     </script>
 </body>
 </html>
+                            
