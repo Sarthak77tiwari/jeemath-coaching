@@ -82,14 +82,24 @@
         .nav-toggle{display:none;background:none;border:none;color:var(--white);font-size:1.5rem;cursor:pointer}
         
         /* Hero */
-        .hero{
+.hero{
             background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);
             color:var(--white);padding:140px 20px 80px;
             text-align:center;min-height:500px;display:flex;align-items:center;justify-content:center
         }
         .hero h1{margin-bottom:20px;text-shadow:0 2px 4px rgba(0,0,0,0.2)}
-        .hero p{font-size:1.15rem;max-width:700px;margin:0 auto 30px;opacity:0.95}
+        .hero p{
+            font-size:1.2rem;
+            max-width:700px;
+            margin:0 auto 30px;
+            color:#ffffff !important; /* Pure white - highly visible */
+            font-weight:500; /* Slightly bolder */
+            text-shadow:0 1px 2px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+            opacity:1 !important; /* Full opacity - no fading */
+            line-height:1.7; /* Better readability */
+        }
         .hero-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+        
         
         /* Sections */
         section{padding:60px 0}
