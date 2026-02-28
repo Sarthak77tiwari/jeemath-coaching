@@ -107,6 +107,12 @@ footer {
     padding:30px;
     background:#1c2541;
 }
+    .seat-text {
+  margin-top: 10px;
+  color: #ff4c4c;
+  font-weight: bold;
+  font-size: 15px;
+}
 </style>
 </head>
 
@@ -183,14 +189,49 @@ Statistics, Probability, Linear Programming, Binomial</p>
 
 <section class="section">
 <h2 class="section-title">Batch Investment</h2>
+
 <div class="grid">
-<div class="pricing-card">1 Student<br><strong>₹30,000</strong></div>
-<div class="pricing-card">2 Students<br><strong>₹25,000</strong></div>
-<div class="pricing-card">4 Students<br><strong>₹20,000</strong></div>
-<div class="pricing-card">6 Students<br><strong>₹15,000</strong></div>
-<div class="pricing-card">10 Students<br><strong>₹12,000</strong></div>
+
+<div class="pricing-card">
+  <h3>1 Student</h3>
+  <p><strong>₹30,000</strong></p>
+  <p class="seat-text">Seats Left: <span id="seat1">1</span></p>
+</div>
+
+<div class="pricing-card">
+  <h3>2 Students</h3>
+  <p><strong>₹25,000 / student</strong></p>
+  <p class="seat-text">Seats Left: <span id="seat2">2</span></p>
+</div>
+
+<div class="pricing-card">
+  <h3>4 Students</h3>
+  <p><strong>₹20,000 / student</strong></p>
+  <p class="seat-text">Seats Left: <span id="seat4">4</span></p>
+</div>
+
+<div class="pricing-card">
+  <h3>6 Students</h3>
+  <p><strong>₹15,000 / student</strong></p>
+  <p class="seat-text">Seats Left: <span id="seat6">6</span></p>
+</div>
+
+<div class="pricing-card">
+  <h3>10 Students</h3>
+  <p><strong>₹12,000 / student</strong></p>
+  <p class="seat-text">Seats Left: <span id="seat10">10</span></p>
+</div>
+
 </div>
 </section>
+    <script>
+// Manually change these numbers when seats reduce
+document.getElementById("seat1").innerText = 1;
+document.getElementById("seat2").innerText = 2;
+document.getElementById("seat4").innerText = 4;
+document.getElementById("seat6").innerText = 6;
+document.getElementById("seat10").innerText = 10;
+</script>
 
 <section class="section" id="contact">
 <h2 class="section-title">Book Free Demo</h2>
