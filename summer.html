@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Mathematics Foundation | IIT Hyderabad</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background:#0b132b;
+    color:#f1f1f1;
+}
+
+header {
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(135deg,#0b132b,#1c2541);
+}
+
+header h1 {
+    font-size:36px;
+    margin-bottom:15px;
+    color:#ffd700;
+}
+
+header p {
+    font-size:18px;
+    opacity:0.9;
+}
+
+.btn {
+    display:inline-block;
+    margin-top:25px;
+    padding:14px 30px;
+    background:#ffd700;
+    color:#0b132b;
+    text-decoration:none;
+    font-weight:bold;
+    border-radius:4px;
+    transition:0.3s;
+}
+
+.btn:hover {
+    background:#ffcc00;
+}
+
+.section {
+    padding:70px 20px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.section-title {
+    text-align:center;
+    font-size:28px;
+    margin-bottom:40px;
+    color:#ffd700;
+}
+
+.grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card {
+    background:#1c2541;
+    padding:25px;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.4);
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-5px);
+}
+
+.pricing-card {
+    text-align:center;
+    padding:30px;
+    background:#1c2541;
+    border-radius:8px;
+    border:2px solid #ffd700;
+}
+
+.counter {
+    font-size:26px;
+    color:#ff4c4c;
+    font-weight:bold;
+    margin-top:15px;
+}
+
+.countdown {
+    font-size:20px;
+    margin-top:10px;
+    color:#ffd700;
+}
+
+ul {
+    line-height:1.8;
+}
+
+footer {
+    text-align:center;
+    padding:30px;
+    background:#1c2541;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Summer Mathematics Foundation Program</h1>
+<p>By IIT Hyderabad Mathematics Mentor</p>
+<p>Elite Concept Building for Class 11, 12 & JEE</p>
+
+<div class="counter">
+Seats Remaining: <span id="seatCount">25</span>
+</div>
+
+<div class="countdown">
+Batch Starts In: <span id="timer"></span>
+</div>
+
+<a href="#contact" class="btn">Reserve Your Demo</a>
+</header>
+
+<section class="section">
+<h2 class="section-title">Faculty</h2>
+<div class="grid">
+<div class="card">
+<h3>Sarthak Tiwari</h3>
+<p>IIT Hyderabad – Mathematics<br>
+JAM Qualified<br>
+Core Topics: Sets, Calculus, Algebra, JEE Foundations</p>
+</div>
+
+<div class="card">
+<h3>Simran Ma’am</h3>
+<p>7 Years Experience<br>
+M.Sc (2022) | JAM Qualified<br>
+Statistics, Probability, Linear Programming, Binomial</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2 class="section-title">Class 11 Coverage</h2>
+<ul>
+<li>Sets</li>
+<li>Relations and Functions</li>
+<li>Trigonometric Functions</li>
+<li>Complex Numbers</li>
+<li>Linear Inequalities</li>
+<li>Permutations & Combinations</li>
+<li>Binomial Theorem</li>
+<li>Sequences & Series</li>
+<li>Straight Lines</li>
+<li>Conic Sections</li>
+<li>3D Geometry</li>
+<li>Limits & Derivatives</li>
+</ul>
+</section>
+
+<section class="section">
+<h2 class="section-title">Class 12 Coverage</h2>
+<ul>
+<li>Matrices & Determinants</li>
+<li>Continuity & Differentiability</li>
+<li>Application of Derivatives</li>
+<li>Integrals & Applications</li>
+<li>Differential Equations</li>
+<li>Vector Algebra</li>
+<li>3D Geometry</li>
+<li>Linear Programming</li>
+<li>Statistics</li>
+<li>Probability</li>
+</ul>
+</section>
+
+<section class="section">
+<h2 class="section-title">Batch Investment</h2>
+<div class="grid">
+<div class="pricing-card">1 Student<br><strong>₹30,000</strong></div>
+<div class="pricing-card">2 Students<br><strong>₹25,000</strong></div>
+<div class="pricing-card">4 Students<br><strong>₹20,000</strong></div>
+<div class="pricing-card">6 Students<br><strong>₹15,000</strong></div>
+<div class="pricing-card">10 Students<br><strong>₹12,000</strong></div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<h2 class="section-title">Book Free Demo</h2>
+<p style="text-align:center;">
+Limited Seats | High Intensity Learning<br><br>
+WhatsApp: <strong>+917601047556</strong><br><br>
+<a href="https://wa.me/917601047556" class="btn">Message DEMO Now</a>
+</p>
+</section>
+
+<footer>
+© 2025 Summer Mathematics Foundation |
+<a href="/terms.html" style="color:#ffd700;">Terms & Conditions</a>
+</footer>
+
+<script>
+// Countdown
+var countDownDate = new Date("May 11, 2026 00:00:00").getTime();
+setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  document.getElementById("timer").innerHTML = days + "d " + hours + "h ";
+}, 1000);
+
+// Seat Counter
+let seats = 25;
+document.getElementById("seatCount").innerText = seats;
+</script>
+
+</body>
+</html>
