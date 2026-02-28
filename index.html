@@ -208,6 +208,81 @@
             .card{min-height:auto}
             .timing-wrapper{padding:24px}
         }
+        <style>
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #0b132b;
+  color: white;
+  padding: 40px 30px;
+  width: 90%;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  position: relative;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.popup-box h2 {
+  color: #ffd700;
+  margin-bottom: 10px;
+}
+
+.popup-highlight {
+  margin: 15px 0;
+  font-size: 16px;
+}
+
+.popup-counter {
+  color: #ff4c4c;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.popup-countdown {
+  color: #ffd700;
+  margin-bottom: 20px;
+}
+
+.popup-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: #ffd700;
+  color: #0b132b;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.popup-btn:hover {
+  background: #ffcc00;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+</style>
     </style>
     
     <!-- Load Google Font async -->
@@ -328,7 +403,52 @@
             </div>
         </div>
     </section>
+<!-- Summer Program Popup -->
+<div id="summerPopup" class="popup-overlay">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    
+    <h2>Summer Mathematics Foundation Program</h2>
+    <p>IIT Hyderabad Mentor | Limited Seats</p>
 
+    <div class="popup-highlight">
+      Build Strong Concepts for Class 11, 12 & JEE
+    </div>
+
+    <div class="popup-counter">
+      Seats Remaining: <span id="popupSeats">25</span>
+    </div>
+
+    <div class="popup-countdown">
+      Batch Starts In: <span id="popupTimer"></span>
+    </div>
+
+    <a href="/summer.html" class="popup-btn">View Full Details</a>
+  </div>
+</div>
+    <script>
+// Auto close after 15 seconds
+setTimeout(function() {
+  document.getElementById("summerPopup").style.display = "none";
+}, 15000);
+
+// Close button
+function closePopup() {
+  document.getElementById("summerPopup").style.display = "none";
+}
+
+// Countdown
+var popupDate = new Date("May 11, 2026 00:00:00").getTime();
+setInterval(function() {
+  var now = new Date().getTime();
+  var distance = popupDate - now;
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  document.getElementById("popupTimer").innerHTML = days + " days";
+}, 1000);
+
+// Seat count
+document.getElementById("popupSeats").innerText = 25;
+</script>
     <!-- Curriculum Section -->
     <section id="curriculum" style="background:var(--white)">
         <div class="container">
