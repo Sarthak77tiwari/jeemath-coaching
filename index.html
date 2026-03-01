@@ -5,20 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Performance: disable unused features -->
 <meta http-equiv="x-dns-prefetch-control" content="on">
-<link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link rel="dns-prefetch" href="//wa.me">
 <title>JEE Mathematics Coaching by IIT Hyderabad Expert | Free Demo</title>
 <meta name="theme-color" content="#0d0f14">
 <meta name="description" content="Master JEE Mathematics with personalized online coaching from IIT Hyderabad graduate. 500+ students mentored, 100+ IIT selections.">
-<!-- Preconnect to font CDN -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Preload critical font subset (hero heading) -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap">
-<!-- Load fonts async - non-blocking -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
+<!-- Fonts: system stack for instant FCP -->
 <style>
 :root {
   --ink: #0d0f14;
@@ -37,17 +28,9 @@
 
 html { scroll-behavior: smooth; }
 
-/* Instant fallback fonts while web fonts load */
-@font-face {
-  font-family: 'DM Sans';
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-display: swap;
-}
+/* System fonts - instant render, no external requests */
 body {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   background: var(--cream);
   color: var(--ink);
   overflow-x: hidden;
@@ -75,7 +58,7 @@ body {
   display: flex; align-items: center; justify-content: space-between;
 }
 .logo {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.2rem;
   color: var(--white);
   letter-spacing: 0.02em;
@@ -140,6 +123,8 @@ body {
     linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
     linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
   background-size: 80px 80px;
+  will-change: auto;
+  pointer-events: none;
 }
 .hero-content {
   max-width: 1200px; margin: 0 auto;
@@ -163,10 +148,10 @@ body {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   margin-bottom: 28px;
-  animation: fadeUp 0.8s ease both;
+  animation: fadeUp 0.6s ease both;
 }
 .hero h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 900;
   line-height: 1.1;
@@ -223,7 +208,7 @@ body {
 }
 .stat { }
 .stat-num {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--gold);
@@ -261,7 +246,7 @@ body {
   background: linear-gradient(135deg, var(--gold), var(--rust));
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--ink);
@@ -269,7 +254,7 @@ body {
 }
 .profile-info {}
 .profile-name {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.2rem;
   color: var(--white);
   margin-bottom: 4px;
@@ -320,7 +305,7 @@ body {
 .section { padding: 100px 0; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
 .section-eyebrow {
-  font-family: 'DM Mono', monospace;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.75rem;
   color: var(--gold);
   letter-spacing: 0.15em;
@@ -328,7 +313,7 @@ body {
   margin-bottom: 16px;
 }
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   line-height: 1.2;
@@ -392,14 +377,14 @@ body {
 .course-icon.rust { background: rgba(196,92,46,0.1); }
 .course-icon.slate { background: rgba(58,66,85,0.08); }
 .course-name {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.4rem;
   font-weight: 700;
   margin-bottom: 8px;
 }
 .course-card.featured .course-name { color: var(--white); }
 .course-price {
-  font-family: 'DM Mono', monospace;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
   font-size: 2.2rem;
   font-weight: 500;
   color: var(--gold);
@@ -479,7 +464,7 @@ body {
   border-color: rgba(201,168,76,0.2);
 }
 .curric-card-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.15rem;
   color: var(--white);
   margin-bottom: 20px;
@@ -518,7 +503,7 @@ body {
 .timing-block { text-align: center; padding: 20px; }
 .timing-divider { width: 1px; background: #e8e0d0; height: 80px; }
 .timing-label {
-  font-family: 'DM Mono', monospace;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.72rem;
   color: var(--mist);
   letter-spacing: 0.12em;
@@ -526,7 +511,7 @@ body {
   margin-bottom: 10px;
 }
 .timing-value {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--ink);
@@ -537,7 +522,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   font-weight: 900;
 }
@@ -559,7 +544,7 @@ body {
   line-height: 1;
   color: var(--gold);
   opacity: 0.4;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   margin-bottom: 16px;
 }
 .testi-text {
@@ -575,7 +560,7 @@ body {
   border-radius: 50%;
   background: linear-gradient(135deg, var(--gold), var(--rust));
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-weight: 700;
   color: var(--ink);
   font-size: 1rem;
@@ -588,7 +573,7 @@ body {
 .about-section { background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .about-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(1.8rem, 3vw, 2.5rem);
   font-weight: 700;
   line-height: 1.2;
@@ -604,7 +589,7 @@ body {
   border: 1px solid #e8e0d0;
 }
 .astat-num {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2.2rem;
   font-weight: 700;
   color: var(--gold);
@@ -635,7 +620,7 @@ body {
   background: linear-gradient(135deg, var(--gold), var(--rust));
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 2rem;
   font-weight: 700;
   color: var(--ink);
@@ -643,7 +628,7 @@ body {
   position: relative; z-index: 1;
 }
 .about-card-name {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.6rem;
   color: var(--white);
   margin-bottom: 8px;
@@ -680,7 +665,7 @@ body {
   border: 1px solid #e8e0d0;
 }
 .contact-form-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.6rem;
   color: var(--ink);
   margin-bottom: 32px;
@@ -701,7 +686,7 @@ body {
   padding: 13px 16px;
   border: 1.5px solid #e8e0d0;
   border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   font-size: 0.95rem;
   color: var(--ink);
   background: var(--cream);
@@ -717,7 +702,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   color: var(--ink);
   border: none;
   border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
+  font-family: system-ui, -apple-system, sans-serif;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -820,7 +805,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   margin-bottom: 20px;
 }
 .popup-title {
-  font-family: 'Playfair Display', serif;
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.7rem;
   color: var(--white);
   line-height: 1.2;
@@ -837,7 +822,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   border-radius: 8px;
   padding: 14px;
 }
-.popup-stat-val { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--gold); font-weight: 500; }
+.popup-stat-val { font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace; font-size: 1.1rem; color: var(--gold); font-weight: 500; }
 .popup-stat-key { color: rgba(255,255,255,0.4); font-size: 0.78rem; margin-top: 4px; }
 .popup-btn {
   display: block;
@@ -858,7 +843,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .footer-brand .logo { color: var(--white); margin-bottom: 16px; }
 .footer-desc { color: rgba(255,255,255,0.35); font-size: 0.9rem; line-height: 1.7; }
 .footer-heading {
-  font-family: 'DM Mono', monospace;
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
   font-size: 0.72rem;
   color: var(--gold);
   letter-spacing: 0.15em;
@@ -920,8 +905,8 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @keyframes popIn {
   from { opacity: 0; transform: scale(0.85); }
@@ -990,7 +975,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 .hero h1, .section-title, .about-title, .course-name,
 .popup-title, .profile-name, .about-card-name,
 .curric-card-title, .testi-quote, .footer-brand .logo {
-  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 </style>
@@ -1055,7 +1040,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <div class="hero-content">
     <div>
       <div class="hero-tag">✦ IIT Hyderabad Graduate</div>
-      <h1 style="font-family:Georgia,serif">Master <em>JEE Mathematics</em> with Expert Coaching</h1>
+      <h1 elementtiming="lcp-heading">Master <em>JEE Mathematics</em> with Expert Coaching</h1>
       <p class="hero-desc">Personalized online coaching for JEE Main, JEE Advanced & Class 9–12. Taught by Sarthak Tiwari, MSc Mathematics from IIT Hyderabad.</p>
       <div class="hero-btns">
         <a href="#courses" class="btn-gold">Explore Courses →</a>
