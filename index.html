@@ -3,10 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Performance: disable unused features -->
+<meta http-equiv="x-dns-prefetch-control" content="on">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+<link rel="dns-prefetch" href="//fonts.gstatic.com">
+<link rel="dns-prefetch" href="//wa.me">
 <title>JEE Mathematics Coaching by IIT Hyderabad Expert | Free Demo</title>
+<meta name="theme-color" content="#0d0f14">
 <meta name="description" content="Master JEE Mathematics with personalized online coaching from IIT Hyderabad graduate. 500+ students mentored, 100+ IIT selections.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Preconnect to font CDN -->
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Preload critical font subset (hero heading) -->
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap">
+<!-- Load fonts async - non-blocking -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 <style>
 :root {
   --ink: #0d0f14;
@@ -25,23 +37,24 @@
 
 html { scroll-behavior: smooth; }
 
+/* Instant fallback fonts while web fonts load */
+@font-face {
+  font-family: 'DM Sans';
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+}
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: var(--cream);
   color: var(--ink);
   overflow-x: hidden;
 }
 
 /* ─── Noise texture overlay ─── */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
-  opacity: 0.6;
-}
+/* noise removed for perf */
 
 /* ─── NAVBAR ─── */
 .navbar {
@@ -118,6 +131,8 @@ body::before {
   background:
     radial-gradient(ellipse 60% 70% at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
     radial-gradient(ellipse 40% 50% at 20% 80%, rgba(196,92,46,0.06) 0%, transparent 60%);
+  will-change: auto;
+  transform: translateZ(0);
 }
 .hero-lines {
   position: absolute; inset: 0;
@@ -948,7 +963,43 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   .popup-info { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
 }
+
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  .cities-track { animation: none; }
+}
+
+/* ─── PERFORMANCE OPTIMIZATIONS ─── */
+/* Reduce paint areas */
+.navbar { contain: layout style; }
+.hero { contain: layout; }
+.courses-grid, .curric-grid, .testi-grid { contain: layout; }
+
+/* GPU-accelerate only what needs it */
+.course-card, .testi-card, .info-block { will-change: transform; }
+
+/* Prevent invisible offscreen paint */
+.cities-strip { content-visibility: auto; }
+.footer { content-visibility: auto; contain-intrinsic-size: 0 300px; }
+
+/* Reduce layout thrash on scroll */
+* { -webkit-font-smoothing: antialiased; text-rendering: optimizeSpeed; }
+
+/* Inline critical hero font fallback */
+.hero h1, .section-title, .about-title, .course-name,
+.popup-title, .profile-name, .about-card-name,
+.curric-card-title, .testi-quote, .footer-brand .logo {
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
 </style>
+  <!-- Preload critical rendering path -->
+  <style>
+    /* FOUT prevention - system font matches while Playfair loads */
+    .hero h1 { font-family: Georgia, serif; letter-spacing: -0.01em; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+  </style>
 </head>
 <body>
 
@@ -1004,7 +1055,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   <div class="hero-content">
     <div>
       <div class="hero-tag">✦ IIT Hyderabad Graduate</div>
-      <h1>Master <em>JEE Mathematics</em> with Expert Coaching</h1>
+      <h1 style="font-family:Georgia,serif">Master <em>JEE Mathematics</em> with Expert Coaching</h1>
       <p class="hero-desc">Personalized online coaching for JEE Main, JEE Advanced & Class 9–12. Taught by Sarthak Tiwari, MSc Mathematics from IIT Hyderabad.</p>
       <div class="hero-btns">
         <a href="#courses" class="btn-gold">Explore Courses →</a>
@@ -1130,7 +1181,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 </section>
 
 <!-- Curriculum -->
-<section id="curriculum" class="section curriculum-section">
+<section id="curriculum" class="section curriculum-section" style="content-visibility:auto;contain-intrinsic-size:0 800px">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">// 02 — Curriculum</div>
@@ -1205,7 +1256,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 </section>
 
 <!-- Testimonials -->
-<section id="testimonials" class="section testimonials-section">
+<section id="testimonials" class="section testimonials-section" style="content-visibility:auto;contain-intrinsic-size:0 500px">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">// 04 — Testimonials</div>
@@ -1257,7 +1308,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 </section>
 
 <!-- About -->
-<section id="about" class="section about-section">
+<section id="about" class="section about-section" style="content-visibility:auto;contain-intrinsic-size:0 600px">
   <div class="container">
     <div class="about-grid">
       <div>
@@ -1297,7 +1348,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 </section>
 
 <!-- Contact -->
-<section id="contact" class="section contact-section">
+<section id="contact" class="section contact-section" style="content-visibility:auto;contain-intrinsic-size:0 700px">
   <div class="container">
     <div class="section-header">
       <div class="section-eyebrow">// 06 — Contact</div>
@@ -1436,10 +1487,13 @@ textarea.form-input { resize: vertical; min-height: 120px; }
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// Defer non-critical init
+const runDeferred = typeof requestIdleCallback !== 'undefined' ? requestIdleCallback : setTimeout;
+
 // Navbar scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
-});
+}, { passive: true });
 
 // Mobile nav
 function toggleNav() {
