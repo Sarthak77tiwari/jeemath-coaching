@@ -1348,7 +1348,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
           <div class="info-icon">✉️</div>
           <div>
             <div class="info-label">Email</div>
-            <div class="info-value"><a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a></div>
+            <div class="info-value"><a href="/cdn-cgi/l/email-protection#fc9a9590909a938e91cdcccdbc9b919d9590d29f9391"><span class="__cf_email__" data-cfemail="6c0a0500000a031e015d5c5d2c0b010d0500420f0301">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="info-block">
@@ -1368,6 +1368,30 @@ textarea.form-input { resize: vertical; min-height: 120px; }
           </div>
         </a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Google Reviews & Map -->
+<section class="section" style="background:var(--ink)">
+  <div class="container">
+    <div class="section-header" style="text-align:center">
+      <div class="section-eyebrow" style="text-align:center">// 07 — Find Us</div>
+      <h2 class="section-title" style="text-align:center;color:var(--white);max-width:100%">⭐ Google Reviews</h2>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.4);margin:0 auto;text-align:center">Rated by students for JEE & Class 9–12 Mathematics</p>
+    </div>
+    <div style="position:relative;width:100%;padding-bottom:50%;height:0;overflow:hidden;border-radius:16px;background:#1a1d26;border:1px solid rgba(201,168,76,0.15)">
+      <iframe
+        src="about:blank"
+        data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13477808.777182855!2d80.61832670000001!3d21.7644144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f567c5e4774f1c5%3A0x855886e4fb5000f9!2sJEE%20%26%20Class%209%E2%80%9312%20Mathematics%20Online%20Tuition!5e1!3m2!1sen!2sin!4v1767242647729!5m2!1sen!2sin"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"
+        title="Google Maps Reviews"
+        loading="lazy"
+        allowfullscreen="">
+      </iframe>
+    </div>
+    <div style="text-align:center;margin-top:28px">
+      <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank" class="btn-gold">⭐ View All Google Reviews</a>
     </div>
   </div>
 </section>
@@ -1398,7 +1422,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
         <div class="footer-heading">Contact</div>
         <div class="footer-links">
           <a href="tel:+917601047556">+91 7601047556</a>
-          <a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a>
+          <a href="/cdn-cgi/l/email-protection#7e1817121218110c134f4e4f3e19131f1712501d1113"><span class="__cf_email__" data-cfemail="2f4946434349405d421e1f1e6f48424e4643014c4042">[email&#160;protected]</span></a>
           <a href="#">6:00 PM – 10:00 PM daily</a>
           <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank">View on Google Maps</a>
         </div>
@@ -1411,7 +1435,7 @@ textarea.form-input { resize: vertical; min-height: 120px; }
   </div>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // Navbar scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
@@ -1430,20 +1454,29 @@ setTimeout(() => { document.getElementById('popup').style.display = 'none'; }, 1
 function closePopup() { document.getElementById('popup').style.display = 'none'; }
 
 // Countdown
-const target = new Date("May 13, 2026").getTime();
+const target2 = new Date("May 13, 2026").getTime();
 function updateTimer() {
-  const days = Math.max(0, Math.floor((target - Date.now()) / 86400000));
+  const days = Math.max(0, Math.floor((target2 - Date.now()) / 86400000));
   const el = document.getElementById('popupTimer');
   if (el) el.textContent = days + ' days';
 }
 updateTimer();
 setInterval(updateTimer, 60000);
 
+// Lazy load map
+const mapIframe = document.querySelector('iframe[data-src]');
+if (mapIframe) {
+  const obs = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) { mapIframe.src = mapIframe.dataset.src; obs.disconnect(); }
+  }, { rootMargin: '200px' });
+  obs.observe(mapIframe);
+}
+
 // Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
-    const target = document.querySelector(a.getAttribute('href'));
-    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+    const tgt = document.querySelector(a.getAttribute('href'));
+    if (tgt) { e.preventDefault(); tgt.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 </script>
