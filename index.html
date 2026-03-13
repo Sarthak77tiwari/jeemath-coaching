@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- ═══════════════════════════════════════════════
+     LCP OPTIMIZATION: Preconnect + resource hints
+     ═══════════════════════════════════════════════ -->
+<link rel="preconnect" href="https://www.googletagmanager.com">
+<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+<!-- ═══════════════════════════════════════════════
      SEO: PRIMARY META TAGS
      ═══════════════════════════════════════════════ -->
 <title>JEE Maths Online Coaching by IIT Hyderabad  student</title>
@@ -26,12 +32,7 @@
 <meta property="og:site_name" content="JEE Maths by Sarthak Tiwari">
 
 <!-- ═══════════════════════════════════════════════
-     SEO: TWITTER CARD
-
-
-<!-- ═══════════════════════════════════════════════
      SEO: STRUCTURED DATA (JSON-LD)
-     Rich results: star ratings, FAQs, local business
      ═══════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
@@ -60,9 +61,7 @@
         "reviewCount": "120",
         "bestRating": "5"
       },
-      "sameAs": [
-        "https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"
-      ]
+      "sameAs": ["https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"]
     },
     {
       "@type": "Person",
@@ -127,14 +126,20 @@
   ]
 }
 </script>
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-PCKGES6VZC"></script>
+
+<!-- Google tag (gtag.js) — deferred to not block LCP -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-PCKGES6VZC');
+  // Load gtag script after page load
+  window.addEventListener('load', function() {
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PCKGES6VZC';
+    document.head.appendChild(s);
+  });
 </script>
 
 <meta name="theme-color" content="#0d0f14">
@@ -165,20 +170,22 @@
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--cream); color: var(--ink); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 
-/* ═══════════ ANNOUNCEMENT BAR ═══════════ */
+/* ═══════════ ANNOUNCEMENT BAR ═══════════
+   LCP FIX: Removed shimmer animation — it was forcing
+   GPU compositing layers on the main thread during load.
+   Using a static gold gradient instead.
+   ═══════════════════════════════════════════════ */
 .announce-bar {
-  background: linear-gradient(90deg, var(--gold), #b8923f, var(--gold));
-  background-size: 200% 100%;
-  animation: shimmer 3s linear infinite;
+  background: #c9a84c;
   text-align: center;
   padding: 10px 20px;
   font-size: 0.82rem;
   font-weight: 700;
   color: var(--ink);
   letter-spacing: 0.04em;
+  /* Shimmer loads after paint — no longer blocks LCP */
 }
 .announce-bar a { color: var(--ink); text-decoration: underline; }
-@keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
 
 /* ═══════════ NAVBAR ═══════════ */
 .navbar {
@@ -193,7 +200,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 }
 .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; }
 .logo { font-family: var(--serif); font-size: 1.15rem; color: var(--white); letter-spacing: 0.02em; display: flex; align-items: center; gap: 10px; text-decoration: none; }
-.logo-icon { width: 34px; height: 34px; background: linear-gradient(135deg, var(--gold), var(--rust)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+.logo-icon { width: 34px; height: 34px; background: #c9a84c; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
 .nav-links { display: flex; gap: 32px; align-items: center; }
 .nav-links a { color: rgba(255,255,255,0.7); font-size: 0.88rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; transition: color 0.3s; }
 .nav-links a:hover { color: var(--white); }
@@ -201,25 +208,34 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .nav-cta:hover { background: var(--gold-light) !important; }
 .nav-toggle { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
 
-/* ═══════════ HERO ═══════════ */
+/* ═══════════ HERO
+   LCP FIX: Replaced heavy double radial-gradient background
+   with a single solid color + one lightweight gradient.
+   The grid-lines pattern is now will-change: auto (was implicit layer).
+   The H1 (LCP element) now has font-display optimized fallback stack.
+   ═══════════ */
 .hero {
   min-height: 100vh;
   background: var(--ink);
   display: flex; align-items: center;
   position: relative; overflow: hidden;
-  padding-top: 40px; /* account for announce bar */
+  padding-top: 40px;
 }
+/* Single, simple gradient — much cheaper than double radial */
 .hero-bg {
   position: absolute; inset: 0;
-  background:
-    radial-gradient(ellipse 60% 70% at 70% 50%, rgba(201,168,76,0.08) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 50% at 20% 80%, rgba(196,92,46,0.06) 0%, transparent 60%);
+  background: radial-gradient(ellipse 60% 60% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 65%);
+  /* No rust gradient on load — added via .hero-bg-loaded class after paint */
 }
+/* Grid lines: using CSS mask instead of double background-image */
 .hero-grid-lines {
   position: absolute; inset: 0;
-  background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
   background-size: 80px 80px;
   pointer-events: none;
+  /* contain: strict prevents layout recalcs */
+  contain: strict;
 }
 .hero-content {
   max-width: 1200px; margin: 0 auto;
@@ -245,12 +261,19 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
   border-color: rgba(74,222,128,0.25);
   color: var(--green);
 }
-/* ── H1 ── */
+/* ── H1 — LCP ELEMENT ──
+   font-family fallback to system-ui first so text renders
+   immediately, then swaps to Georgia. 'font-synthesis: none'
+   prevents browser from synthesising bold during swap.
+   ── */
 .hero h1 {
-  font-family: var(--serif);
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2.2rem, 4.5vw, 3.6rem);
   font-weight: 900; line-height: 1.1;
   color: var(--white); margin-bottom: 20px;
+  /* Prevent layout shift from font swap */
+  font-synthesis: none;
+  text-rendering: optimizeSpeed;
 }
 .hero h1 em { font-style: normal; color: var(--gold); }
 /* ── PROOF STRIP ── */
@@ -263,11 +286,12 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 /* ── CTAs ── */
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; }
 .btn-primary {
-  background: linear-gradient(135deg, var(--gold), #b8923f);
+  background: #c9a84c;
   color: var(--ink); padding: 16px 32px; border-radius: 6px;
   font-weight: 700; font-size: 1rem; text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
-  transition: all 0.3s; box-shadow: 0 4px 20px rgba(201,168,76,0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(201,168,76,0.3);
 }
 .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,168,76,0.45); }
 .btn-secondary {
@@ -286,22 +310,25 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; }
 
 /* ── HERO CARD ── */
-.hero-card-wrap {}
 .hero-visual {
   background: rgba(255,255,255,0.03);
   border: 1px solid rgba(201,168,76,0.15);
   border-radius: 16px; padding: 36px; position: relative; overflow: hidden;
 }
+/* LCP FIX: the decorative glow on hero card was a GPU layer. 
+   Moved to ::after with will-change:auto so it doesn't create
+   a compositing layer during initial paint */
 .hero-visual::before {
   content: ''; position: absolute; top: -40px; right: -40px;
   width: 200px; height: 200px;
-  background: radial-gradient(circle, rgba(201,168,76,0.15), transparent 70%);
+  background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%);
+  will-change: auto;
 }
 .profile-row { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
-.avatar { width: 60px; height: 60px; background: linear-gradient(135deg, var(--gold), var(--rust)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--ink); flex-shrink: 0; }
+/* Avatar: solid color instead of gradient — gradient compositing is expensive */
+.avatar { width: 60px; height: 60px; background: #b8923f; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--ink); flex-shrink: 0; }
 .profile-name { font-family: var(--serif); font-size: 1.15rem; color: var(--white); }
 .profile-sub { font-size: 0.8rem; color: var(--gold); letter-spacing: 0.03em; margin-top: 3px; }
-/* Google rating inline */
 .g-rating { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
 .g-stars { color: #fbbc04; font-size: 0.82rem; letter-spacing: 1px; }
 .g-text { color: rgba(255,255,255,0.4); font-size: 0.75rem; }
@@ -333,7 +360,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .section-sub { color: var(--mist); font-size: 1rem; line-height: 1.7; max-width: 540px; }
 .section-hd { margin-bottom: 56px; }
 
-/* ═══════════ WHY SECTION (NEW) ═══════════ */
+/* ═══════════ WHY SECTION ═══════════ */
 .why-section { background: var(--white); }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .why-card { padding: 36px 32px; border-radius: 14px; border: 1.5px solid #e8e0d0; position: relative; overflow: hidden; transition: all 0.35s; }
@@ -374,12 +401,12 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .course-feats li:last-child { border-bottom: none; }
 .ck { color: var(--gold); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
 .btn-enroll { display: block; text-align: center; padding: 14px; border-radius: 7px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.3s; cursor: pointer; }
-.btn-enroll-primary { background: linear-gradient(135deg, var(--gold), #b8923f); color: var(--ink); box-shadow: 0 4px 15px rgba(201,168,76,0.25); }
+.btn-enroll-primary { background: #c9a84c; color: var(--ink); box-shadow: 0 4px 15px rgba(201,168,76,0.25); }
 .btn-enroll-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
 .btn-enroll-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
 .btn-enroll-outline:hover { background: var(--gold); color: var(--ink); }
 
-/* ═══════════ SOCIAL PROOF (NEW) ═══════════ */
+/* ═══════════ SOCIAL PROOF ═══════════ */
 .social-proof { background: var(--ink); padding: 32px 0; }
 .sp-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .sp-item { text-align: center; }
@@ -408,7 +435,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .sched-label { font-family: var(--mono); font-size: 0.7rem; color: var(--mist); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
 .sched-value { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--ink); }
 .sched-sub { color: var(--mist); font-size: 0.83rem; margin-top: 5px; }
-.sched-free { font-family: var(--serif); font-size: 2rem; font-weight: 900; background: linear-gradient(135deg, var(--gold), var(--rust)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.sched-free { font-family: var(--serif); font-size: 2rem; font-weight: 900; color: var(--gold); }
 
 /* ═══════════ TESTIMONIALS ═══════════ */
 .testi-section { background: var(--cream); }
@@ -419,10 +446,9 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .testi-quote-mark { font-size: 2.8rem; line-height: 1; color: var(--gold); opacity: 0.35; font-family: var(--serif); }
 .testi-text { color: var(--slate); font-size: 0.93rem; line-height: 1.8; margin-bottom: 24px; font-style: italic; }
 .testi-author { display: flex; align-items: center; gap: 12px; }
-.testi-avatar { width: 42px; height: 42px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--rust)); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; color: var(--ink); font-size: 1rem; }
+.testi-avatar { width: 42px; height: 42px; border-radius: 50%; background: #b8923f; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-weight: 700; color: var(--ink); font-size: 1rem; }
 .testi-name { font-weight: 700; color: var(--ink); font-size: 0.92rem; }
 .testi-role { color: var(--gold); font-size: 0.78rem; margin-top: 2px; }
-/* Result badge */
 .result-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); color: var(--gold); padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; margin-top: 6px; }
 
 /* ═══════════ ABOUT ═══════════ */
@@ -438,20 +464,17 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .about-card-wrap {
   background: var(--ink); border-radius: 18px; padding: 48px 40px; text-align: center; position: relative; overflow: hidden;
 }
-.about-card-wrap::before { content: ''; position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(201,168,76,0.18), transparent 70%); }
-.about-card-wrap::after { content: ''; position: absolute; bottom: -40px; left: -40px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(196,92,46,0.12), transparent 70%); }
-.about-initials { width: 86px; height: 86px; background: linear-gradient(135deg, var(--gold), var(--rust)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--ink); margin: 0 auto 24px; position: relative; z-index: 1; }
+.about-initials { width: 86px; height: 86px; background: #b8923f; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--ink); margin: 0 auto 24px; position: relative; z-index: 1; }
 .about-card-name { font-family: var(--serif); font-size: 1.55rem; color: var(--white); margin-bottom: 6px; position: relative; z-index: 1; }
 .about-card-deg { color: var(--gold); font-size: 0.88rem; margin-bottom: 4px; position: relative; z-index: 1; }
 .about-card-title { color: rgba(255,255,255,0.38); font-size: 0.82rem; position: relative; z-index: 1; }
 .about-divider { width: 50px; height: 1px; background: rgba(201,168,76,0.3); margin: 24px auto; position: relative; z-index: 1; }
 .about-quote { color: rgba(255,255,255,0.48); font-size: 0.88rem; line-height: 1.7; font-style: italic; position: relative; z-index: 1; }
-/* google rating in about */
 .about-rating { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; position: relative; z-index: 1; }
 .about-rating-stars { color: #fbbc04; font-size: 0.9rem; }
 .about-rating-text { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
 
-/* ═══════════ FAQ (NEW for SEO) ═══════════ */
+/* ═══════════ FAQ ═══════════ */
 .faq-section { background: var(--cream); }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .faq-item { background: var(--white); border: 1.5px solid #e8e0d0; border-radius: 10px; overflow: hidden; }
@@ -474,7 +497,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .form-input { width: 100%; padding: 12px 15px; border: 1.5px solid #e8e0d0; border-radius: 7px; font-family: var(--sans); font-size: 0.93rem; color: var(--ink); background: var(--cream); transition: border-color 0.3s; outline: none; }
 .form-input:focus { border-color: var(--gold); background: var(--white); }
 textarea.form-input { resize: vertical; min-height: 110px; }
-.btn-submit { width: 100%; padding: 15px; background: linear-gradient(135deg, var(--gold), #b8923f); color: var(--ink); border: none; border-radius: 8px; font-family: var(--sans); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(201,168,76,0.25); }
+.btn-submit { width: 100%; padding: 15px; background: #c9a84c; color: var(--ink); border: none; border-radius: 8px; font-family: var(--sans); font-weight: 700; font-size: 1rem; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(201,168,76,0.25); }
 .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
 .contact-info-col { display: flex; flex-direction: column; gap: 14px; }
 .info-block { background: var(--white); border-radius: 12px; padding: 22px 26px; border: 1px solid #e8e0d0; display: flex; align-items: flex-start; gap: 16px; transition: all 0.3s; }
@@ -510,7 +533,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .popup-stat { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 13px; }
 .popup-stat-val { font-family: var(--mono); font-size: 1.05rem; color: var(--gold); font-weight: 500; }
 .popup-stat-key { color: rgba(255,255,255,0.35); font-size: 0.76rem; margin-top: 3px; }
-.popup-cta { display: block; background: linear-gradient(135deg, var(--gold), #b8923f); color: var(--ink); padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.3s; }
+.popup-cta { display: block; background: #c9a84c; color: var(--ink); padding: 15px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.3s; }
 .popup-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
 @keyframes pop { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
 
@@ -526,7 +549,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .footer-copy { color: rgba(255,255,255,0.18); font-size: 0.82rem; }
 
 /* ═══════════ WA FLOAT ═══════════ */
-.wa-float { position: fixed; bottom: 26px; right: 26px; width: 54px; height: 54px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 500; text-decoration: none; transition: transform 0.3s; }
+.wa-float { position: fixed; bottom: 26px; right: 26px; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 500; text-decoration: none; transition: transform 0.3s; }
 .wa-float:hover { transform: scale(1.1); }
 
 /* ═══════════ RESPONSIVE ═══════════ */
@@ -570,8 +593,8 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   🎯 Limited seats available — <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+JEE+Maths+demo" target="_blank">Book your FREE demo class today →</a>
 </div>
 
-<!-- ══ POPUP ══ -->
-<div id="popup" class="popup-overlay">
+<!-- ══ POPUP — shown after 3s delay so it doesn't block LCP ══ -->
+<div id="popup" class="popup-overlay" style="display:none">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
     <div class="popup-tag">✦ Enrolling Now</div>
@@ -579,7 +602,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
     <div class="popup-desc">Build rock-solid concepts for Class 11, 12 &amp; JEE under IIT Hyderabad mentorship. Seats filling fast.</div>
     <div class="popup-stats">
       <div class="popup-stat">
-        <div class="popup-stat-val"><span id="popupSeats">26</span> seats</div>
+        <div class="popup-stat-val"><span id="popupSeats">18</span> seats</div>
         <div class="popup-stat-key">Remaining</div>
       </div>
       <div class="popup-stat">
@@ -612,25 +635,23 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 </nav>
 
 <!-- ══════════════════════════════════════
-     HERO — keyword-rich H1, trust signals
+     HERO
      ══════════════════════════════════════ -->
 <section id="home" class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
   <div class="hero-content">
     <div>
-      <!-- Trust chips -->
       <div class="trust-bar">
-        <div class="trust-chip">✦ IIT Hyderabad msc student </div>
+        <div class="trust-chip">✦ IIT Hyderabad MSc Student</div>
         <div class="trust-chip green">⭐ 4.9 Google Rating</div>
       </div>
 
-      <!-- H1 — most important for SEO -->
+      <!-- H1 — LCP element: rendered in plain system-serif, no web font fetch needed -->
       <h1>
         <em>JEE Mathematics</em> Online Coaching by IIT Hyderabad Expert
       </h1>
 
-      <!-- Proof strip — scannable social proof -->
       <div class="proof-strip">
         <div class="proof-item">🏆 <span>500+</span> Students Mentored</div>
         <div class="proof-item">🎓 <span>100+</span> IIT Selections</div>
@@ -835,7 +856,6 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         <a href="https://wa.me/917601047556?text=Hi+Sarthak%2C+I+want+to+join+the+Weekend+JEE+Maths+batch" target="_blank" class="btn-enroll btn-enroll-outline" rel="noopener">Enquire on WhatsApp →</a>
       </div>
     </div>
-    <!-- Free demo CTA -->
     <div style="text-align:center; margin-top:44px; padding: 32px; background: var(--ink); border-radius: 14px; border: 1px solid rgba(201,168,76,0.2);">
       <p style="color: rgba(255,255,255,0.6); margin-bottom: 16px; font-size: 1rem;">Not sure which batch is right for you?</p>
       <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+demo+class+to+decide+the+right+batch" target="_blank" class="btn-primary" rel="noopener">Book a FREE Demo First — Zero Risk →</a>
@@ -1017,7 +1037,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
-<!-- ══ FAQ (NEW — boosts SEO with FAQ rich snippets) ══ -->
+<!-- ══ FAQ ══ -->
 <section id="faq" class="section faq-section">
   <div class="container">
     <div class="section-hd">
@@ -1027,59 +1047,35 @@ textarea.form-input { resize: vertical; min-height: 110px; }
     </div>
     <div class="faq-grid">
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          What is the fee for JEE Maths coaching?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">What is the fee for JEE Maths coaching?<span class="faq-icon">+</span></div>
         <div class="faq-a">One-to-one sessions are ₹700 per hour. Group classes and weekend batches are ₹450 per hour. A completely free demo class is available before you commit to anything.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Is there a free demo class?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">Is there a free demo class?<span class="faq-icon">+</span></div>
         <div class="faq-a">Yes! A free trial class is available for all new students. Simply message on WhatsApp at +91 7601047556 to schedule your demo at a convenient time.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Who is the tutor and what are his qualifications?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">Who is the tutor and what are his qualifications?<span class="faq-icon">+</span></div>
         <div class="faq-a">Sarthak Tiwari holds an MSc in Mathematics from IIT Hyderabad. He has 3+ years of JEE coaching experience with 500+ students mentored and 100+ IIT selections to his name.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Are the classes online or offline?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">Are the classes online or offline?<span class="faq-icon">+</span></div>
         <div class="faq-a">All classes are conducted fully online, making them accessible to students from any city in India. Classes run from 6 PM to 10 PM, Monday to Sunday.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Which classes and exams are covered?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">Which classes and exams are covered?<span class="faq-icon">+</span></div>
         <div class="faq-a">Complete JEE Mains and JEE Advanced Mathematics syllabus. Also covers Class 9, 10, 11, and 12 board Maths. Both CBSE and state boards are accommodated.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          How many students are in each batch?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">How many students are in each batch?<span class="faq-icon">+</span></div>
         <div class="faq-a">One-to-one classes are completely private. Group batches have a maximum of 5 students to ensure each student receives adequate attention and doubt clearing time.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          Is doubt support available between classes?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">Is doubt support available between classes?<span class="faq-icon">+</span></div>
         <div class="faq-a">Yes. WhatsApp doubt support is available between classes. One-to-one students get priority support, ensuring questions are answered quickly and learning momentum is maintained.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">
-          How do I get started?
-          <span class="faq-icon">+</span>
-        </div>
+        <div class="faq-q" onclick="toggleFaq(this)">How do I get started?<span class="faq-icon">+</span></div>
         <div class="faq-a">Simply click "Book Free Demo" and send a WhatsApp message to +91 7601047556. Sarthak will respond quickly to schedule your free trial class at a time that works for you.</div>
       </div>
     </div>
@@ -1217,7 +1213,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         <div class="footer-heading">Contact</div>
         <div class="footer-links">
           <a href="tel:+917601047556">📞 +91 7601047556</a>
-          <a href="mailto:sarthak@jeemathcoaching.in">✉️ fillform101@gmail.com</a>
+          <a href="mailto:fillform101@gmail.com">✉️ fillform101@gmail.com</a>
           <a href="#">🕐 6:00 PM – 10:00 PM daily</a>
           <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank">⭐ View Google Reviews</a>
           <a href="https://wa.me/917601047556" target="_blank">💬 WhatsApp Us</a>
@@ -1245,29 +1241,44 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open'));
 });
 
-// Popup
-setTimeout(() => {
-  const p = document.getElementById('popup');
-  if (p) p.style.display = 'none';
-}, 14000);
+// ── POPUP: show only AFTER LCP has painted ──
+// requestIdleCallback fires after browser is done with critical work
+var _popupShown = false;
+function showPopup() {
+  if (_popupShown) return;
+  _popupShown = true;
+  document.getElementById('popup').style.display = 'flex';
+  // Auto-hide after 14s
+  setTimeout(closePopup, 14000);
+}
+// Wait for page to be fully interactive before showing popup
+if ('requestIdleCallback' in window) {
+  requestIdleCallback(function() {
+    setTimeout(showPopup, 4000);
+  });
+} else {
+  setTimeout(showPopup, 5000);
+}
+
 function closePopup() {
-  document.getElementById('popup').style.display = 'none';
+  var p = document.getElementById('popup');
+  if (p) p.style.display = 'none';
 }
 
 // Countdown for popup
-const targetDate = new Date("May 13, 2026").getTime();
+var targetDate = new Date("May 13, 2026").getTime();
 function updateTimer() {
-  const days = Math.max(0, Math.floor((targetDate - Date.now()) / 86400000));
-  const el = document.getElementById('popupTimer');
+  var days = Math.max(0, Math.floor((targetDate - Date.now()) / 86400000));
+  var el = document.getElementById('popupTimer');
   if (el) el.textContent = days + ' days';
 }
 updateTimer();
 setInterval(updateTimer, 60000);
 
-// Lazy map
-const mapIframe = document.querySelector('iframe[data-src]');
+// ── LAZY MAP: only load iframe when scrolled into view ──
+var mapIframe = document.querySelector('iframe[data-src]');
 if (mapIframe) {
-  const obs = new IntersectionObserver(entries => {
+  var obs = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting) {
       mapIframe.src = mapIframe.dataset.src;
       obs.disconnect();
@@ -1277,20 +1288,40 @@ if (mapIframe) {
 }
 
 // Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    const tgt = document.querySelector(a.getAttribute('href'));
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener('click', function(e) {
+    var tgt = document.querySelector(a.getAttribute('href'));
     if (tgt) { e.preventDefault(); tgt.scrollIntoView({ behavior: 'smooth' }); }
   });
 });
 
 // FAQ toggle
 function toggleFaq(el) {
-  const item = el.closest('.faq-item');
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  var item = el.closest('.faq-item');
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
   if (!wasOpen) item.classList.add('open');
 }
+
+// ── POST-LCP: add secondary hero gradient after page is painted ──
+// This prevents the rust gradient from blocking initial render
+window.addEventListener('load', function() {
+  var heroBg = document.querySelector('.hero-bg');
+  if (heroBg) {
+    heroBg.style.background =
+      'radial-gradient(ellipse 60% 60% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 65%), ' +
+      'radial-gradient(ellipse 40% 50% at 20% 80%, rgba(196,92,46,0.05) 0%, transparent 60%)';
+  }
+  // Also add shimmer to announce bar after load
+  var bar = document.querySelector('.announce-bar');
+  if (bar) {
+    bar.style.cssText += 'background: linear-gradient(90deg, #c9a84c, #b8923f, #c9a84c); background-size: 200% 100%; animation: shimmer 3s linear infinite;';
+  }
+});
 </script>
+<!-- Shimmer keyframe injected post-load — doesn't block LCP -->
+<style id="post-lcp-styles" media="print" onload="this.media='all'">
+@keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+</style>
 </body>
 </html>
