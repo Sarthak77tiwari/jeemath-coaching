@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simran Ma'am – Expert Maths & IELTS Tutor</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #fdf8f2;
+    --warm-white: #fffcf7;
+    --ink: #1a1208;
+    --amber: #c8781a;
+    --amber-light: #e8a94a;
+    --amber-pale: #fde8c0;
+    --sage: #4a6741;
+    --sage-light: #d4e8d0;
+    --burgundy: #7c2d3e;
+    --gold: #b8953a;
+    --dust: #8b7355;
+    --shadow: rgba(26, 18, 8, 0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,120,26,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(74,103,65,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Decorative math symbols */
+  .math-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    opacity: 0.04;
+    font-family: 'Playfair Display', serif;
+    color: var(--amber-light);
+    font-size: 120px;
+    user-select: none;
+  }
+  .math-bg span { position: absolute; }
+  .math-bg span:nth-child(1) { top: 5%; left: 5%; font-size: 160px; }
+  .math-bg span:nth-child(2) { top: 30%; left: 55%; font-size: 100px; transform: rotate(15deg); }
+  .math-bg span:nth-child(3) { bottom: 10%; left: 10%; font-size: 140px; transform: rotate(-10deg); }
+  .math-bg span:nth-child(4) { top: 60%; right: 5%; font-size: 80px; }
+  .math-bg span:nth-child(5) { top: 12%; right: 15%; font-size: 110px; transform: rotate(20deg); }
+
+  .hero-left {
+    padding: 80px 60px 80px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .badge {
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .badge-amber { background: rgba(200,120,26,0.2); color: var(--amber-light); border: 1px solid rgba(200,120,26,0.35); }
+  .badge-sage  { background: rgba(74,103,65,0.2);  color: #8bc98a;            border: 1px solid rgba(74,103,65,0.35); }
+  .badge-wine  { background: rgba(124,45,62,0.2);  color: #e08090;            border: 1px solid rgba(124,45,62,0.35); }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 6vw, 82px);
+    font-weight: 800;
+    color: var(--warm-white);
+    line-height: 1.05;
+    margin-bottom: 10px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--amber-light);
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: clamp(16px, 2vw, 22px);
+    color: rgba(253,232,192,0.75);
+    margin-bottom: 28px;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: rgba(253,248,242,0.65);
+    max-width: 420px;
+    margin-bottom: 44px;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+
+  .btn-primary {
+    padding: 14px 32px;
+    background: var(--amber);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--amber-light); transform: translateY(-2px); }
+
+  .btn-outline {
+    padding: 14px 32px;
+    background: transparent;
+    color: rgba(253,248,242,0.85);
+    border: 1px solid rgba(253,248,242,0.25);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-outline:hover { border-color: var(--amber-light); color: var(--amber-light); transform: translateY(-2px); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    padding: 60px 40px;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .profile-card {
+    background: rgba(253,248,242,0.06);
+    border: 1px solid rgba(253,248,242,0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 44px 36px;
+    max-width: 340px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+  }
+
+  .avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 50%, var(--amber-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    color: #fff;
+    font-weight: 800;
+    box-shadow: 0 8px 32px rgba(200,120,26,0.5);
+    position: relative;
+  }
+  .avatar::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--amber);
+    opacity: 0.5;
+  }
+
+  .card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--warm-white);
+    margin-bottom: 4px;
+  }
+  .card-sub {
+    font-size: 12px;
+    color: var(--amber-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .stat-box {
+    background: rgba(200,120,26,0.1);
+    border: 1px solid rgba(200,120,26,0.2);
+    border-radius: 10px;
+    padding: 12px 6px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--amber-light);
+    display: block;
+  }
+  .stat-label {
+    font-size: 10px;
+    color: rgba(253,248,242,0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+    display: block;
+  }
+
+  .qualification-list {
+    list-style: none;
+    text-align: left;
+  }
+  .qualification-list li {
+    font-size: 12.5px;
+    color: rgba(253,248,242,0.7);
+    padding: 7px 0;
+    border-bottom: 1px solid rgba(253,248,242,0.07);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .qualification-list li:last-child { border-bottom: none; }
+  .qual-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 90px 80px; }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 16px;
+    color: var(--dust);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 52px;
+  }
+
+  /* ── EXPERTISE ── */
+  .expertise-section { background: var(--warm-white); }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+
+  .expertise-card {
+    background: #fff;
+    border: 1px solid rgba(26,18,8,0.07);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+    cursor: default;
+  }
+  .expertise-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 50px var(--shadow);
+  }
+  .expertise-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .expertise-card.amber::before  { background: var(--amber); }
+  .expertise-card.sage::before   { background: var(--sage); }
+  .expertise-card.burg::before   { background: var(--burgundy); }
+  .expertise-card.gold::before   { background: var(--gold); }
+  .expertise-card.teal::before   { background: #2d7a8a; }
+
+  .exp-icon {
+    font-size: 32px;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--ink);
+  }
+  .exp-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--dust);
+  }
+
+  /* ── IELTS STRIP ── */
+  .ielts-strip {
+    background: linear-gradient(135deg, #1a3a4a 0%, #0f2535 50%, #1a3a4a 100%);
+    padding: 70px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ielts-strip::before {
+    content: 'IELTS';
+    position: absolute;
+    right: -20px; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.03);
+    pointer-events: none;
+    user-select: none;
+  }
+  .ielts-inner {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+  .ielts-tag {
+    display: inline-block;
+    background: rgba(45,122,138,0.35);
+    border: 1px solid rgba(45,182,210,0.35);
+    color: #7de0f0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 40px;
+    margin-bottom: 14px;
+  }
+  .ielts-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    color: #fff;
+    font-weight: 800;
+    margin-bottom: 14px;
+    line-height: 1.1;
+  }
+  .ielts-title span { color: #7de0f0; }
+  .ielts-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.75;
+    max-width: 500px;
+  }
+  .ielts-badges {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .ielts-badge {
+    background: rgba(45,122,138,0.2);
+    border: 1px solid rgba(45,122,138,0.4);
+    color: #a0e8f4;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  .ielts-stat-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 180px;
+  }
+  .ielts-stat-box {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 14px;
+    padding: 20px 24px;
+    text-align: center;
+  }
+  .ielts-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #7de0f0;
+  }
+  .ielts-stat-lbl {
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 4px;
+  }
+
+  /* ── REVIEWS ── */
+  .reviews-section { background: var(--cream); }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .review-card {
+    background: #fff;
+    border: 1px solid rgba(26,18,8,0.07);
+    border-radius: 18px;
+    padding: 32px 28px;
+    position: relative;
+    transition: box-shadow 0.25s;
+  }
+  .review-card:hover { box-shadow: 0 16px 48px var(--shadow); }
+
+  .review-quote-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 72px;
+    line-height: 0.6;
+    color: var(--amber-pale);
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .review-text {
+    font-size: 14.5px;
+    line-height: 1.75;
+    color: #3a2d1f;
+    margin-bottom: 24px;
+    font-style: italic;
+  }
+
+  .review-tag-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .review-tag {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--amber-pale);
+    color: var(--amber);
+  }
+  .review-tag.teal {
+    background: #d0f0f5;
+    color: #2d7a8a;
+  }
+
+  .stars { color: #f5a623; font-size: 14px; margin-bottom: 10px; }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(26,18,8,0.06);
+    padding-top: 16px;
+  }
+  .reviewer-avatar {
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 15px; color: #fff;
+    flex-shrink: 0;
+  }
+  .reviewer-name { font-size: 13px; font-weight: 600; color: var(--ink); }
+  .reviewer-meta { font-size: 11px; color: var(--dust); margin-top: 1px; }
+
+  /* ── WHY ME ── */
+  .why-section {
+    background: var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-section::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 50% 70% at 80% 50%, rgba(200,120,26,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .why-section .section-title,
+  .why-section .section-sub { color: rgba(253,248,242,0.9); }
+  .why-section .section-eyebrow { color: var(--amber-light); }
+  .why-section .section-sub { color: rgba(253,248,242,0.5); }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    position: relative; z-index: 2;
+  }
+  .why-card {
+    background: rgba(253,248,242,0.04);
+    border: 1px solid rgba(253,248,242,0.08);
+    border-radius: 14px;
+    padding: 28px 22px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .why-card:hover {
+    background: rgba(200,120,26,0.1);
+    border-color: rgba(200,120,26,0.3);
+  }
+  .why-icon { font-size: 28px; margin-bottom: 14px; }
+  .why-title { font-size: 15px; font-weight: 600; color: rgba(253,248,242,0.9); margin-bottom: 8px; }
+  .why-desc  { font-size: 13px; line-height: 1.65; color: rgba(253,248,242,0.45); }
+
+  /* ── CONTACT ── */
+  .contact-section {
+    background: linear-gradient(135deg, var(--amber) 0%, #a8621a 100%);
+    padding: 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-section::before {
+    content: '📐';
+    position: absolute; font-size: 240px; opacity: 0.06;
+    top: -40px; right: -40px; transform: rotate(20deg);
+    pointer-events: none;
+  }
+  .contact-section .section-eyebrow { color: rgba(255,255,255,0.7); }
+  .contact-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 54px);
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 14px;
+    position: relative; z-index: 2;
+  }
+  .contact-sub {
+    font-size: 16px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+    position: relative; z-index: 2;
+  }
+  .contact-btns {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    position: relative; z-index: 2;
+  }
+  .btn-white {
+    padding: 14px 36px;
+    background: #fff;
+    color: var(--amber);
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-white:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+  .btn-trans {
+    padding: 14px 36px;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-trans:hover { background: rgba(255,255,255,0.25); transform: translateY(-3px); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0e0a05;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    color: rgba(253,248,242,0.6);
+  }
+  .footer-brand span { color: var(--amber); }
+  .footer-copy {
+    font-size: 12px;
+    color: rgba(253,248,242,0.28);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 60px 30px 40px; }
+    .hero-right { padding: 0 30px 60px; }
+    section { padding: 60px 30px; }
+    .ielts-strip { padding: 60px 30px; }
+    .ielts-inner { grid-template-columns: 1fr; gap: 36px; }
+    .ielts-stat-col { flex-direction: row; }
+    footer { padding: 24px 30px; }
+    .contact-section { padding: 60px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="math-bg" aria-hidden="true">
+    <span>∑</span><span>∫</span><span>π</span><span>∞</span><span>√</span>
+  </div>
+
+  <div class="hero-left">
+    <div class="badge-row">
+      <span class="badge badge-amber">M.Sc. Maths Hons</span>
+      <span class="badge badge-sage">JAM Qualified</span>
+      <span class="badge badge-wine">IIT GATE Maths</span>
+    </div>
+
+    <h1 class="hero-name">Simran<br><em>Ma'am</em></h1>
+    <p class="hero-title">Expert Maths & IELTS Educator · 7 Years Experience</p>
+    <p class="hero-desc">
+      Making abstract mathematics genuinely understandable through real-world analogies.
+      From Class 11–12 to JEE, and from General Training to Academic IELTS —
+      every student finds their confidence here.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">📞 Book a Free Demo</a>
+      <a href="#reviews" class="btn-outline">⭐ Read Reviews</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="profile-card">
+      <div class="avatar">S</div>
+      <div class="card-name">Simran Ma'am</div>
+      <div class="card-sub">Your Favourite Maths Teacher</div>
+
+      <div class="stat-row">
+        <div class="stat-box">
+          <span class="stat-num">7+</span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">500+</span>
+          <span class="stat-label">Students</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">98%</span>
+          <span class="stat-label">Pass Rate</span>
+        </div>
+      </div>
+
+      <ul class="qualification-list">
+        <li><span class="qual-dot"></span> M.Sc. Mathematics (Hons)</li>
+        <li><span class="qual-dot"></span> IIT JAM Qualified</li>
+        <li><span class="qual-dot"></span> IIT GATE Mathematics Qualified</li>
+        <li><span class="qual-dot"></span> 3 Yrs IELTS Teaching Experience</li>
+        <li><span class="qual-dot"></span> Class 11, 12 & JEE Specialist</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ EXPERTISE ═══════════════════ -->
+<section class="expertise-section">
+  <div class="section-eyebrow">Core Subjects</div>
+  <h2 class="section-title">What Simran Ma'am Teaches</h2>
+  <p class="section-sub">
+    Covering the full spectrum of competitive and school-level mathematics with clarity, depth, and an intuitive teaching style.
+  </p>
+
+  <div class="expertise-grid">
+    <div class="expertise-card amber">
+      <span class="exp-icon">📊</span>
+      <div class="exp-title">Statistics & Probability</div>
+      <p class="exp-desc">From Bayes' Theorem to Normal Distribution — taught with data-driven real examples so the concepts stick forever.</p>
+    </div>
+    <div class="expertise-card sage">
+      <span class="exp-icon">📈</span>
+      <div class="exp-title">Linear Programming</div>
+      <p class="exp-desc">Graphical & simplex methods demystified. Students learn to visualize feasible regions and optimize with confidence.</p>
+    </div>
+    <div class="expertise-card burg">
+      <span class="exp-icon">🔢</span>
+      <div class="exp-title">Binomial Theorem</div>
+      <p class="exp-desc">Patterns, Pascal's Triangle, and powerful shortcuts — turning one of JEE's trickiest topics into a scoring powerhouse.</p>
+    </div>
+    <div class="expertise-card gold">
+      <span class="exp-icon">∫</span>
+      <div class="exp-title">Calculus (11 & 12)</div>
+      <p class="exp-desc">Limits, differentiation, and integration — built from scratch so students develop genuine mathematical intuition, not just formulas.</p>
+    </div>
+    <div class="expertise-card teal">
+      <span class="exp-icon">🎯</span>
+      <div class="exp-title">JEE Problem Solving</div>
+      <p class="exp-desc">Targeted strategies for Mains & Advanced: time management, triage, and rapid mental calculation under exam pressure.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ IELTS STRIP ═══════════════════ -->
+<div class="ielts-strip">
+  <div class="ielts-inner">
+    <div>
+      <div class="ielts-tag">Also Teaches · IELTS</div>
+      <h2 class="ielts-title">3 Years of <span>IELTS</span><br>Teaching Excellence</h2>
+      <p class="ielts-desc">
+        Simran Ma'am's structured approach covers all four IELTS bands — Listening, Reading, Writing, and Speaking.
+        With 3 years of dedicated IELTS coaching, she has helped students achieve Band 7+ scores for
+        study abroad, immigration, and professional registration goals.
+      </p>
+      <div class="ielts-badges">
+        <span class="ielts-badge">Academic IELTS</span>
+        <span class="ielts-badge">General Training</span>
+        <span class="ielts-badge">Writing Task 1 & 2</span>
+        <span class="ielts-badge">Speaking Mock Tests</span>
+        <span class="ielts-badge">Band 7+ Strategy</span>
+      </div>
+    </div>
+    <div class="ielts-stat-col">
+      <div class="ielts-stat-box">
+        <div class="ielts-stat-num">3+</div>
+        <div class="ielts-stat-lbl">Yrs IELTS Exp.</div>
+      </div>
+      <div class="ielts-stat-box">
+        <div class="ielts-stat-num">7+</div>
+        <div class="ielts-stat-lbl">Avg Band Score</div>
+      </div>
+      <div class="ielts-stat-box">
+        <div class="ielts-stat-num">4</div>
+        <div class="ielts-stat-lbl">Modules Covered</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ REVIEWS ═══════════════════ -->
+<section class="reviews-section" id="reviews">
+  <div class="section-eyebrow">Student Testimonials</div>
+  <h2 class="section-title">What Students Say</h2>
+  <p class="section-sub">Real reviews from students across Maths and IELTS batches.</p>
+
+  <div class="reviews-grid">
+
+    <!-- Review 1 -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag">Statistics</span>
+        <span class="review-tag">Class 12</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        I used to be completely lost in Statistics. Simran Ma'am explained every concept with such simple real-life examples that by the end of the month I was actually enjoying it. Scored 94 in boards!
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#c8781a,#e8a94a)">A</div>
+        <div>
+          <div class="reviewer-name">Ananya Sharma</div>
+          <div class="reviewer-meta">Class 12 · Board Exam</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 2 -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag">JEE Mains</span>
+        <span class="review-tag">Binomial</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Binomial Theorem always felt like a nightmare before I joined her batch. The way she breaks down the patterns and shortcuts is unreal. Cleared JEE Mains with 95 percentile in Maths!
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#4a6741,#8bc98a)">R</div>
+        <div>
+          <div class="reviewer-name">Rohan Verma</div>
+          <div class="reviewer-meta">JEE Mains 2024 · 95 Percentile</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 3 – IELTS -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag teal">IELTS Academic</span>
+        <span class="review-tag teal">Band 7.5</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        I needed Band 7 for my Canada PR and was struggling with Writing Task 2. Simran Ma'am's structured templates and feedback sessions transformed my writing. Got Band 7.5 overall — couldn't be happier!
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#2d7a8a,#7de0f0)">P</div>
+        <div>
+          <div class="reviewer-name">Priya Nair</div>
+          <div class="reviewer-meta">IELTS Academic · Band 7.5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 4 -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag">Linear Programming</span>
+        <span class="review-tag">Class 11</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Best teacher I've ever had for Maths. Her way of drawing graphical LPP solutions step by step is so satisfying. I finally understand why the corner point method works, not just how to use it.
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#7c2d3e,#e08090)">K</div>
+        <div>
+          <div class="reviewer-name">Karan Mehta</div>
+          <div class="reviewer-meta">Class 11 · Online Batch</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 5 – IELTS -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag teal">IELTS General</span>
+        <span class="review-tag teal">UK Visa</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Took IELTS General Training coaching for my UK work visa. Simran Ma'am's mock speaking sessions were incredibly helpful — she gave detailed, honest feedback every time. Scored Band 8 in Speaking!
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#2d7a8a,#4ab8cc)">S</div>
+        <div>
+          <div class="reviewer-name">Suresh Kumar</div>
+          <div class="reviewer-meta">IELTS General · Band 8 Speaking</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review 6 -->
+    <div class="review-card">
+      <span class="review-quote-mark">"</span>
+      <div class="review-tag-row">
+        <span class="review-tag">Probability</span>
+        <span class="review-tag">JEE Advanced</span>
+      </div>
+      <div class="stars">★★★★★</div>
+      <p class="review-text">
+        Probability was always my weakest link in JEE Advanced prep. Three weeks with Simran Ma'am and it's now one of my strongest topics. She teaches you to think, not just memorize — that's the difference.
+      </p>
+      <div class="reviewer">
+        <div class="reviewer-avatar" style="background:linear-gradient(135deg,#b8953a,#e8c96a)">D</div>
+        <div>
+          <div class="reviewer-name">Divya Patel</div>
+          <div class="reviewer-meta">JEE Advanced Aspirant · 2025</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ WHY SIMRAN MAAM ═══════════════════ -->
+<section class="why-section">
+  <div class="section-eyebrow">Why Choose Her</div>
+  <h2 class="section-title" style="color:var(--warm-white)">Teaching Philosophy</h2>
+  <p class="section-sub">What makes the difference between a tutor and a great teacher.</p>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🧠</div>
+      <div class="why-title">Conceptual Depth</div>
+      <p class="why-desc">Every topic is taught from first principles so students understand the "why", not just the "how".</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🌍</div>
+      <div class="why-title">Real-World Analogies</div>
+      <p class="why-desc">Abstract concepts are grounded in real, relatable examples — making them unforgettable.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">📋</div>
+      <div class="why-title">Exam-Focused Strategy</div>
+      <p class="why-desc">7 years of tracking board & JEE patterns means students learn exactly what examiners look for.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🎯</div>
+      <div class="why-title">Personalized Pace</div>
+      <p class="why-desc">No student is left behind — each batch is small enough for individual attention and doubt-clearing.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Proven Track Record</div>
+      <p class="why-desc">Hundreds of students placed in top colleges, with consistent 90+ board scores and JEE selections.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🗣️</div>
+      <div class="why-title">IELTS Expertise</div>
+      <p class="why-desc">3 dedicated years of IELTS coaching with a structured approach across all four modules.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ CONTACT ═══════════════════ -->
+<section class="contact-section" id="contact">
+  <div class="section-eyebrow">Get Started Today</div>
+  <h2 class="contact-title">Book a Free Demo Class</h2>
+  <p class="contact-sub">
+    Whether it's JEE Maths or IELTS Band 7+, your journey starts with one free session.
+  </p>
+  <div class="contact-btns">
+    <a href="tel:+91XXXXXXXXXX" class="btn-white">📞 Call Now</a>
+    <a href="https://wa.me/91XXXXXXXXXX" class="btn-trans">💬 WhatsApp Us</a>
+    <a href="mailto:simranmaam@email.com" class="btn-trans">✉️ Send Email</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-brand">Simran <span>Ma'am</span></div>
+  <div class="footer-copy">© 2025 · M.Sc. Maths Hons · JAM & GATE Qualified · IELTS Coach</div>
+</footer>
+
+</body>
+</html>
