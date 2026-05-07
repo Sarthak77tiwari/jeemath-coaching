@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer Foundation Program 2025 — Sarthak's Maths Foundation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --gold:#F5C842;--gold-dim:#c49b1e;
+  --red:#F87171;--red-bg:rgba(229,83,75,0.10);--red-border:rgba(229,83,75,0.28);
+  --c11:#60a5fa;--c11-bg:rgba(96,165,250,0.10);--c11-border:rgba(96,165,250,0.22);
+  --c12:#a78bfa;--c12-bg:rgba(167,139,250,0.10);--c12-border:rgba(167,139,250,0.22);
+  --bg:#0D0F14;--bg-card:#13161E;--bg-hover:#181C28;
+  --border:rgba(255,255,255,0.07);--divider:rgba(255,255,255,0.05);
+  --t1:#EEEEF0;--t2:#8B8FA8;--t3:#50566A;
+}
+body{font-family:'Sora',sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden}
+
+/* ── HERO ── */
+.hero{text-align:center;padding:68px 24px 52px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-140px;left:50%;transform:translateX(-50%);width:800px;height:420px;background:radial-gradient(ellipse at center,rgba(245,200,66,0.07) 0%,transparent 70%);pointer-events:none}
+.live-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(245,200,66,0.09);border:1px solid rgba(245,200,66,0.22);color:var(--gold);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:22px}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.hero h1{font-size:clamp(30px,5vw,52px);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero-sub{font-size:15px;color:var(--t2);max-width:500px;margin:0 auto 32px;line-height:1.7}
+.hero-dates{display:inline-flex;border:1px solid var(--border);border-radius:12px;overflow:hidden;font-family:'JetBrains Mono',monospace}
+.db{padding:12px 26px;display:flex;flex-direction:column;align-items:center;gap:3px}
+.db .lbl{font-size:9.5px;color:var(--t3);letter-spacing:.1em;text-transform:uppercase}
+.db .val{font-size:13px;font-weight:600}
+.dsep{display:flex;align-items:center;padding:0 10px;color:var(--t3);background:rgba(255,255,255,0.03)}
+.hero-stats{display:flex;justify-content:center;gap:36px;margin-top:36px;padding-top:36px;border-top:1px solid var(--divider);flex-wrap:wrap}
+.stat .n{font-size:26px;font-weight:800;color:var(--gold)}
+.stat .l{font-size:11px;color:var(--t3);margin-top:3px}
+
+/* ── LEGEND ── */
+.legend{display:flex;justify-content:center;gap:20px;margin-bottom:36px;flex-wrap:wrap}
+.leg{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:var(--t2)}
+.leg-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+.leg-dot.c11{background:var(--c11)}
+.leg-dot.c12{background:var(--c12)}
+.leg-dot.alert{background:var(--red)}
+
+/* ── GRID ── */
+.curriculum{max-width:1200px;margin:0 auto;padding:0 24px 80px}
+.months-grid{display:grid;grid-template-columns:1fr 1px 1fr;gap:0 44px}
+.divider-line{background:var(--divider);align-self:stretch}
+
+/* ── MONTH HEADER ── */
+.month-header{display:flex;align-items:center;gap:14px;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid var(--divider)}
+.month-badge{background:var(--gold);color:#0D0F14;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 11px;border-radius:6px;white-space:nowrap}
+.month-info h2{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.month-info .mdate{font-size:11px;color:var(--t3);font-family:'JetBrains Mono',monospace;margin-top:3px}
+
+/* ── WEEK CARDS ── */
+.weeks{display:flex;flex-direction:column;gap:14px}
+.week-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:18px 20px;transition:border-color .25s,background .25s,transform .2s;position:relative;overflow:hidden}
+.week-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:transparent;transition:background .25s}
+.week-card:hover{border-color:rgba(245,200,66,.28);background:var(--bg-hover);transform:translateX(3px)}
+.week-card:hover::before{background:var(--gold)}
+
+/* card top row */
+.card-top{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+.week-num{background:rgba(245,200,66,.11);color:var(--gold);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:6px;white-space:nowrap;border:1px solid rgba(245,200,66,.2);flex-shrink:0;margin-top:2px}
+.card-title-wrap{flex:1}
+.card-title{font-size:14.5px;font-weight:700;letter-spacing:-.01em;line-height:1.35;color:var(--t1);margin-bottom:6px}
+.alert-badge{display:inline-flex;align-items:center;gap:5px;background:var(--red-bg);border:1px solid var(--red-border);color:var(--red);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:3px 9px;border-radius:5px}
+.alert-badge svg{width:9px;height:9px;flex-shrink:0}
+
+/* sublist rows */
+.sublists{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.sublist{border-radius:9px;padding:10px 12px}
+.sublist.c11{background:var(--c11-bg);border:1px solid var(--c11-border)}
+.sublist.c12{background:var(--c12-bg);border:1px solid var(--c12-border)}
+.sublist-label{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;display:flex;align-items:center;gap:5px}
+.sublist.c11 .sublist-label{color:var(--c11)}
+.sublist.c12 .sublist-label{color:var(--c12)}
+.sublist-label::before{content:'';display:inline-block;width:7px;height:7px;border-radius:2px}
+.sublist.c11 .sublist-label::before{background:var(--c11)}
+.sublist.c12 .sublist-label::before{background:var(--c12)}
+.sublist ul{list-style:none;display:flex;flex-direction:column;gap:4px}
+.sublist ul li{font-size:11.5px;color:var(--t2);line-height:1.45;padding-left:10px;position:relative}
+.sublist ul li::before{content:'—';position:absolute;left:0;color:var(--t3);font-size:10px}
+
+/* ── FOOTER ── */
+.footer-strip{border-top:1px solid var(--divider);padding:26px 24px;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:14px 36px;font-size:13px;color:var(--t3)}
+.footer-strip a{color:var(--gold);text-decoration:none}
+.footer-strip a:hover{text-decoration:underline}
+.footer-brand{font-weight:700;color:var(--t2)}
+
+@media(max-width:780px){
+  .months-grid{grid-template-columns:1fr}
+  .divider-line{display:none}
+  .month-col:first-child{padding-bottom:44px;border-bottom:1px solid var(--divider);margin-bottom:44px}
+  .sublists{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="live-tag"><span class="live-dot"></span>Summer Foundation Program 2025</div>
+  <h1>8 Weeks. 2 Classes.<br><em>One Complete Syllabus.</em></h1>
+  <p class="hero-sub">Class 11 &amp; 12 topics side-by-side every week — so you always know what's ahead and never fall behind.</p>
+  <div class="hero-dates">
+    <div class="db"><span class="lbl">Starts</span><span class="val">11 May 2025</span></div>
+    <div class="dsep">→</div>
+    <div class="db"><span class="lbl">Ends</span><span class="val">11 July 2025</span></div>
+    <div class="dsep">|</div>
+    <div class="db"><span class="lbl">Duration</span><span class="val">8 Weeks</span></div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="n">8</div><div class="l">Weekly Modules</div></div>
+    <div class="stat"><div class="n">2</div><div class="l">Classes Combined</div></div>
+    <div class="stat"><div class="n">48+</div><div class="l">Topics Covered</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">JEE + Board Aligned</div></div>
+  </div>
+</header>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span class="leg"><span class="leg-dot c11"></span>Class 11 Topics</span>
+  <span class="leg"><span class="leg-dot c12"></span>Class 12 Topics</span>
+  <span class="leg"><span class="leg-dot alert"></span>Students struggle most here</span>
+</div>
+
+<!-- CURRICULUM -->
+<main class="curriculum">
+  <div class="months-grid">
+
+    <!-- ══ MONTH 1 ══ -->
+    <div class="month-col">
+      <div class="month-header">
+        <div class="month-badge">Month 1</div>
+        <div class="month-info">
+          <h2>Foundation Building</h2>
+          <div class="mdate">11 May – 10 June 2025</div>
+        </div>
+      </div>
+      <div class="weeks">
+
+        <!-- W1 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 1</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Sets, Relations &amp; Functions</div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Types of sets &amp; Venn diagrams</li>
+                <li>Cartesian product of sets</li>
+                <li>Relations: domain, range, codomain</li>
+                <li>Types of functions (one-one, onto)</li>
+                <li>Even &amp; odd functions</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Equivalence relations</li>
+                <li>Injective, surjective, bijective</li>
+                <li>Invertible functions</li>
+                <li>Composition of functions</li>
+                <li>Binary operations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W2 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 2</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Inverse Trig &amp; Matrices / Graphs &amp; Identities</div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Composite &amp; inverse functions</li>
+                <li>Graph transformations</li>
+                <li>Key algebraic identities</li>
+                <li>Modulus &amp; signum function</li>
+                <li>Greatest integer function</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>ITF: domain &amp; principal values</li>
+                <li>Graphs of inverse trig functions</li>
+                <li>Matrix operations &amp; types</li>
+                <li>Transpose &amp; symmetric matrices</li>
+                <li>Elementary row operations</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W3 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 3</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Trigonometry &amp; Determinants</div>
+              <div class="alert-badge">
+                <svg viewBox="0 0 12 12" fill="none"><path d="M6 1L11 10H1L6 1Z" stroke="currentColor" stroke-width="1.2"/><path d="M6 5v2.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6" cy="8.8" r=".65" fill="currentColor"/></svg>
+                73% of students struggle here
+              </div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>All trig identities (sin, cos, tan)</li>
+                <li>Multiple &amp; sub-multiple angles</li>
+                <li>Product-to-sum formulas</li>
+                <li>Solving trig equations</li>
+                <li>General solutions</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Expansion by cofactors</li>
+                <li>Properties of determinants</li>
+                <li>Adjoint &amp; inverse of matrix</li>
+                <li>Area of triangle using det.</li>
+                <li>Cramer's rule for linear systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W4 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 4</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Complex Numbers &amp; Continuity / Derivatives</div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Algebra of complex numbers</li>
+                <li>Argand plane &amp; polar form</li>
+                <li>Modulus, argument, conjugate</li>
+                <li>Quadratic equations: nature of roots</li>
+                <li>Sum &amp; product of roots</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Continuity &amp; types of discontinuity</li>
+                <li>Differentiability at a point</li>
+                <li>Chain rule &amp; product/quotient rule</li>
+                <li>Implicit &amp; parametric differentiation</li>
+                <li>Second-order derivatives</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /month 1 -->
+
+    <div class="divider-line"></div>
+
+    <!-- ══ MONTH 2 ══ -->
+    <div class="month-col">
+      <div class="month-header">
+        <div class="month-badge">Month 2</div>
+        <div class="month-info">
+          <h2>Application &amp; Advanced</h2>
+          <div class="mdate">11 June – 11 July 2025</div>
+        </div>
+      </div>
+      <div class="weeks">
+
+        <!-- W5 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 5</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Sequences, Binomial &amp; Applications of Derivatives</div>
+              <div class="alert-badge">
+                <svg viewBox="0 0 12 12" fill="none"><path d="M6 1L11 10H1L6 1Z" stroke="currentColor" stroke-width="1.2"/><path d="M6 5v2.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6" cy="8.8" r=".65" fill="currentColor"/></svg>
+                79% lose marks here
+              </div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Arithmetic &amp; Geometric progression</li>
+                <li>Special series: Σn, Σn², Σn³</li>
+                <li>Harmonic progression basics</li>
+                <li>Binomial expansion (positive integral)</li>
+                <li>General term &amp; middle term</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Increasing &amp; decreasing functions</li>
+                <li>Tangents &amp; normals to curves</li>
+                <li>Local &amp; global maxima/minima</li>
+                <li>Mean value &amp; Rolle's theorem</li>
+                <li>Optimisation problems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W6 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 6</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Permutations, Probability &amp; Integration</div>
+              <div class="alert-badge">
+                <svg viewBox="0 0 12 12" fill="none"><path d="M6 1L11 10H1L6 1Z" stroke="currentColor" stroke-width="1.2"/><path d="M6 5v2.2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="6" cy="8.8" r=".65" fill="currentColor"/></svg>
+                82% get this wrong
+              </div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Fundamental counting principle</li>
+                <li>Permutations: nPr formulas</li>
+                <li>Combinations: nCr &amp; identities</li>
+                <li>Conditional probability</li>
+                <li>Basic probability theorems</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Standard integrals &amp; antiderivatives</li>
+                <li>Integration by substitution</li>
+                <li>Integration by parts (ILATE)</li>
+                <li>Partial fractions method</li>
+                <li>Definite integrals &amp; properties</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W7 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 7</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Co-ordinate Geometry &amp; 3D / Vectors</div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Straight lines: slope, intercepts</li>
+                <li>Various forms of line equations</li>
+                <li>Circle: standard &amp; general form</li>
+                <li>Parabola: focus &amp; directrix</li>
+                <li>Ellipse &amp; hyperbola (intro)</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Direction cosines &amp; ratios</li>
+                <li>Vector algebra: dot &amp; cross product</li>
+                <li>Equation of line in 3D</li>
+                <li>Equation of plane (3 forms)</li>
+                <li>Skew lines &amp; distance formulas</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- W8 -->
+        <div class="week-card">
+          <div class="card-top">
+            <div class="week-num">Week 8</div>
+            <div class="card-title-wrap">
+              <div class="card-title">Limits, Derivatives &amp; Probability / LPP</div>
+            </div>
+          </div>
+          <div class="sublists">
+            <div class="sublist c11">
+              <div class="sublist-label">Class 11</div>
+              <ul>
+                <li>Limits: standard formulas</li>
+                <li>Derivative by first principle</li>
+                <li>Differentiation rules (basic)</li>
+                <li>Introduction to vectors</li>
+                <li>Direction cosines intro &amp; 3D basics</li>
+              </ul>
+            </div>
+            <div class="sublist c12">
+              <div class="sublist-label">Class 12</div>
+              <ul>
+                <li>Conditional probability &amp; Bayes' theorem</li>
+                <li>Random variables &amp; probability distribution</li>
+                <li>Mean &amp; variance of distribution</li>
+                <li>LPP: formulation &amp; feasible region</li>
+                <li>Corner-point method &amp; applications</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /month 2 -->
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer-strip">
+  <span class="footer-brand">Sarthak's Maths Foundation</span>
+  <span>🌐 <a href="https://jeemathcoaching.in" target="_blank">jeemathcoaching.in</a></span>
+  <span>📸 <a href="https://instagram.com/math_sfoundation" target="_blank">@math_sfoundation</a></span>
+  <span>Summer 2025 · Class 11 &amp; 12 · JEE + Board Aligned</span>
+</footer>
+
+</body>
+</html>
