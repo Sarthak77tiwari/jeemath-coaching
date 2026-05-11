@@ -85,7 +85,20 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Caveat:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-
+<style>
+.wa-float{position:fixed;bottom:28px;right:24px;z-index:9999;display:flex;align-items:center;filter:drop-shadow(0 4px 18px rgba(37,211,102,.38))}
+.wa-btn{width:60px;height:60px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;position:relative;flex-shrink:0;transition:transform .2s,background .2s;animation:popIn .4s cubic-bezier(.34,1.56,.64,1) .6s both}
+.wa-btn:hover{transform:scale(1.08);background:#20c45a}
+.wa-btn::before,.wa-btn::after{content:'';position:absolute;inset:0;border-radius:50%;background:#25d366;animation:ripple 2.4s ease-out infinite}
+.wa-btn::after{animation-delay:1.2s}
+.wa-btn svg{width:30px;height:30px;position:relative;z-index:1}
+.wa-label{background:#111;color:#fff;font-size:13px;font-weight:600;padding:10px 16px 10px 18px;border-radius:50px 0 0 50px;white-space:nowrap;transform:translateX(6px);opacity:0;animation:slideLabel .5s ease 1.2s forwards}
+.wa-label .sb{display:inline-block;background:#25d366;color:#fff;font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px;margin-left:7px;vertical-align:middle;animation:pulseBadge 1.8s ease-in-out infinite 1.8s}
+@keyframes ripple{0%{transform:scale(1);opacity:.55}100%{transform:scale(2.1);opacity:0}}
+@keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
+@keyframes slideLabel{to{transform:translateX(0);opacity:1}}
+@keyframes pulseBadge{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+</style>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -595,7 +608,15 @@ footer a { color: var(--gold); text-decoration: none; }
 
 <section class="hero">
   <div class="hero-grid"></div>
-
+<div class="wa-float">
+  <a class="wa-btn" href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+demo!" target="_blank" rel="noopener" aria-label="Book free demo on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2.667C8.636 2.667 2.667 8.636 2.667 16c0 2.328.627 4.508 1.72 6.388L2.667 29.333l7.18-1.693A13.267 13.267 0 0016 29.333C23.364 29.333 29.333 23.364 29.333 16S23.364 2.667 16 2.667z" fill="#fff"/>
+      <path d="M22.08 19.573c-.32-.16-1.893-.933-2.187-1.04-.293-.106-.507-.16-.72.16-.213.32-.827 1.04-1.013 1.253-.187.213-.373.24-.693.08-.32-.16-1.352-.499-2.574-1.587-.95-.848-1.593-1.895-1.779-2.215-.187-.32-.02-.493.14-.652.145-.143.32-.373.48-.56.16-.187.213-.32.32-.533.106-.213.053-.4-.027-.56-.08-.16-.72-1.733-.987-2.373-.26-.624-.523-.54-.72-.55l-.613-.01c-.213 0-.56.08-.853.4-.293.32-1.12 1.093-1.12 2.667s1.147 3.093 1.307 3.307c.16.213 2.253 3.44 5.46 4.827.764.33 1.36.526 1.824.673.767.243 1.467.209 2.02.127.616-.093 1.893-.773 2.16-1.52.267-.746.267-1.386.187-1.52-.08-.133-.293-.213-.613-.373z" fill="#25D366"/>
+    </svg>
+  </a>
+  <span class="wa-label">Book Free Demo <span class="sb">18 Seats</span></span>
+</div>
   <span class="fml" style="top:11%;left:5%;font-size:24px;animation-delay:0s;">f(x+h)−f(x)</span>
   <span class="fml" style="top:20%;right:7%;font-size:18px;animation-delay:1.8s;">sin²θ + cos²θ = 1</span>
   <span class="fml" style="bottom:22%;left:9%;font-size:20px;animation-delay:0.9s;">z = a + bi</span>
@@ -603,7 +624,8 @@ footer a { color: var(--gold); text-decoration: none; }
 
   <div class="badge">IIT Hyderabad × Summer 2026</div>
 
-  <h1>Class 11 and 12 <em>Maths Foundation</em><br>Summer Program</h1>
+  <h1>Crack JEE Main 2027: The ONLY Class 11/12   <em>Summer Maths Batch</em><br>That Fixes Your Foundation in 8 Weeks</h1>
+  <h2> IIT Hyderabad Faculty. <br>Live Online. Limited to 18 Students.<br> Start May 14.</h2>
 
   <p class="hero-seo">
     <strong>Sets · Functions · Trigonometry · Complex Numbers · Sequences · Co-ordinate Geometry · Calculus Intro</strong> · 8 Weeks · Online · Small batches
@@ -612,6 +634,7 @@ footer a { color: var(--gold); text-decoration: none; }
   <p class="hero-sub">8-week intensive program to build complete command over Class 11 Maths — so boards, JEE, and every exam that follows feels manageable.</p>
 
   <div class="hero-meta">
+   <span class="tag">   🏆 IIT Hyderabad Grad",<br> "⭐ 4.9★ (120+ Reviews)", <br>"📈 100+ IIT Selections <br> </span>
     <span class="tag">📐 Trig Identities & Equations</span>
     <span class="tag">🔢 Complex Numbers</span>
     <span class="tag">📈 Sequences & Series</span>
@@ -621,7 +644,7 @@ footer a { color: var(--gold); text-decoration: none; }
 
   <div class="seats-bar">
     <span class="seats-label">Total Seats Available</span>
-    <span class="seats-count" id="seatCount">14/18</span>
+    <span class="seats-count" id="seatCount">8/18 <br> ⚠️ Only 3 Seats Left in 6-Student Batch <br> ⚠️ Only 4 Seats Left in 9-Student Batch <br> <br> ⚠️ Only 1 Seats Left in 3-Student Batch</span>
     <span class="seats-text">3 batches · 1 slot each · filling fast</span>
   </div>
 
@@ -636,7 +659,7 @@ footer a { color: var(--gold); text-decoration: none; }
     <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+demo+for+the+Summer+Class+11+Maths+Foundation+program" target="_blank" class="btn-primary" rel="noopener">💬 Book Free Demo Class</a>
     <a href="#challenge" class="btn-secondary">Try These Problems ↓</a>
   </div>
-  <p class="cta-note">No payment · Free first class · Instant WhatsApp reply</p>
+  <p class="cta-note">Send Me Details on WhatsApp →</p>
 </section>
 
 <div class="divider"></div>
