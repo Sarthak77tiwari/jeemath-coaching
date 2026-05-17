@@ -9,9 +9,8 @@
 <link rel="preconnect" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-
 <title>online Maths Tuition | IIT Hyderabad Expert | Free  Demo</title>
-     <meta name="description" content="Class 9–12 & JEE Maths coaching by IIT Hyderabad MSc expert · 100+ IIT selections · 4.9★ Google rated. FREE demo class — book on WhatsApp today!">
+<meta name="description" content="Class 9–12 & JEE Maths coaching by IIT Hyderabad MSc expert · 100+ IIT selections · 4.9★ Google rated. FREE demo class — book on WhatsApp today!">
 <meta name="keywords" content="JEE mathematics coaching, JEE maths online tutor, IIT Hyderabad tutor, JEE Advanced maths, JEE Main coaching online, class 11 12 maths tuition, online maths tutor India, JEE preparation, Sarthak Tiwari">
 <meta name="author" content="Sarthak Tiwari">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -24,10 +23,6 @@
 <meta property="og:image" content="https://www.jeemathcoaching.in/og-image.jpg">
 <meta property="og:locale" content="en_IN">
 <meta property="og:site_name" content="JEE Maths by Sarthak Tiwari">
-
-
-
-
 
 <meta name="theme-color" content="#0d0f14">
 <meta name="geo.region" content="IN-TG">
@@ -129,7 +124,6 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 }
 .trust-chip.green { background: rgba(74,222,128,0.08); border-color: rgba(74,222,128,0.25); color: var(--green); }
 
-/* CLS FIX 3: font-size-adjust prevents Georgia swap reflow */
 .hero h1 {
   font-family: Georgia, 'Times New Roman', serif;
   font-size-adjust: 0.5;
@@ -184,7 +178,6 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 
 /* ═══════════ CITIES STRIP ═══════════ */
 .cities-strip { background: var(--ink); padding: 20px 0; overflow: hidden; border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); }
-/* CLS FIX 4: animation set in CSS, not JS onload */
 .cities-track { display: flex; width: max-content; animation: scroll-track 35s linear infinite; }
 .city-item { padding: 0 28px; color: rgba(255,255,255,0.3); font-size: 0.8rem; white-space: nowrap; display: flex; align-items: center; gap: 8px; }
 .city-item::before { content: '✦'; color: var(--gold); opacity: 0.4; font-size: 0.55rem; }
@@ -198,12 +191,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .section-sub { color: var(--mist); font-size: 1rem; line-height: 1.7; max-width: 540px; }
 .section-hd { margin-bottom: 56px; }
 
-/* ═══════════════════════════════════════════════
-   TBT FIX 5: content-visibility REMOVED from the
-   why-section (first below-fold section). It was
-   triggering a contain-intrinsic-size recalc during
-   initial layout. Kept on deeper sections only.
-   ═══════════════════════════════════════════════ */
+/* ═══════════ WHY SECTION ═══════════ */
 .why-section { background: var(--white); }
 .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
 .why-card { padding: 36px 32px; border-radius: 14px; border: 1.5px solid #e8e0d0; position: relative; overflow: hidden; transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s; }
@@ -213,7 +201,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .why-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
 .why-desc { color: var(--mist); font-size: 0.9rem; line-height: 1.7; }
 
-/* content-visibility kept on sections that are truly off-screen at load */
+/* ═══════════ COURSES ═══════════ */
 .courses-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--cream); }
 .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .course-card { background: var(--white); border-radius: 14px; padding: 36px; border: 1.5px solid #e8e0d0; position: relative; transition: transform 0.35s, box-shadow 0.35s, border-color 0.35s; overflow: hidden; }
@@ -249,6 +237,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .btn-enroll-outline { background: transparent; color: var(--gold); border: 1.5px solid var(--gold); }
 .btn-enroll-outline:hover { background: var(--gold); color: var(--ink); }
 
+/* ═══════════ SOCIAL PROOF ═══════════ */
 .social-proof { background: var(--ink); padding: 32px 0; }
 .sp-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
 .sp-item { text-align: center; }
@@ -256,6 +245,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .sp-label { font-size: 0.8rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
 .sp-divider { width: 1px; height: 50px; background: rgba(255,255,255,0.07); }
 
+/* ═══════════ CURRICULUM ═══════════ */
 .curriculum-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--ink); }
 .curriculum-section .section-title { color: var(--white); }
 .curriculum-section .section-sub { color: rgba(255,255,255,0.4); }
@@ -268,6 +258,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .curric-card li:last-child { border-bottom: none; }
 .curric-card li::before { content: '—'; color: var(--gold); flex-shrink: 0; font-size: 0.78rem; margin-top: 2px; }
 
+/* ═══════════ SCHEDULE ═══════════ */
 .schedule-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--paper); }
 .sched-card { background: var(--white); border-radius: 16px; padding: 56px; border: 1px solid #e8e0d0; display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 0; align-items: center; }
 .sched-block { text-align: center; padding: 16px; }
@@ -277,6 +268,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .sched-sub { color: var(--mist); font-size: 0.83rem; margin-top: 5px; }
 .sched-free { font-family: var(--serif); font-size: 2rem; font-weight: 900; color: var(--gold); }
 
+/* ═══════════ TESTIMONIALS ═══════════ */
 .testi-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--cream); }
 .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .testi-card { background: var(--white); border-radius: 12px; padding: 32px; border: 1.5px solid #e8e0d0; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
@@ -290,6 +282,75 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .testi-role { color: var(--gold); font-size: 0.78rem; margin-top: 2px; }
 .result-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.2); color: var(--gold); padding: 3px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; margin-top: 6px; }
 
+/* ═══════════ SIMRAN SECTION ═══════════ */
+.simran-section { background: var(--ink); padding: 96px 0; position: relative; overflow: hidden; }
+.simran-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 55% 70% at 80% 50%, rgba(201,168,76,0.07) 0%, transparent 65%);
+  pointer-events: none;
+}
+.simran-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 20px; overflow: hidden;
+  display: grid; grid-template-columns: 340px 1fr;
+  position: relative; z-index: 1;
+}
+.simran-left {
+  background: linear-gradient(145deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.03) 100%);
+  border-right: 1px solid rgba(201,168,76,0.15);
+  padding: 48px 40px;
+  display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+}
+.simran-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, #c8781a 0%, #b8953a 50%, #e8a94a 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--white);
+  margin-bottom: 20px;
+  box-shadow: 0 0 0 3px rgba(201,168,76,0.25);
+}
+.simran-name {
+  font-family: var(--serif); font-size: 1.65rem; font-weight: 700;
+  color: var(--white); line-height: 1.15; margin-bottom: 5px;
+}
+.simran-name em { font-style: italic; color: var(--gold); }
+.simran-deg { font-size: 0.8rem; color: rgba(255,255,255,0.42); letter-spacing: 0.06em; margin-bottom: 22px; }
+.simran-quals { display: flex; flex-direction: column; gap: 8px; }
+.simran-qual { display: flex; align-items: center; gap: 9px; font-size: 0.84rem; color: rgba(255,255,255,0.58); }
+.simran-qual::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+.simran-right { padding: 48px 48px 48px 44px; display: flex; flex-direction: column; justify-content: center; }
+.simran-heading { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); line-height: 1.25; margin-bottom: 14px; }
+.simran-heading em { font-style: normal; color: var(--gold); }
+.simran-desc { font-size: 0.92rem; line-height: 1.8; color: rgba(255,255,255,0.52); margin-bottom: 26px; max-width: 500px; }
+.simran-stats { display: flex; gap: 28px; margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap; }
+.sim-stat-num { font-family: var(--serif); font-size: 1.7rem; font-weight: 700; color: var(--gold); }
+.sim-stat-lbl { font-size: 0.7rem; color: rgba(255,255,255,0.32); text-transform: uppercase; letter-spacing: 0.07em; margin-top: 2px; }
+.simran-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+.sim-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.2);
+  color: rgba(201,168,76,0.85); padding: 4px 12px; border-radius: 4px;
+  font-size: 0.75rem; font-weight: 500;
+}
+.sim-chip.teal { background: rgba(45,182,210,0.08); border-color: rgba(45,182,210,0.22); color: rgba(125,224,240,0.85); }
+.simran-cta-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.simran-btn {
+  background: #c9a84c; color: var(--ink); padding: 13px 26px; border-radius: 6px;
+  font-weight: 700; font-size: 0.9rem; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 18px rgba(201,168,76,0.28);
+}
+.simran-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,168,76,0.42); }
+.simran-wa-link {
+  font-size: 0.82rem; color: rgba(255,255,255,0.35); text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px; transition: color 0.2s;
+}
+.simran-wa-link:hover { color: var(--gold); }
+
+/* ═══════════ ABOUT ═══════════ */
 .about-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--white); }
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
 .about-title { font-family: var(--serif); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 20px; }
@@ -310,6 +371,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .about-rating-stars { color: #fbbc04; font-size: 0.9rem; }
 .about-rating-text { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
 
+/* ═══════════ FAQ ═══════════ */
 .faq-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--cream); }
 .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 .faq-item { background: var(--white); border: 1.5px solid #e8e0d0; border-radius: 10px; overflow: hidden; }
@@ -320,6 +382,7 @@ body { font-family: var(--sans); background: var(--cream); color: var(--ink); ov
 .faq-item.open .faq-a { max-height: 200px; padding: 0 24px 20px; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 
+/* ═══════════ CONTACT ═══════════ */
 .contact-section { content-visibility: auto; contain-intrinsic-size: auto 600px; background: var(--paper); }
 .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
 .contact-form-card { background: var(--white); border-radius: 16px; padding: 44px; border: 1px solid #e8e0d0; }
@@ -347,12 +410,14 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .wa-block .info-label { color: rgba(255,255,255,0.35); }
 .wa-block .info-value { color: #4ade80; font-weight: 700; }
 
+/* ═══════════ MAP ═══════════ */
 .map-section { background: var(--ink); padding: 80px 0; }
 .map-section .section-title { color: var(--white); }
 .map-section .section-sub { color: rgba(255,255,255,0.4); }
 .map-embed { position: relative; width: 100%; padding-bottom: 46%; height: 0; overflow: hidden; border-radius: 14px; background: #1a1d26; border: 1px solid rgba(201,168,76,0.15); margin-top: 44px; }
 .map-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
+/* ═══════════ POPUP ═══════════ */
 .popup-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.82); z-index: 10000; display: flex; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
 .popup-box { background: var(--ink); border: 1px solid rgba(201,168,76,0.3); border-radius: 16px; padding: 44px 38px; max-width: 450px; width: 90%; text-align: center; position: relative; animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
 .popup-box::before { content: ''; position: absolute; top: -1px; left: 25%; right: 25%; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
@@ -369,6 +434,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .popup-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201,168,76,0.4); }
 @keyframes pop { from { opacity:0; transform: scale(0.85); } to { opacity:1; transform: scale(1); } }
 
+/* ═══════════ FOOTER ═══════════ */
 .footer { background: #080a0e; padding: 64px 0 28px; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 52px; margin-bottom: 44px; }
 .footer-desc { color: rgba(255,255,255,0.3); font-size: 0.87rem; line-height: 1.7; margin-top: 14px; }
@@ -379,9 +445,11 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 .footer-bottom { border-top: 1px solid rgba(255,255,255,0.05); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; }
 .footer-copy { color: rgba(255,255,255,0.18); font-size: 0.82rem; }
 
+/* ═══════════ WA FLOAT ═══════════ */
 .wa-float { position: fixed; bottom: 26px; right: 26px; width: 54px; height: 54px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37,211,102,0.4); z-index: 500; text-decoration: none; transition: transform 0.3s; }
 .wa-float:hover { transform: scale(1.1); }
 
+/* ═══════════ RESPONSIVE ═══════════ */
 @media (max-width: 1024px) {
   .hero-content, .about-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-card-wrap { order: -1; }
@@ -393,6 +461,8 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   .sched-divider { display: none; }
   .sp-divider { display: none; }
   .sp-inner { justify-content: center; gap: 36px; }
+  .simran-card { grid-template-columns: 1fr; }
+  .simran-left { border-right: none; border-bottom: 1px solid rgba(201,168,76,0.15); }
 }
 @media (max-width: 768px) {
   .container, .nav-inner { padding: 0 20px; }
@@ -406,6 +476,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   .hero-visual { padding: 24px; }
   .proof-strip { flex-direction: column; gap: 10px; }
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+  .simran-left, .simran-right { padding: 30px 24px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
@@ -413,14 +484,13 @@ textarea.form-input { resize: vertical; min-height: 110px; }
 }
 @keyframes shimmer { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
 </style>
-     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17604664156">
-</script>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17604664156"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'AW-17604664156');
 </script>
 </head>
@@ -461,13 +531,15 @@ textarea.form-input { resize: vertical; min-height: 110px; }
       <a href="#curriculum">Syllabus</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
-         <a href="/summer.html"> summer Program </a>
+      <a href="/summer.html">Summer Program</a>
+      <a href="/simran" style="color:var(--gold-light);">Simran Ma'am</a>
       <a href="#contact">Contact</a>
       <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+JEE+Maths+demo" target="_blank" class="nav-cta" rel="noopener">Free Demo 🎯</a>
     </div>
   </div>
 </nav>
 
+<!-- ═══════════════════ HERO ═══════════════════ -->
 <section id="home" class="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid-lines"></div>
@@ -486,7 +558,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
         <div class="proof-item">⭐ <span>4.9★</span> Google Rated</div>
       </div>
       <p class="hero-desc">
-  Personalised Maths coaching for <strong style="color:white">Class 9, 10, 11 & 12</strong> + JEE Mains & Advanced by <strong style="color:white">Sarthak Tiwari</strong>, MSc Mathematics from IIT Hyderabad. Online classes across India. Free demo class available.
+        Personalised Maths coaching for <strong style="color:white">Class 9, 10, 11 &amp; 12</strong> + JEE Mains &amp; Advanced by <strong style="color:white">Sarthak Tiwari</strong>, MSc Mathematics from IIT Hyderabad. Online classes across India. Free demo class available.
       </p>
       <div class="hero-btns">
         <a href="https://wa.me/917601047556?text=Hi%20Sarthak%2C+I+want+to+book+a+free+JEE+Maths+demo+class" target="_blank" class="btn-primary" rel="noopener">📅 Book Free Demo Class</a>
@@ -546,6 +618,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </div>
 
+<!-- ═══════════ WHY SECTION ═══════════ -->
 <section id="why" class="section why-section">
   <div class="container">
     <div class="section-hd">
@@ -564,6 +637,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ COURSES ═══════════ -->
 <section id="courses" class="section courses-section">
   <div class="container">
     <div class="section-hd">
@@ -623,6 +697,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ CURRICULUM ═══════════ -->
 <section id="curriculum" class="section curriculum-section">
   <div class="container">
     <div class="section-hd">
@@ -638,6 +713,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ SCHEDULE ═══════════ -->
 <section id="schedule" class="section schedule-section">
   <div class="container">
     <div class="section-hd" style="text-align:center">
@@ -658,6 +734,7 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ TESTIMONIALS ═══════════ -->
 <section id="testimonials" class="section testi-section">
   <div class="container">
     <div class="section-hd">
@@ -676,11 +753,63 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ SIMRAN MA'AM SECTION ═══════════ -->
+<section class="simran-section" id="simran" aria-label="Simran Ma'am — Also on our platform">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="section-hd">
+      <div class="eyebrow">// 06 — Also on Our Platform</div>
+      <h2 class="section-title" style="color:var(--white);">Meet Simran Ma'am</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.42);">Expert Maths &amp; IELTS educator — Class 9 to JEE Advanced, with 7+ years of proven teaching excellence.</p>
+    </div>
+    <div class="simran-card">
+      <!-- Left: Profile -->
+      <div class="simran-left">
+        <div class="simran-avatar">S</div>
+        <div class="simran-name">Simran <em>Ma'am</em></div>
+        <div class="simran-deg">MSc Mathematics · JAM &amp; GATE Qualified</div>
+        <div class="simran-quals">
+          <div class="simran-qual">IIT JAM Qualified</div>
+          <div class="simran-qual">IIT GATE Maths Qualified</div>
+          <div class="simran-qual">7+ Years Teaching Experience</div>
+          <div class="simran-qual">3 Years IELTS Coaching</div>
+          <div class="simran-qual">98% Student Pass Rate</div>
+        </div>
+      </div>
+      <!-- Right: Details + CTA -->
+      <div class="simran-right">
+        <h3 class="simran-heading">Expert Maths &amp; IELTS Coaching — <em>Class 9 to JEE Advanced</em></h3>
+        <p class="simran-desc">Simran Ma'am brings 7 years of teaching excellence across Class 9–12 Maths, JEE preparation, and IELTS coaching. Known for real-world analogies, conceptual depth, and a personalised pace — every student, from a Class 9 foundation learner to a JEE Advanced aspirant, finds genuine clarity in her sessions.</p>
+        <div class="simran-stats">
+          <div><div class="sim-stat-num">500+</div><div class="sim-stat-lbl">Students Taught</div></div>
+          <div><div class="sim-stat-num">7+</div><div class="sim-stat-lbl">Years Exp.</div></div>
+          <div><div class="sim-stat-num">98%</div><div class="sim-stat-lbl">Pass Rate</div></div>
+          <div><div class="sim-stat-num">Band 7+</div><div class="sim-stat-lbl">Avg IELTS</div></div>
+        </div>
+        <div class="simran-chips">
+          <span class="sim-chip">Statistics &amp; Probability</span>
+          <span class="sim-chip">Calculus (11 &amp; 12)</span>
+          <span class="sim-chip">Binomial Theorem</span>
+          <span class="sim-chip">Linear Programming</span>
+          <span class="sim-chip">Class 9 &amp; 10 Foundation</span>
+          <span class="sim-chip">JEE Problem Solving</span>
+          <span class="sim-chip teal">IELTS Academic</span>
+          <span class="sim-chip teal">IELTS General Training</span>
+        </div>
+        <div class="simran-cta-row">
+          <a href="/simran" class="simran-btn">View Simran Ma'am's Full Profile →</a>
+          <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+enquire+about+Simran+Ma%27am%27s+classes" target="_blank" rel="noopener" class="simran-wa-link">💬 Enquire on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
 <section id="about" class="section about-section">
   <div class="container">
     <div class="about-grid">
       <div>
-        <div class="eyebrow">// 06 — About the Tutor</div>
+        <div class="eyebrow">// 07 — About the Tutor</div>
         <h2 class="about-title">Meet Sarthak Tiwari — IIT Hyderabad Maths Expert</h2>
         <p class="about-text">Sarthak Tiwari holds an MSc in Mathematics from the Indian Institute of Technology (IIT) Hyderabad — one of India's premier technical institutes. He has been coaching JEE aspirants since 2022 with a personalised, concept-first approach.</p>
         <p class="about-text">His teaching philosophy: understand the 'why' behind every formula, not just the 'how'. This has led to 100+ IIT selections and a 4.9★ Google rating from students across India.</p>
@@ -704,10 +833,11 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ FAQ ═══════════ -->
 <section id="faq" class="section faq-section">
   <div class="container">
     <div class="section-hd">
-      <div class="eyebrow">// 07 — FAQ</div>
+      <div class="eyebrow">// 08 — FAQ</div>
       <h2 class="section-title">Frequently Asked Questions</h2>
       <p class="section-sub">Everything parents and students ask before enrolling.</p>
     </div>
@@ -724,10 +854,11 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact" class="section contact-section">
   <div class="container">
     <div class="section-hd">
-      <div class="eyebrow">// 08 — Contact</div>
+      <div class="eyebrow">// 09 — Contact</div>
       <h2 class="section-title">Book Your Free Demo Class</h2>
       <p class="section-sub">Fill the form or just WhatsApp us directly — we respond within minutes.</p>
     </div>
@@ -760,10 +891,11 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ MAP ═══════════ -->
 <section class="map-section">
   <div class="container">
     <div class="section-hd" style="text-align:center">
-      <div class="eyebrow" style="text-align:center">// 09 — Reviews</div>
+      <div class="eyebrow" style="text-align:center">// 10 — Reviews</div>
       <h2 class="section-title" style="text-align:center; max-width:100%">⭐ Rated 4.9 on Google · 120+ Reviews</h2>
       <p class="section-sub" style="text-align:center; margin: 0 auto;">Verified by students and parents for JEE &amp; Class 9–12 Mathematics coaching</p>
     </div>
@@ -776,20 +908,37 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </section>
 
+<!-- ═══════════ FOOTER ═══════════ -->
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
       <div>
         <a href="#home" class="logo" style="margin-bottom:14px; display:flex;"><div class="logo-icon">∑</div>JEE Math Coaching</a>
-        <p class="footer-desc">Expert JEE Mains &amp; Advanced Mathematics coaching by Sarthak Tiwari, MSc Mathematics, IIT Hyderabad. 500+ students mentored across India. 4.9★ Google rated.</p>
+        <p class="footer-desc">Expert JEE Mains &amp; Advanced Mathematics coaching by Sarthak Tiwari, MSc Mathematics, IIT Hyderabad. Also featuring Simran Ma'am for Class 9–12 Maths &amp; IELTS. 500+ students · 4.9★ Google rated.</p>
       </div>
       <div>
         <div class="footer-heading">Quick Links</div>
-        <div class="footer-links"><a href="#about">About Tutor</a><a href="#courses">Pricing &amp; Courses</a><a href="#curriculum">JEE Syllabus</a><a href="#schedule">Class Timings</a><a href="#testimonials">Student Results</a><a href="#faq">FAQ</a><a href="/terms.html">Terms &amp; Conditions</a> <a href="/summer.html"> summer Program </a></div>
+        <div class="footer-links">
+          <a href="#about">About Sarthak Sir</a>
+          <a href="#courses">Pricing &amp; Courses</a>
+          <a href="#curriculum">JEE Syllabus</a>
+          <a href="#schedule">Class Timings</a>
+          <a href="#testimonials">Student Results</a>
+          <a href="#faq">FAQ</a>
+          <a href="/simran" style="color:var(--gold-light);">Simran Ma'am →</a>
+          <a href="/summer.html">Summer Program</a>
+          <a href="/terms.html">Terms &amp; Conditions</a>
+        </div>
       </div>
       <div>
         <div class="footer-heading">Contact</div>
-        <div class="footer-links"><a href="tel:+917601047556">📞 +91 7601047556</a><a href="mailto:fillform101@gmail.com">✉️ fillform101@gmail.com</a><a href="#">🕐 6:00 PM – 10:00 PM daily</a><a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank">⭐ View Google Reviews</a><a href="https://wa.me/917601047556" target="_blank">💬 WhatsApp Us</a></div>
+        <div class="footer-links">
+          <a href="tel:+917601047556">📞 +91 7601047556</a>
+          <a href="mailto:fillform101@gmail.com">✉️ fillform101@gmail.com</a>
+          <a href="#">🕐 6:00 PM – 10:00 PM daily</a>
+          <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank">⭐ View Google Reviews</a>
+          <a href="https://wa.me/917601047556" target="_blank">💬 WhatsApp Us</a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -799,24 +948,20 @@ textarea.form-input { resize: vertical; min-height: 110px; }
   </div>
 </footer>
 
-
+<!-- ═══════════ SCHEMA ═══════════ -->
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://www.jeemathcoaching.in/#org","name":"JEE Mathematics Coaching by Sarthak Tiwari","url":"https://www.jeemathcoaching.in/","logo":"https://www.jeemathcoaching.in/og-image.jpg","description":"Expert JEE Main & Advanced Mathematics coaching by IIT Hyderabad graduate. Online classes across India.","telephone":"+917601047556","email":"fillform101@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Sangareddy","addressRegion":"Telangana","postalCode":"502285","addressCountry":"IN"},"areaServed":"IN","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120","bestRating":"5"},"sameAs":["https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"]},{"@type":"Person","@id":"https://www.jeemathcoaching.in/#tutor","name":"Sarthak Tiwari","jobTitle":"Mathematics Tutor & JEE Coach","alumniOf":{"@type":"EducationalOrganization","name":"Indian Institute of Technology Hyderabad"},"knowsAbout":["JEE Mathematics","Calculus","Algebra","Coordinate Geometry","Trigonometry","Vectors"],"worksFor":{"@id":"https://www.jeemathcoaching.in/#org"},"telephone":"+917601047556"},{"@type":"Course","name":"JEE Mathematics One-to-One Coaching","description":"Personalized 1-on-1 JEE Mains and Advanced Mathematics coaching with custom study plan, doubt clearing, and progress tracking.","provider":{"@id":"https://www.jeemathcoaching.in/#org"},"offers":{"@type":"Offer","price":"700","priceCurrency":"INR","priceSpecification":{"@type":"UnitPriceSpecification","price":"700","priceCurrency":"INR","unitText":"hour"}},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@id":"https://www.jeemathcoaching.in/#tutor"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the fee for JEE Maths coaching?","acceptedAnswer":{"@type":"Answer","text":"One-to-one sessions are ₹700 per hour. Group classes and weekend batches are ₹450 per hour."}},{"@type":"Question","name":"Is there a free demo class available?","acceptedAnswer":{"@type":"Answer","text":"Yes! A free demo class is available. You can book it by contacting us on WhatsApp at +91 7601047556."}},{"@type":"Question","name":"Who is the tutor?","acceptedAnswer":{"@type":"Answer","text":"Sarthak Tiwari, MSc Mathematics graduate from IIT Hyderabad, with 3+ years of coaching experience and 100+ IIT selections."}},{"@type":"Question","name":"Are classes online or offline?","acceptedAnswer":{"@type":"Answer","text":"Classes are conducted fully online, available to students across India. Timings are 6 PM to 10 PM, Monday to Sunday."}},{"@type":"Question","name":"Which subjects and exams are covered?","acceptedAnswer":{"@type":"Answer","text":"Complete JEE Mains and JEE Advanced Mathematics syllabus is covered, along with Class 9, 10, 11, and 12 board mathematics."}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://www.jeemathcoaching.in/#org","name":"JEE Mathematics Coaching by Sarthak Tiwari","url":"https://www.jeemathcoaching.in/","logo":"https://www.jeemathcoaching.in/og-image.jpg","description":"Expert JEE Main & Advanced Mathematics coaching by IIT Hyderabad graduate. Online classes across India.","telephone":"+917601047556","email":"fillform101@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Sangareddy","addressRegion":"Telangana","postalCode":"502285","addressCountry":"IN"},"areaServed":"IN","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120","bestRating":"5"},"sameAs":["https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"]},{"@type":"Person","@id":"https://www.jeemathcoaching.in/#tutor","name":"Sarthak Tiwari","jobTitle":"Mathematics Tutor & JEE Coach","alumniOf":{"@type":"EducationalOrganization","name":"Indian Institute of Technology Hyderabad"},"knowsAbout":["JEE Mathematics","Calculus","Algebra","Coordinate Geometry","Trigonometry","Vectors"],"worksFor":{"@id":"https://www.jeemathcoaching.in/#org"},"telephone":"+917601047556"},{"@type":"Person","@id":"https://www.jeemathcoaching.in/simran#tutor","name":"Simran","jobTitle":"Mathematics & IELTS Educator","url":"https://www.jeemathcoaching.in/simran","knowsAbout":["JEE Mathematics","Class 9 Maths","Class 10 Maths","Statistics and Probability","Linear Programming","Binomial Theorem","Calculus","IELTS Academic","IELTS General Training"],"worksFor":{"@id":"https://www.jeemathcoaching.in/#org"}},{"@type":"Course","name":"JEE Mathematics One-to-One Coaching","description":"Personalized 1-on-1 JEE Mains and Advanced Mathematics coaching with custom study plan, doubt clearing, and progress tracking.","provider":{"@id":"https://www.jeemathcoaching.in/#org"},"offers":{"@type":"Offer","price":"700","priceCurrency":"INR","priceSpecification":{"@type":"UnitPriceSpecification","price":"700","priceCurrency":"INR","unitText":"hour"}},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@id":"https://www.jeemathcoaching.in/#tutor"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the fee for JEE Maths coaching?","acceptedAnswer":{"@type":"Answer","text":"One-to-one sessions are ₹700 per hour. Group classes and weekend batches are ₹450 per hour."}},{"@type":"Question","name":"Is there a free demo class available?","acceptedAnswer":{"@type":"Answer","text":"Yes! A free demo class is available. You can book it by contacting us on WhatsApp at +91 7601047556."}},{"@type":"Question","name":"Who is the tutor?","acceptedAnswer":{"@type":"Answer","text":"Sarthak Tiwari, MSc Mathematics graduate from IIT Hyderabad, with 3+ years of coaching experience and 100+ IIT selections."}},{"@type":"Question","name":"Are classes online or offline?","acceptedAnswer":{"@type":"Answer","text":"Classes are conducted fully online, available to students across India. Timings are 6 PM to 10 PM, Monday to Sunday."}},{"@type":"Question","name":"Which subjects and exams are covered?","acceptedAnswer":{"@type":"Answer","text":"Complete JEE Mains and JEE Advanced Mathematics syllabus is covered, along with Class 9, 10, 11, and 12 board mathematics."}}]}]}
 </script>
 
-
 <script defer>
-// ── Navbar scroll (passive, no blocking) ──
 window.addEventListener('scroll', function() {
   document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
-// ── Mobile nav ──
 function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// ── TBT FIX 2: nav link listeners deferred via requestIdleCallback ──
 var _navBound = false;
 function bindNavLinks() {
   if (_navBound) return;
@@ -833,7 +978,6 @@ if ('requestIdleCallback' in window) {
   setTimeout(bindNavLinks, 200);
 }
 
-// ── Smooth scroll (deferred — not needed at first paint) ──
 function bindSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(function(a) {
     a.addEventListener('click', function(e) {
@@ -848,7 +992,6 @@ if ('requestIdleCallback' in window) {
   setTimeout(bindSmoothScroll, 200);
 }
 
-// ── FAQ toggle ──
 function toggleFaq(el) {
   var item = el.closest('.faq-item');
   var wasOpen = item.classList.contains('open');
@@ -856,7 +999,6 @@ function toggleFaq(el) {
   if (!wasOpen) item.classList.add('open');
 }
 
-// ── Popup (idle + delay, never blocks load) ──
 var _popupShown = false;
 function showPopup() {
   if (_popupShown) return;
@@ -874,7 +1016,6 @@ if ('requestIdleCallback' in window) {
   setTimeout(showPopup, 5000);
 }
 
-// ── Popup countdown ──
 var targetDate = new Date("May 13, 2026").getTime();
 function updateTimer() {
   var days = Math.max(0, Math.floor((targetDate - Date.now()) / 86400000));
@@ -884,15 +1025,11 @@ function updateTimer() {
 updateTimer();
 setInterval(updateTimer, 60000);
 
-// ── TBT FIX 4: Map IntersectionObserver inside requestIdleCallback ──
 function setupMapObserver() {
   var mapIframe = document.querySelector('iframe[data-src]');
   if (!mapIframe) return;
   var obs = new IntersectionObserver(function(entries) {
-    if (entries[0].isIntersecting) {
-      mapIframe.src = mapIframe.dataset.src;
-      obs.disconnect();
-    }
+    if (entries[0].isIntersecting) { mapIframe.src = mapIframe.dataset.src; obs.disconnect(); }
   }, { rootMargin: '200px' });
   obs.observe(mapIframe);
 }
@@ -902,9 +1039,7 @@ if ('requestIdleCallback' in window) {
   setTimeout(setupMapObserver, 500);
 }
 
-// ── Post-load cosmetic only (no layout impact) ──
 window.addEventListener('load', function() {
-  // TBT FIX 3: gtag fully deferred to window load
   window.dataLayer = window.dataLayer || [];
   function gtag(){ window.dataLayer.push(arguments); }
   gtag('js', new Date());
@@ -914,14 +1049,12 @@ window.addEventListener('load', function() {
   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PCKGES6VZC';
   document.head.appendChild(s);
 
-  // Hero visual secondary gradient (cosmetic, no layout shift)
   var heroBg = document.querySelector('.hero-bg');
   if (heroBg) {
     heroBg.style.background =
       'radial-gradient(ellipse 60% 60% at 70% 50%, rgba(201,168,76,0.07) 0%, transparent 65%), ' +
       'radial-gradient(ellipse 40% 50% at 20% 80%, rgba(196,92,46,0.05) 0%, transparent 60%)';
   }
-  // Announce bar shimmer (background-position change = zero layout impact)
   var bar = document.querySelector('.announce-bar');
   if (bar) {
     bar.style.cssText += 'background: linear-gradient(90deg,#c9a84c,#b8923f,#c9a84c);background-size:200% 100%;animation:shimmer 3s linear infinite;';
