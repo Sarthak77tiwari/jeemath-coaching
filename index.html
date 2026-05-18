@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ── Resource hints ── -->
 <link rel="preconnect" href="https://formspree.io">
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://maps.googleapis.com">
 
-<!-- ── SEO ── -->
 <title>Online Maths Tuition | IIT Hyderabad Expert | Free Demo</title>
 <meta name="description" content="Class 9–12 & JEE Maths coaching by IIT Hyderabad MSc expert · 100+ IIT selections · 4.9★ Google rated. FREE demo class — book on WhatsApp today!">
 <meta name="keywords" content="JEE mathematics coaching, JEE maths online tutor, IIT Hyderabad tutor, JEE Advanced maths, JEE Main coaching online, class 11 12 maths tuition, online maths tutor India, JEE preparation, Sarthak Tiwari">
@@ -27,26 +25,48 @@
 <meta name="geo.region" content="IN-TG">
 <meta name="geo.placename" content="Hyderabad, Telangana">
 
-<!--
-  ╔══════════════════════════════════════════════════════════╗
-  ║  CRITICAL CSS — only above-the-fold (hero + navbar)     ║
-  ║  Everything else is injected after DOMContentLoaded     ║
-  ╚══════════════════════════════════════════════════════════╝
--->
-<style id="critical">
-/* Design tokens */
-:root{--ink:#0d0f14;--ink2:#080a0e;--paper:#f5f0e8;--cream:#faf7f2;--gold:#c9a84c;--gold-light:#e8c96a;--gold-pale:#f5e9c4;--rust:#c45c2e;--slate:#3a4255;--mist:#8b9ab0;--green:#4ade80;--white:#ffffff;--serif:Georgia,'Times New Roman',serif;--mono:ui-monospace,'SF Mono',Consolas,monospace;--sans:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif}
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root{
+  --ink:#0d0f14;--ink2:#080a0e;--paper:#f5f0e8;--cream:#faf7f2;
+  --gold:#c9a84c;--gold-light:#e8c96a;--gold-pale:#f5e9c4;
+  --rust:#c45c2e;--slate:#3a4255;--mist:#8b9ab0;--green:#4ade80;--white:#ffffff;
+  --serif:Georgia,'Times New Roman',serif;
+  --mono:ui-monospace,'SF Mono',Consolas,monospace;
+  --sans:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
+}
+
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
 
-/* Announce bar */
-.announce-bar{background:#c9a84c;text-align:center;min-height:40px;display:flex;align-items:center;justify-content:center;padding:10px 20px;font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:.04em}
+/* ═══════════════════════════════════════════
+   CRITICAL CSS — hero + navbar + cities + sp bar
+   (only what's visible before first scroll)
+═══════════════════════════════════════════ */
+
+/* CLS FIX: shimmer purely in CSS — no JS style change on load */
+.announce-bar{
+  /* explicit height prevents any resize flash */
+  height:40px;min-height:40px;
+  display:flex;align-items:center;justify-content:center;
+  padding:10px 20px;
+  font-size:.82rem;font-weight:700;color:var(--ink);letter-spacing:.04em;
+  /* gradient applied here — never changes after paint */
+  background:linear-gradient(90deg,#c9a84c,#b8923f,#c9a84c);
+  background-size:200% 100%;
+  animation:shimmer 3s linear infinite;
+}
 .announce-bar a{color:var(--ink);text-decoration:underline}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
 
 /* Navbar */
-.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:background .4s,padding .4s,border-color .4s}
-.navbar.scrolled{background:rgba(13,15,20,.97);backdrop-filter:blur(20px);padding:12px 0;border-bottom:1px solid rgba(201,168,76,.2)}
+.navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;transition:background .4s,padding .4s}
+/* CLS FIX: add border in default state (transparent) so layout width never changes */
+.navbar{border-bottom:1px solid transparent}
+.navbar.scrolled{background:rgba(13,15,20,.97);backdrop-filter:blur(20px);padding:12px 0;border-bottom-color:rgba(201,168,76,.2)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--serif);font-size:1.15rem;color:var(--white);letter-spacing:.02em;display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo-icon{width:34px;height:34px;background:#c9a84c;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
@@ -94,12 +114,13 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .feat-t{color:rgba(255,255,255,.65);font-size:.88rem}
 .feat-t strong{color:var(--white)}
 .live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.2);color:var(--green);padding:5px 14px;border-radius:100px;font-size:.75rem;font-weight:600;margin-top:20px}
-.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite}
+/* CLS FIX: reserve space for live-dot before animation starts */
+.live-dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:blink 2s infinite;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* Cities strip — visible just below hero */
+/* Cities strip */
 .cities-strip{background:var(--ink);padding:20px 0;overflow:hidden;border-top:1px solid rgba(201,168,76,.1);border-bottom:1px solid rgba(201,168,76,.1)}
-.cities-track{display:flex;width:max-content;animation:scroll-track 35s linear infinite}
+.cities-track{display:flex;width:max-content;animation:scroll-track 35s linear infinite;will-change:transform}
 .city-item{padding:0 28px;color:rgba(255,255,255,.3);font-size:.8rem;white-space:nowrap;display:flex;align-items:center;gap:8px}
 .city-item::before{content:'✦';color:var(--gold);opacity:.4;font-size:.55rem}
 @keyframes scroll-track{to{transform:translateX(-50%)}}
@@ -112,7 +133,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .sp-label{font-size:.8rem;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
 .sp-divider{width:1px;height:50px;background:rgba(255,255,255,.07)}
 
-/* Mobile nav — needed at load */
+/* Mobile critical nav */
 @media(max-width:768px){
   .nav-links{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(8,10,14,.98);flex-direction:column;padding:24px 20px;gap:14px;border-bottom:1px solid rgba(201,168,76,.1);z-index:999}
   .nav-links.open{display:flex}
@@ -131,17 +152,18 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 </head>
 <body>
 
-<!-- WhatsApp Float -->
+<!-- WA Float -->
 <a href="https://wa.me/917601047556?text=Hi%20Sarthak%2C%20I%20want%20to%20book%20a%20free%20JEE%20Maths%20demo%20class" class="wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
+<!-- Announce bar — height fixed via CSS, no JS touch -->
 <div class="announce-bar">
   🎯 Limited seats available — <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+book+a+free+JEE+Maths+demo" target="_blank">Book your FREE demo class today →</a>
 </div>
 
-<!-- Popup -->
-<div id="popup" class="popup-overlay" style="display:none">
+<!-- Popup — hidden, injected via idle callback -->
+<div id="popup" class="popup-overlay" style="display:none" aria-modal="true" role="dialog">
   <div class="popup-box">
     <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
     <div class="popup-tag">✦ Enrolling Now</div>
@@ -157,10 +179,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
-    <a href="#home" class="logo">
-      <div class="logo-icon">∑</div>
-      JEE Math Coaching
-    </a>
+    <a href="#home" class="logo"><div class="logo-icon">∑</div>JEE Math Coaching</a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">☰</button>
     <div class="nav-links" id="navLinks">
       <a href="#home">Home</a>
@@ -179,24 +198,20 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 <!-- ═══ HERO ═══ -->
 <section id="home" class="hero">
   <div class="hero-bg"></div>
-  <div class="hero-grid-lines"></div>
+  <div class="hero-grid-lines" aria-hidden="true"></div>
   <div class="hero-content">
     <div>
       <div class="trust-bar">
         <div class="trust-chip">✦ IIT Hyderabad MSc Student</div>
         <div class="trust-chip green">⭐ 4.9 Google Rating</div>
       </div>
-      <h1>
-        <em>JEE Mathematics</em> Online Coaching by IIT Hyderabad Expert
-      </h1>
+      <h1><em>JEE Mathematics</em> Online Coaching by IIT Hyderabad Expert</h1>
       <div class="proof-strip">
         <div class="proof-item">🏆 <span>500+</span> Students Mentored</div>
         <div class="proof-item">🎓 <span>100+</span> IIT Selections</div>
         <div class="proof-item">⭐ <span>4.9★</span> Google Rated</div>
       </div>
-      <p class="hero-desc">
-        Personalised Maths coaching for <strong style="color:white">Class 9, 10, 11 &amp; 12</strong> + JEE Mains &amp; Advanced by <strong style="color:white">Sarthak Tiwari</strong>, MSc Mathematics from IIT Hyderabad. Online classes across India. Free demo class available.
-      </p>
+      <p class="hero-desc">Personalised Maths coaching for <strong style="color:white">Class 9, 10, 11 &amp; 12</strong> + JEE Mains &amp; Advanced by <strong style="color:white">Sarthak Tiwari</strong>, MSc Mathematics from IIT Hyderabad. Online classes across India. Free demo class available.</p>
       <div class="hero-btns">
         <a href="https://wa.me/917601047556?text=Hi%20Sarthak%2C+I+want+to+book+a+free+JEE+Maths+demo+class" target="_blank" class="btn-primary" rel="noopener">📅 Book Free Demo Class</a>
         <a href="#courses" class="btn-secondary">View Pricing →</a>
@@ -216,10 +231,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
           <div>
             <div class="profile-name">Sarthak Tiwari</div>
             <div class="profile-sub">MSc Mathematics · IIT Hyderabad</div>
-            <div class="g-rating">
-              <span class="g-stars">★★★★★</span>
-              <span class="g-text">4.9 · 120+ Google Reviews</span>
-            </div>
+            <div class="g-rating"><span class="g-stars">★★★★★</span><span class="g-text">4.9 · 120+ Google Reviews</span></div>
           </div>
         </div>
         <div class="hero-feats">
@@ -390,7 +402,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
   </div>
 </section>
 
-<!-- ═══ SIMRAN MA'AM ═══ -->
+<!-- ═══ SIMRAN ═══ -->
 <section class="simran-section" id="simran">
   <div class="container" style="position:relative;z-index:1">
     <div class="section-hd">
@@ -534,7 +546,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
       <p class="section-sub" style="text-align:center;margin:0 auto">Verified by students and parents for JEE &amp; Class 9–12 Mathematics coaching</p>
     </div>
     <div class="map-embed">
-      <iframe src="about:blank" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13477808.777182855!2d80.61832670000001!3d21.7644144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f567c5e4774f1c5%3A0x855886e4fb5000f9!2sJEE%20%26%20Class%209%E2%80%9312%20Mathematics%20Online%20Tuition!5e1!3m2!1sen!2sin!4v1767242647729!5m2!1sen!2sin" title="JEE Maths Coaching by Sarthak Tiwari — Google Reviews" loading="lazy" allowfullscreen></iframe>
+      <iframe src="about:blank" data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13477808.777182855!2d80.61832670000001!3d21.7644144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4f567c5e4774f1c5%3A0x855886e4fb5000f9!2sJEE%20%26%20Class%209%E2%80%9312%20Mathematics%20Online%20Tuition!5e1!3m2!1sen!2sin!4v1767242647729!5m2!1sen!2sin" title="JEE Maths Coaching Google Reviews" loading="lazy" allowfullscreen></iframe>
     </div>
     <div style="text-align:center;margin-top:28px">
       <a href="https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7" target="_blank" class="btn-primary" rel="noopener">⭐ Read All Google Reviews →</a>
@@ -582,12 +594,12 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
   </div>
 </footer>
 
-<!-- ════════════════════════════════════════════════
-     DEFERRED CSS — injected after first paint
-     Covers all below-fold sections + responsive
-════════════════════════════════════════════════ -->
-<style id="deferred-css">
-/* Shared section tokens */
+<!-- ═══════════════════════════════════════════
+  DEFERRED CSS — injected after first paint.
+  content-visibility: auto with MEASURED
+  contain-intrinsic-size to prevent CLS reflow.
+═══════════════════════════════════════════ -->
+<style>
 .section{padding:96px 0}
 .container{max-width:1200px;margin:0 auto;padding:0 40px}
 .eyebrow{font-family:var(--mono);font-size:.73rem;color:var(--gold);letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
@@ -605,15 +617,14 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .why-title{font-family:var(--serif);font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:12px}
 .why-desc{color:var(--mist);font-size:.9rem;line-height:1.7}
 
-/* Courses */
-.courses-section{content-visibility:auto;contain-intrinsic-size:auto 600px;background:var(--cream)}
+/* Courses — CLS: intrinsic-size based on 3-col card grid ~720px tall */
+.courses-section{content-visibility:auto;contain-intrinsic-size:auto 760px;background:var(--cream)}
 .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .course-card{background:var(--white);border-radius:14px;padding:36px;border:1.5px solid #e8e0d0;position:relative;transition:transform .35s,box-shadow .35s;overflow:hidden}
 .course-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rust));transform:scaleX(0);transform-origin:left;transition:transform .4s}
 .course-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
-.course-card:hover::after{transform:scaleX(1)}
+.course-card:hover::after,.course-card.featured::after{transform:scaleX(1)}
 .course-card.featured{background:var(--ink);border-color:rgba(201,168,76,.3)}
-.course-card.featured::after{transform:scaleX(1)}
 .pop-badge{position:absolute;top:18px;right:18px;background:var(--gold);color:var(--ink);padding:4px 12px;border-radius:100px;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em}
 .course-icon-wrap{width:50px;height:50px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:22px}
 .ci-gold{background:rgba(201,168,76,.1)}.ci-rust{background:rgba(196,92,46,.1)}.ci-slate{background:rgba(58,66,85,.08)}
@@ -633,14 +644,14 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .course-card.featured .course-feats li{border-color:rgba(255,255,255,.06);color:rgba(255,255,255,.6)}
 .course-feats li:last-child{border-bottom:none}
 .ck{color:var(--gold);font-weight:700;flex-shrink:0;margin-top:1px}
-.btn-enroll{display:block;text-align:center;padding:14px;border-radius:7px;font-weight:700;font-size:.9rem;text-decoration:none;transition:transform .3s,box-shadow .3s,color .3s;cursor:pointer}
+.btn-enroll{display:block;text-align:center;padding:14px;border-radius:7px;font-weight:700;font-size:.9rem;text-decoration:none;transition:transform .3s,box-shadow .3s,color .3s}
 .btn-enroll-primary{background:#c9a84c;color:var(--ink);box-shadow:0 4px 15px rgba(201,168,76,.25)}
 .btn-enroll-primary:hover{transform:translateY(-1px);box-shadow:0 8px 25px rgba(201,168,76,.4)}
 .btn-enroll-outline{background:transparent;color:var(--gold);border:1.5px solid var(--gold)}
 .btn-enroll-outline:hover{background:var(--gold);color:var(--ink)}
 
 /* Curriculum */
-.curriculum-section{content-visibility:auto;contain-intrinsic-size:auto 600px;background:var(--ink)}
+.curriculum-section{content-visibility:auto;contain-intrinsic-size:auto 560px;background:var(--ink)}
 .curriculum-section .section-title{color:var(--white)}
 .curriculum-section .section-sub{color:rgba(255,255,255,.4)}
 .curric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -653,7 +664,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .curric-card li::before{content:'—';color:var(--gold);flex-shrink:0;font-size:.78rem;margin-top:2px}
 
 /* Schedule */
-.schedule-section{content-visibility:auto;contain-intrinsic-size:auto 400px;background:var(--paper)}
+.schedule-section{content-visibility:auto;contain-intrinsic-size:auto 340px;background:var(--paper)}
 .sched-card{background:var(--white);border-radius:16px;padding:56px;border:1px solid #e8e0d0;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center}
 .sched-block{text-align:center;padding:16px}
 .sched-divider{width:1px;background:#e8e0d0;height:70px}
@@ -663,7 +674,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .sched-free{font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--gold)}
 
 /* Testimonials */
-.testi-section{content-visibility:auto;contain-intrinsic-size:auto 500px;background:var(--cream)}
+.testi-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--cream)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testi-card{background:var(--white);border-radius:12px;padding:32px;border:1.5px solid #e8e0d0;transition:transform .3s,box-shadow .3s}
 .testi-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
@@ -676,36 +687,36 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .testi-role{color:var(--gold);font-size:.78rem;margin-top:2px}
 .result-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold);padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:600;margin-top:6px}
 
-/* Simran section */
-.simran-section{background:var(--ink);padding:96px 0;position:relative;overflow:hidden;content-visibility:auto;contain-intrinsic-size:auto 500px}
+/* Simran */
+.simran-section{content-visibility:auto;contain-intrinsic-size:auto 480px;background:var(--ink);padding:96px 0;position:relative;overflow:hidden}
 .simran-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 80% 50%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
-.simran-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.2);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:320px 1fr;position:relative;z-index:1}
-.simran-left{background:linear-gradient(145deg,rgba(201,168,76,.1) 0%,rgba(201,168,76,.03) 100%);border-right:1px solid rgba(201,168,76,.15);padding:48px 38px;display:flex;flex-direction:column;justify-content:center}
-.simran-avatar{width:78px;height:78px;border-radius:50%;background:linear-gradient(135deg,#c8781a,#b8953a,#e8a94a);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.75rem;font-weight:700;color:var(--white);margin-bottom:18px;box-shadow:0 0 0 3px rgba(201,168,76,.25)}
-.simran-name{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--white);line-height:1.15;margin-bottom:5px}
+.simran-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.2);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;position:relative;z-index:1}
+.simran-left{background:linear-gradient(145deg,rgba(201,168,76,.1) 0%,rgba(201,168,76,.03) 100%);border-right:1px solid rgba(201,168,76,.15);padding:48px 36px;display:flex;flex-direction:column;justify-content:center}
+.simran-avatar{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#c8781a,#b8953a,#e8a94a);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.7rem;font-weight:700;color:var(--white);margin-bottom:18px;box-shadow:0 0 0 3px rgba(201,168,76,.25)}
+.simran-name{font-family:var(--serif);font-size:1.55rem;font-weight:700;color:var(--white);line-height:1.15;margin-bottom:5px}
 .simran-name em{font-style:italic;color:var(--gold)}
-.simran-deg{font-size:.79rem;color:rgba(255,255,255,.4);letter-spacing:.06em;margin-bottom:20px}
+.simran-deg{font-size:.78rem;color:rgba(255,255,255,.38);letter-spacing:.06em;margin-bottom:20px}
 .simran-quals{display:flex;flex-direction:column;gap:8px}
-.simran-qual{display:flex;align-items:center;gap:9px;font-size:.83rem;color:rgba(255,255,255,.56)}
+.simran-qual{display:flex;align-items:center;gap:9px;font-size:.83rem;color:rgba(255,255,255,.54)}
 .simran-qual::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0}
-.simran-right{padding:48px 48px 48px 44px;display:flex;flex-direction:column;justify-content:center}
-.simran-heading{font-family:var(--serif);font-size:1.45rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:13px}
+.simran-right{padding:48px 46px 48px 42px;display:flex;flex-direction:column;justify-content:center}
+.simran-heading{font-family:var(--serif);font-size:1.42rem;font-weight:700;color:var(--white);line-height:1.25;margin-bottom:12px}
 .simran-heading em{font-style:normal;color:var(--gold)}
-.simran-desc{font-size:.91rem;line-height:1.8;color:rgba(255,255,255,.5);margin-bottom:24px;max-width:500px}
-.simran-stats{display:flex;gap:26px;margin-bottom:24px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
-.sim-stat-num{font-family:var(--serif);font-size:1.65rem;font-weight:700;color:var(--gold)}
-.sim-stat-lbl{font-size:.69rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
-.simran-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:26px}
+.simran-desc{font-size:.9rem;line-height:1.8;color:rgba(255,255,255,.48);margin-bottom:22px;max-width:500px}
+.simran-stats{display:flex;gap:24px;margin-bottom:22px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.07);flex-wrap:wrap}
+.sim-stat-num{font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--gold)}
+.sim-stat-lbl{font-size:.68rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-top:2px}
+.simran-chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px}
 .sim-chip{display:inline-flex;align-items:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.2);color:rgba(201,168,76,.85);padding:4px 11px;border-radius:4px;font-size:.74rem;font-weight:500}
 .sim-chip.teal{background:rgba(45,182,210,.08);border-color:rgba(45,182,210,.22);color:rgba(125,224,240,.85)}
 .simran-cta-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.simran-btn{background:#c9a84c;color:var(--ink);padding:13px 26px;border-radius:6px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(201,168,76,.28)}
+.simran-btn{background:#c9a84c;color:var(--ink);padding:13px 24px;border-radius:6px;font-weight:700;font-size:.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 18px rgba(201,168,76,.28)}
 .simran-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,.42)}
-.simran-wa-link{font-size:.82rem;color:rgba(255,255,255,.33);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
+.simran-wa-link{font-size:.82rem;color:rgba(255,255,255,.32);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:color .2s}
 .simran-wa-link:hover{color:var(--gold)}
 
 /* About */
-.about-section{content-visibility:auto;contain-intrinsic-size:auto 500px;background:var(--white)}
+.about-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--white)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .about-title{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:20px}
 .about-text{color:var(--mist);line-height:1.8;margin-bottom:16px;font-size:.98rem}
@@ -726,7 +737,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .about-rating-text{color:rgba(255,255,255,.5);font-size:.8rem}
 
 /* FAQ */
-.faq-section{content-visibility:auto;contain-intrinsic-size:auto 500px;background:var(--cream)}
+.faq-section{content-visibility:auto;contain-intrinsic-size:auto 480px;background:var(--cream)}
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .faq-item{background:var(--white);border:1.5px solid #e8e0d0;border-radius:10px;overflow:hidden}
 .faq-q{padding:20px 24px;font-weight:600;color:var(--ink);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
@@ -737,7 +748,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .faq-item.open .faq-icon{transform:rotate(45deg)}
 
 /* Contact */
-.contact-section{content-visibility:auto;contain-intrinsic-size:auto 600px;background:var(--paper)}
+.contact-section{content-visibility:auto;contain-intrinsic-size:auto 620px;background:var(--paper)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .contact-form-card{background:var(--white);border-radius:16px;padding:44px;border:1px solid #e8e0d0}
 .contact-form-card h3{font-family:var(--serif);font-size:1.55rem;color:var(--ink);margin-bottom:8px}
@@ -765,7 +776,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 .wa-block .info-value{color:#4ade80;font-weight:700}
 
 /* Map */
-.map-section{background:var(--ink);padding:80px 0;content-visibility:auto;contain-intrinsic-size:auto 500px}
+.map-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--ink);padding:80px 0}
 .map-section .section-title{color:var(--white)}
 .map-section .section-sub{color:rgba(255,255,255,.4)}
 .map-embed{position:relative;width:100%;padding-bottom:46%;height:0;overflow:hidden;border-radius:14px;background:#1a1d26;border:1px solid rgba(201,168,76,.15);margin-top:44px}
@@ -822,106 +833,99 @@ textarea.form-input{resize:vertical;min-height:110px}
   .form-row{grid-template-columns:1fr}
   .contact-form-card{padding:26px}
   .footer-bottom{flex-direction:column;gap:8px;text-align:center}
-  .simran-left,.simran-right{padding:28px 22px}
-  .simran-stats{gap:16px}
+  .simran-left,.simran-right{padding:26px 20px}
+  .simran-stats{gap:14px}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .cities-track{animation:none}
 }
-@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
 </style>
 
-<!-- Schema JSON-LD -->
+<!-- Schema -->
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://www.jeemathcoaching.in/#org","name":"JEE Mathematics Coaching by Sarthak Tiwari","url":"https://www.jeemathcoaching.in/","telephone":"+917601047556","email":"fillform101@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Sangareddy","addressRegion":"Telangana","postalCode":"502285","addressCountry":"IN"},"areaServed":"IN","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120","bestRating":"5"},"sameAs":["https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"]},{"@type":"Person","@id":"https://www.jeemathcoaching.in/#tutor","name":"Sarthak Tiwari","jobTitle":"Mathematics Tutor & JEE Coach","alumniOf":{"@type":"EducationalOrganization","name":"Indian Institute of Technology Hyderabad"},"worksFor":{"@id":"https://www.jeemathcoaching.in/#org"},"telephone":"+917601047556"},{"@type":"Person","@id":"https://www.jeemathcoaching.in/simran#tutor","name":"Simran","jobTitle":"Mathematics & IELTS Educator","url":"https://www.jeemathcoaching.in/simran","worksFor":{"@id":"https://www.jeemathcoaching.in/#org"}},{"@type":"Course","name":"JEE Mathematics One-to-One Coaching","provider":{"@id":"https://www.jeemathcoaching.in/#org"},"offers":{"@type":"Offer","price":"700","priceCurrency":"INR"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@id":"https://www.jeemathcoaching.in/#tutor"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the fee for JEE Maths coaching?","acceptedAnswer":{"@type":"Answer","text":"One-to-one sessions are ₹700 per hour. Group classes and weekend batches are ₹450 per hour."}},{"@type":"Question","name":"Is there a free demo class?","acceptedAnswer":{"@type":"Answer","text":"Yes. A free demo class is available. Contact us on WhatsApp at +91 7601047556."}},{"@type":"Question","name":"Who is the tutor?","acceptedAnswer":{"@type":"Answer","text":"Sarthak Tiwari, MSc Mathematics from IIT Hyderabad, 3+ years coaching, 100+ IIT selections."}},{"@type":"Question","name":"Are classes online or offline?","acceptedAnswer":{"@type":"Answer","text":"All classes are fully online, 6 PM to 10 PM, Monday to Sunday."}}]}]}
 </script>
 
 <!--
   ════════════════════════════════════════════
-  ALL JS — deferred, zero blocking of main thread
-  GTM/GA loaded only inside requestIdleCallback
+  JAVASCRIPT STRATEGY:
+  • Navbar scroll → passive listener only (no DOM query)
+  • toggleNav + toggleFaq → inline onclick, no query
+  • ALL querySelectorAll loops → inside requestIdleCallback
+    so zero synchronous DOM work during parse/load
+  • GA/GTM → requestIdleCallback with 5s hard timeout
+  • Map → IntersectionObserver, never blocks
+  • Popup → requestIdleCallback + 4s delay
   ════════════════════════════════════════════
 -->
 <script>
-/* ── Navbar scroll (passive, non-blocking) ── */
+/* 1. Navbar scroll — single passive listener, no DOM scan */
+var _nb=document.getElementById('navbar');
 window.addEventListener('scroll',function(){
-  document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>40);
+  _nb.classList.toggle('scrolled',window.scrollY>40);
 },{passive:true});
 
-/* ── Mobile nav ── */
+/* 2. Mobile nav toggle — no querySelectorAll */
 function toggleNav(){document.getElementById('navLinks').classList.toggle('open');}
 
-/* ── Nav link close on click ── */
-document.querySelectorAll('.nav-links a').forEach(function(a){
-  a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});
-});
-
-/* ── Smooth scroll ── */
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener('click',function(e){
-    var t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
-  });
-});
-
-/* ── FAQ toggle ── */
+/* 3. FAQ toggle — no querySelectorAll */
 function toggleFaq(el){
-  var item=el.closest('.faq-item'),wasOpen=item.classList.contains('open');
+  var item=el.closest('.faq-item'),open=item.classList.contains('open');
   document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
-  if(!wasOpen)item.classList.add('open');
+  if(!open)item.classList.add('open');
 }
 
-/* ── Popup — shown only after idle + 4s delay ── */
+/* 4. Popup — idle + delay, never blocks */
 var _ps=false;
-function showPopup(){
-  if(_ps)return;_ps=true;
-  document.getElementById('popup').style.display='flex';
-  setTimeout(closePopup,14000);
-}
+function showPopup(){if(_ps)return;_ps=true;document.getElementById('popup').style.display='flex';setTimeout(closePopup,14000);}
 function closePopup(){var p=document.getElementById('popup');if(p)p.style.display='none';}
-var _pid=('requestIdleCallback' in window)
-  ? requestIdleCallback(function(){setTimeout(showPopup,4000);})
-  : setTimeout(showPopup,5000);
 
-/* ── Popup countdown ── */
-var _td=new Date('May 13, 2026').getTime();
-function _ut(){var d=Math.max(0,Math.floor((_td-Date.now())/86400000));var el=document.getElementById('popupTimer');if(el)el.textContent=d+' days';}
-_ut();setInterval(_ut,60000);
+/* 5. Popup timer */
+(function(){
+  var td=new Date('May 13, 2026').getTime();
+  function ut(){var el=document.getElementById('popupTimer');if(el)el.textContent=Math.max(0,Math.floor((td-Date.now())/86400000))+' days';}
+  ut();setInterval(ut,60000);
+})();
 
-/* ── Map lazy load ── */
+/* 6. Map lazy load */
 (function(){
   var f=document.querySelector('iframe[data-src]');
   if(!f)return;
-  var ob=new IntersectionObserver(function(e){
-    if(e[0].isIntersecting){f.src=f.dataset.src;ob.disconnect();}
-  },{rootMargin:'200px'});
-  ob.observe(f);
+  new IntersectionObserver(function(e,o){if(e[0].isIntersecting){f.src=f.dataset.src;o.disconnect();}},{rootMargin:'200px'}).observe(f);
 })();
 
-/* ── Google Analytics + GTM — fully idle, never blocks ── */
-function _loadGA(){
+/* 7. ALL deferred idle work — runs only after browser is free */
+var _idle='requestIdleCallback' in window;
+function _runIdle(fn,opts){_idle?requestIdleCallback(fn,opts):setTimeout(fn,opts&&opts.timeout||300);}
+
+/* Nav links close on click + smooth scroll — both deferred */
+_runIdle(function(){
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.addEventListener('click',function(){document.getElementById('navLinks').classList.remove('open');});
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    });
+  });
+},{timeout:500});
+
+/* Show popup after idle */
+_runIdle(function(){setTimeout(showPopup,4000);},{timeout:6000});
+
+/* GA/GTM — absolute last, 5s hard timeout so it never blocks */
+_runIdle(function(){
   window.dataLayer=window.dataLayer||[];
   function gtag(){window.dataLayer.push(arguments);}
   gtag('js',new Date());
   gtag('config','AW-17604664156');
   gtag('config','G-PCKGES6VZC');
   var s=document.createElement('script');
-  s.async=true;
-  s.src='https://www.googletagmanager.com/gtag/js?id=AW-17604664156';
+  s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-17604664156';
   document.head.appendChild(s);
-}
-if('requestIdleCallback' in window){
-  requestIdleCallback(_loadGA,{timeout:5000});
-} else {
-  window.addEventListener('load',function(){setTimeout(_loadGA,2000);});
-}
-
-/* ── Announce bar shimmer (cosmetic, post-load) ── */
-window.addEventListener('load',function(){
-  var bar=document.querySelector('.announce-bar');
-  if(bar)bar.style.cssText+='background:linear-gradient(90deg,#c9a84c,#b8923f,#c9a84c);background-size:200% 100%;animation:shimmer 3s linear infinite;';
-});
+},{timeout:5000});
 </script>
 </body>
 </html>
