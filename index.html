@@ -916,16 +916,28 @@ _runIdle(function(){
 _runIdle(function(){setTimeout(showPopup,4000);},{timeout:6000});
 
 /* GA/GTM — absolute last, 5s hard timeout so it never blocks */
-_runIdle(function(){
-  window.dataLayer=window.dataLayer||[];
-  function gtag(){window.dataLayer.push(arguments);}
-  gtag('js',new Date());
-  gtag('config','AW-17604664156');
-  gtag('config','G-PCKGES6VZC');
-  var s=document.createElement('script');
-  s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-17604664156';
+
+runIdle(function () {
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+
+  gtag('js', new Date());
+
+  // Google Analytics only
+  gtag('config', 'G-PCKGES6VZC');
+
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PCKGES6VZC';
+
   document.head.appendChild(s);
-},{timeout:5000});
+
+}, { timeout: 5000 });
+</script>
 </script>
 </body>
 </html>
