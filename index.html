@@ -595,9 +595,8 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 </footer>
 
 <!-- ═══════════════════════════════════════════
-  DEFERRED CSS — injected after first paint.
-  content-visibility: auto with MEASURED
-  contain-intrinsic-size to prevent CLS reflow.
+  DEFERRED CSS — below-fold sections.
+  content-visibility removed to eliminate CLS.
 ═══════════════════════════════════════════ -->
 <style>
 .section{padding:96px 0}
@@ -618,7 +617,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .why-desc{color:var(--mist);font-size:.9rem;line-height:1.7}
 
 /* Courses — CLS: intrinsic-size based on 3-col card grid ~720px tall */
-.courses-section{content-visibility:auto;contain-intrinsic-size:auto 760px;background:var(--cream)}
+.courses-section{background:var(--cream)}
 .courses-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .course-card{background:var(--white);border-radius:14px;padding:36px;border:1.5px solid #e8e0d0;position:relative;transition:transform .35s,box-shadow .35s;overflow:hidden}
 .course-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--rust));transform:scaleX(0);transform-origin:left;transition:transform .4s}
@@ -651,7 +650,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .btn-enroll-outline:hover{background:var(--gold);color:var(--ink)}
 
 /* Curriculum */
-.curriculum-section{content-visibility:auto;contain-intrinsic-size:auto 560px;background:var(--ink)}
+.curriculum-section{background:var(--ink)}
 .curriculum-section .section-title{color:var(--white)}
 .curriculum-section .section-sub{color:rgba(255,255,255,.78)}
 .curric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -664,7 +663,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .curric-card li::before{content:'—';color:var(--gold);flex-shrink:0;font-size:.78rem;margin-top:2px}
 
 /* Schedule */
-.schedule-section{content-visibility:auto;contain-intrinsic-size:auto 340px;background:var(--paper)}
+.schedule-section{background:var(--paper)}
 .sched-card{background:var(--white);border-radius:16px;padding:56px;border:1px solid #e8e0d0;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:center}
 .sched-block{text-align:center;padding:16px}
 .sched-divider{width:1px;background:#e8e0d0;height:70px}
@@ -674,7 +673,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .sched-free{font-family:var(--serif);font-size:2rem;font-weight:900;color:var(--gold)}
 
 /* Testimonials */
-.testi-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--cream)}
+.testi-section{background:var(--cream)}
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .testi-card{background:var(--white);border-radius:12px;padding:32px;border:1.5px solid #e8e0d0;transition:transform .3s,box-shadow .3s}
 .testi-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.08);transform:translateY(-3px)}
@@ -688,7 +687,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .result-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.2);color:var(--gold);padding:3px 10px;border-radius:100px;font-size:.72rem;font-weight:600;margin-top:6px}
 
 /* Simran */
-.simran-section{content-visibility:auto;contain-intrinsic-size:auto 480px;background:var(--ink);padding:96px 0;position:relative;overflow:hidden}
+.simran-section{background:var(--ink);padding:96px 0;position:relative;overflow:hidden}
 .simran-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 55% 70% at 80% 50%,rgba(201,168,76,.07) 0%,transparent 65%);pointer-events:none}
 .simran-card{background:rgba(255,255,255,.03);border:1px solid rgba(201,168,76,.2);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:300px 1fr;position:relative;z-index:1}
 .simran-left{background:linear-gradient(145deg,rgba(201,168,76,.1) 0%,rgba(201,168,76,.03) 100%);border-right:1px solid rgba(201,168,76,.15);padding:48px 36px;display:flex;flex-direction:column;justify-content:center}
@@ -716,7 +715,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .simran-wa-link:hover{color:var(--gold)}
 
 /* About */
-.about-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--white)}
+.about-section{background:var(--white)}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .about-title{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.4rem);font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:20px}
 .about-text{color:var(--mist);line-height:1.8;margin-bottom:16px;font-size:.98rem}
@@ -737,7 +736,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .about-rating-text{color:rgba(255,255,255,.82);font-size:.8rem}
 
 /* FAQ */
-.faq-section{content-visibility:auto;contain-intrinsic-size:auto 480px;background:var(--cream)}
+.faq-section{background:var(--cream)}
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .faq-item{background:var(--white);border:1.5px solid #e8e0d0;border-radius:10px;overflow:hidden}
 .faq-q{padding:20px 24px;font-weight:600;color:var(--ink);font-size:.95rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
@@ -748,7 +747,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);overflow-x
 .faq-item.open .faq-icon{transform:rotate(45deg)}
 
 /* Contact */
-.contact-section{content-visibility:auto;contain-intrinsic-size:auto 620px;background:var(--paper)}
+.contact-section{background:var(--paper)}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
 .contact-form-card{background:var(--white);border-radius:16px;padding:44px;border:1px solid #e8e0d0}
 .contact-form-card h3{font-family:var(--serif);font-size:1.55rem;color:var(--ink);margin-bottom:8px}
@@ -776,7 +775,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 .wa-block .info-value{color:#4ade80;font-weight:700}
 
 /* Map */
-.map-section{content-visibility:auto;contain-intrinsic-size:auto 520px;background:var(--ink);padding:80px 0}
+.map-section{background:var(--ink);padding:80px 0}
 .map-section .section-title{color:var(--white)}
 .map-section .section-sub{color:rgba(255,255,255,.78)}
 .map-embed{position:relative;width:100%;padding-bottom:46%;height:0;overflow:hidden;border-radius:14px;background:#1a1d26;border:1px solid rgba(201,168,76,.15);margin-top:44px}
@@ -916,28 +915,16 @@ _runIdle(function(){
 _runIdle(function(){setTimeout(showPopup,4000);},{timeout:6000});
 
 /* GA/GTM — absolute last, 5s hard timeout so it never blocks */
-
-runIdle(function () {
-
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag() {
-    window.dataLayer.push(arguments);
-  }
-
-  gtag('js', new Date());
-
-  // Google Analytics only
-  gtag('config', 'G-PCKGES6VZC');
-
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-PCKGES6VZC';
-
+_runIdle(function(){
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','AW-17604664156');
+  gtag('config','G-PCKGES6VZC');
+  var s=document.createElement('script');
+  s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=AW-17604664156';
   document.head.appendChild(s);
-
-}, { timeout: 5000 });
-</script>
+},{timeout:5000});
 </script>
 </body>
 </html>
