@@ -4,13 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!--
-  ══════════════════════════════════════════════════════
-  jeemathcoaching.in — Production Build v2
-  Lighthouse target: 95+ Performance (mobile)
-  All fixes applied including Android overflow bug
-  ══════════════════════════════════════════════════════
--->
+
 
 <link rel="preconnect" href="https://formspree.io" crossorigin>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
@@ -33,15 +27,7 @@
 <meta name="geo.region" content="IN-TG">
 <meta name="geo.placename" content="Hyderabad, Telangana">
 
-<!-- ══════════════════════════════════════════════════
-     CRITICAL CSS — above-fold only (announce-bar,
-     navbar, hero, cities-strip, social-proof).
-     Deferred CSS lives near </body>.
 
-     ANDROID OVERFLOW FIX applied here:
-     • html + body both get overflow-x:hidden + max-width:100%
-     • This is the #1 fix for the white half-screen bug
-     ══════════════════════════════════════════════════ -->
 <style>
 /* ── DESIGN TOKENS ── */
 :root{
@@ -55,12 +41,7 @@
   --sans:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;
 }
 
-/* ── ANDROID OVERFLOW FIX ──────────────────────────────
-   BOTH html AND body need overflow-x:hidden.
-   body alone is unreliable on Android WebView/Chrome.
-   max-width:100% prevents any element from stretching
-   the document width beyond the viewport.
-   ────────────────────────────────────────────────────── */
+
 html{
   overflow-x:hidden;
   max-width:100%;
@@ -76,11 +57,7 @@ body{
   -webkit-font-smoothing:antialiased;
 }
 
-/* ── ANNOUNCE BAR ──
-   height:40px reserved upfront → zero CLS.
-   Shimmer via transform:translateX (GPU composited).
-   will-change scoped to ::after only.
-   ────────────────────────────────────────────────────── */
+
 .announce-bar{
   height:40px;min-height:40px;
   display:flex;align-items:center;justify-content:center;
@@ -162,10 +139,7 @@ body{
   align-items:center;justify-content:center;flex-shrink:0;
 }
 
-/* ── HERO ──────────────────────────────────────────────
-   ANDROID FIX: max-width:100vw + overflow:hidden
-   prevents hero from creating horizontal scroll.
-   ────────────────────────────────────────────────────── */
+
 .hero{
   background:var(--ink);
   display:flex;align-items:center;
@@ -290,21 +264,13 @@ body{
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
 
-/* ── CITIES STRIP ─────────────────────────────────────
-   ANDROID FIX: position:relative is essential.
-   overflow:hidden only clips content within a
-   positioning context. Without position:relative,
-   the composited .cities-track (will-change:transform)
-   can escape the clip on Android Chrome/WebView.
-   max-width:100vw hard-caps the strip.
-   DOM: 14 nodes (was 40) — 65% reduction.
-   ────────────────────────────────────────────────────── */
+
 .cities-strip{
   background:var(--ink);
   padding:18px 0;
   overflow:hidden;
-  position:relative;     /* FIX: required for overflow clip to work */
-  max-width:100vw;       /* FIX: hard cap */
+  position:relative;   
+  max-width:100vw;       
   width:100%;
   border-top:1px solid rgba(201,168,76,.1);
   border-bottom:1px solid rgba(201,168,76,.1);
@@ -379,7 +345,7 @@ body{
 </head>
 <body>
 
-<!-- WA Float Button — SVG inline, explicit w/h = zero CLS, zero network req -->
+
 <a href="https://wa.me/917601047556?text=Hi%20Sarthak%2C%20I%20want%20to%20book%20a%20JEE%20Maths%20demo%20class%20at%20%E2%82%B9200"
    class="wa-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
   <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true" focusable="false">
@@ -395,21 +361,8 @@ body{
   </a>
 </div>
 
-<!-- Popup — display:none, shown via requestIdleCallback after 4s -->
-<div id="popup" class="popup-overlay" style="display:none" aria-modal="true" role="dialog" aria-labelledby="popup-title">
-  <div class="popup-box">
-    <button class="popup-close" id="popupClose" aria-label="Close popup">✕</button>
-    <div class="popup-tag">✦ Enrolling Now</div>
-    <div class="popup-title" id="popup-title">Summer JEE Maths Foundation</div>
-    <div class="popup-desc">Build rock-solid concepts for Class 11, 12 &amp; JEE under IIT Hyderabad mentorship. Seats filling fast.</div>
-    <div class="popup-stats">
-      <div class="popup-stat"><div class="popup-stat-val">18 seats</div><div class="popup-stat-key">Remaining</div></div>
-      <div class="popup-stat"><div class="popup-stat-val"><span id="popupTimer" aria-live="polite">—</span></div><div class="popup-stat-key">Days to start</div></div>
-    </div>
-    <a href="https://wa.me/917601047556?text=Hi%2C+I+want+to+know+about+the+Summer+JEE+Maths+Foundation+Program"
-       target="_blank" rel="noopener noreferrer" class="popup-cta">Reserve My Seat on WhatsApp →</a>
-  </div>
-</div>
+
+
 
 <!-- ══ NAVBAR ══ -->
 <nav class="navbar" id="navbar" aria-label="Main navigation">
@@ -1122,14 +1075,7 @@ body{
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════════════
-     DEFERRED CSS — below-fold only. Placed before </body>.
-     Browser paints the hero before processing any of this.
 
-     KEY: content-visibility:auto on every below-fold section.
-     Skips layout+paint+composite for off-screen content.
-     Single biggest Lighthouse Performance boost on mobile.
-     ══════════════════════════════════════════════════════════ -->
 <style>
 .section{padding:96px 0}
 .container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%}
@@ -1151,10 +1097,7 @@ body{
 .map-section        {content-visibility:auto;contain-intrinsic-size:auto 550px}
 .footer             {content-visibility:auto;contain-intrinsic-size:auto 350px}
 
-/* ── WHY ──
-   CSS counter replaces 6 hardcoded .why-num divs.
-   Hover: transform only (GPU). box-shadow static on :hover (no animation).
-   ──────────────────────────────────────────────── */
+
 .why-section{background:var(--white)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:why-counter}
 .why-card{
@@ -1359,22 +1302,8 @@ textarea.form-input{resize:vertical;min-height:110px}
 .map-embed{position:relative;width:100%;padding-bottom:46%;height:0;overflow:hidden;border-radius:14px;background:#1a1d26;border:1px solid rgba(201,168,76,.15);margin-top:44px;contain:layout style}
 .map-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 
-/* ── POPUP — transform+opacity animation only ── */
-.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,.82);z-index:10000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
-.popup-box{background:var(--ink);border:1px solid rgba(201,168,76,.3);border-radius:16px;padding:44px 38px;max-width:450px;width:90%;text-align:center;position:relative;animation:pop .4s cubic-bezier(.175,.885,.32,1.275) both}
-.popup-box::before{content:'';position:absolute;top:-1px;left:25%;right:25%;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
-.popup-close{position:absolute;top:14px;right:16px;background:rgba(255,255,255,.08);border:none;border-radius:50%;color:rgba(255,255,255,.78);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;width:44px;height:44px}
-.popup-close:hover{background:rgba(255,255,255,.15);color:white}
-.popup-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.22);color:var(--gold);padding:5px 14px;border-radius:100px;font-size:.73rem;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
-.popup-title{font-family:var(--serif);font-size:1.6rem;color:var(--white);line-height:1.2;margin-bottom:10px}
-.popup-desc{color:rgba(255,255,255,.82);font-size:.88rem;margin-bottom:22px;line-height:1.6}
-.popup-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}
-.popup-stat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:8px;padding:13px}
-.popup-stat-val{font-family:var(--mono);font-size:1.05rem;color:var(--gold);font-weight:500}
-.popup-stat-key{color:rgba(255,255,255,.75);font-size:.76rem;margin-top:3px}
-.popup-cta{display:block;background:#c9a84c;color:var(--ink);padding:15px;border-radius:8px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .25s,opacity .25s}
-.popup-cta:hover{transform:translateY(-2px);opacity:.9}
-@keyframes pop{from{opacity:0;transform:scale(.85) translateZ(0)}to{opacity:1;transform:scale(1) translateZ(0)}}
+
+
 
 /* ── FOOTER ── */
 .footer{background:#080a0e;padding:64px 0 28px}
@@ -1438,19 +1367,7 @@ textarea.form-input{resize:vertical;min-height:110px}
 {"@context":"https://schema.org","@graph":[{"@type":"EducationalOrganization","@id":"https://www.jeemathcoaching.in/#org","name":"JEE Mathematics Coaching by Sarthak Tiwari","url":"https://www.jeemathcoaching.in/","telephone":"+917601047556","email":"fillform101@gmail.com","address":{"@type":"PostalAddress","addressLocality":"Sangareddy","addressRegion":"Telangana","postalCode":"502285","addressCountry":"IN"},"areaServed":"IN","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"120","bestRating":"5"},"sameAs":["https://maps.app.goo.gl/vWXU8x6zFiTNP4wH7"]},{"@type":"Person","@id":"https://www.jeemathcoaching.in/#tutor","name":"Sarthak Tiwari","jobTitle":"Mathematics Tutor & JEE Coach","alumniOf":{"@type":"EducationalOrganization","name":"Indian Institute of Technology Hyderabad"},"worksFor":{"@id":"https://www.jeemathcoaching.in/#org"},"telephone":"+917601047556"},{"@type":"Person","@id":"https://www.jeemathcoaching.in/simran#tutor","name":"Simran","jobTitle":"Mathematics & IELTS Educator","url":"https://www.jeemathcoaching.in/simran","worksFor":{"@id":"https://www.jeemathcoaching.in/#org"}},{"@type":"Course","name":"JEE Mathematics One-to-One Coaching","provider":{"@id":"https://www.jeemathcoaching.in/#org"},"offers":{"@type":"Offer","price":"900","priceCurrency":"INR"},"hasCourseInstance":{"@type":"CourseInstance","courseMode":"Online","instructor":{"@id":"https://www.jeemathcoaching.in/#tutor"}}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the fee for JEE Maths coaching?","acceptedAnswer":{"@type":"Answer","text":"One-to-one sessions are ₹900 per hour. Group classes and weekend batches are ₹650 per hour."}},{"@type":"Question","name":"Is there a demo class available?","acceptedAnswer":{"@type":"Answer","text":"Yes. A demo class is available at ₹200. Contact us on WhatsApp at +91 7601047556."}},{"@type":"Question","name":"Who is the tutor?","acceptedAnswer":{"@type":"Answer","text":"Sarthak Tiwari, MSc Mathematics from IIT Hyderabad, 3+ years coaching, 100+ IIT selections."}},{"@type":"Question","name":"Are classes online or offline?","acceptedAnswer":{"@type":"Answer","text":"All classes are fully online, 6 PM to 10 PM, Monday to Sunday."}}]}]}
 </script>
 
-<!-- ══════════════════════════════════════════════════
-     JAVASCRIPT — Optimised for INP + TBT
 
-     Changes:
-     1. All DOM refs cached once at top
-     2. FAQ: single delegated listener (no inline handlers)
-     3. Popup close button wired via addEventListener (not inline)
-     4. Scroll listener: passive:true, no layout reads
-     5. Map: IntersectionObserver lazy load
-     6. GA: requestIdleCallback + 5s hard timeout
-     7. Popup: requestIdleCallback + 4s delay
-     8. Nav + smooth scroll: deferred idle
-     ══════════════════════════════════════════════════ -->
 <script>
 (function(){
 'use strict';
@@ -1474,10 +1391,7 @@ nt.addEventListener('click', function(){
   nt.setAttribute('aria-expanded', open ? 'true' : 'false');
 });
 
-/* ── 3. FAQ EVENT DELEGATION ──
-   One listener on #faqGrid handles all 8 questions.
-   openItem ref avoids querySelectorAll on every click.
-   ────────────────────────────────────────────────── */
+
 if(fg){
   var openItem = null;
   function toggleFaqItem(item){
