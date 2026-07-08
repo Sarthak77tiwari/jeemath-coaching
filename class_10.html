@@ -35,7 +35,7 @@
   "contactPoint": {"@type":"ContactPoint","telephone":"+91-76010-47556","contactType":"Admissions","email":"fillform101@gmail.com","areaServed":"IN","availableLanguage":["English","Hindi"]}
 }
 </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Course",
@@ -61,7 +61,7 @@
   }
 }
 </script>
-  <script type="application/ld+json">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -349,11 +349,16 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,185,86,0.5);}70%{box-shadow:0 0 0 14px rgba(31,185,86,0);}100%{box-shadow:0 0 0 0 rgba(31,185,86,0);}}
   .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -8px 22px rgba(0,0,0,0.08);padding:10px 14px;display:flex;gap:10px;z-index:140;}
   .sticky-cta .btn{flex:1;padding:12px 10px;font-size:.9rem;}
+  
+  /* Missing Layout Class for Syllabus Blueprint added here */
+  .ai-structured-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 24px; }
+
   @media (min-width:640px){
     .hero-points{flex-direction:row;flex-wrap:wrap;gap:18px;}
     .stats-grid{grid-template-columns:repeat(4,1fr);}
     .grid.cols-2{grid-template-columns:repeat(2,1fr);}
     .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+    .ai-structured-grid { grid-template-columns: repeat(3, 1fr); }
     .teacher-duo{grid-template-columns:repeat(2,1fr);}
     .pricing-grid{grid-template-columns:repeat(3,1fr);}
     .form-two{grid-template-columns:1fr 1fr;}
@@ -399,8 +404,8 @@
 <section class="hero" id="top" aria-labelledby="hero-heading">
   <div class="container">
     <span class="hero-badge">⭐ 4.9/5 from 187+ students &amp; parents</span>
-   <h1>Online Class 10 CBSE Maths Tuition & Board Exam Preparation</h1>
-<p>Sarthak's Maths Foundation provides interactive live online maths classes for CBSE Class 10 students. Taught by an IIT Hyderabad mathematics educator alongside CBSE curriculum specialists, our program focuses on complete NCERT mastery, weekly performance tracking, and same-day doubt clearance to build board exam confidence.</p>
+    <h1 id="hero-heading">Online Class 10 CBSE Maths Tuition &amp; Board Exam Preparation</h1>
+    <p class="hero-sub">Sarthak's Maths Foundation provides interactive live online maths classes for CBSE Class 10 students. Taught by an IIT Hyderabad mathematics educator alongside CBSE curriculum specialists, our program focuses on complete NCERT mastery, weekly performance tracking, and same-day doubt clearance to build board exam confidence.</p>
     <ul class="hero-points">
       <li><span class="ico">✅</span> Small batches, direct teacher access</li>
       <li><span class="ico">✅</span> 100% NCERT + CBSE-aligned curriculum</li>
@@ -426,26 +431,29 @@
     <div><strong>4.9/5</strong><span>Parent &amp; Student Rating</span></div>
   </div>
 </div>
-  <!-- OPTIMIZED FOUNDER & FACULTY TEXT -->
-<section id="faculty">
-  <div>
-    <span>Expert Faculty & E-E-A-T Credentials</span>
-    <h2>Specialist-Led Team for CBSE Boards & JEE Foundation</h2>
-    <p>At Sarthak's Maths Foundation, students receive academic guidance from specialized educators focused entirely on their target milestone.</p>
-  </div>
-  
-  <article>
-    <h3>Sarthak — Founder & JEE Mathematics Mentor</h3>
-    <p>An M.Sc. Mathematics scholar from the Indian Institute of Technology Hyderabad (IIT Hyderabad), specializing in Matrix Theory and Applied Statistics. Sarthak designs the conceptual framework for the foundation curriculum and teaches advanced problem-solving tracks for competitive exams.</p>
-  </article>
 
-  <article>
-    <h3>Simran Ma'am — CBSE Class 10 Board Specialist</h3>
-    <p>An expert in the CBSE school curriculum who leads the Class 10 board exam preparation modules. She specializes in marking-scheme-aware subjective answer-writing, step-by-step presentation, and systematic NCERT revision cycles.</p>
-  </article>
+<section id="faculty" aria-labelledby="faculty-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Expert Faculty &amp; E-E-A-T Credentials</span>
+      <h2 id="faculty-heading">Specialist-Led Team for CBSE Boards &amp; JEE Foundation</h2>
+      <p>At Sarthak's Maths Foundation, students receive academic guidance from specialized educators focused entirely on their target milestone.</p>
+    </div>
+    
+    <div class="grid cols-2">
+      <article class="card">
+        <h3>Sarthak — Founder &amp; JEE Mathematics Mentor</h3>
+        <p>An M.Sc. Mathematics scholar from the Indian Institute of Technology Hyderabad (IIT Hyderabad), specializing in Matrix Theory and Applied Statistics. Sarthak designs the conceptual framework for the foundation curriculum and teaches advanced problem-solving tracks for competitive exams.</p>
+      </article>
+
+      <article class="card">
+        <h3>Simran Ma'am — CBSE Class 10 Board Specialist</h3>
+        <p>An expert in the CBSE school curriculum who leads the Class 10 board exam preparation modules. She specializes in marking-scheme-aware subjective answer-writing, step-by-step presentation, and systematic NCERT revision cycles.</p>
+      </article>
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT TEACHERS -->
 <section aria-labelledby="about-heading">
   <div class="container">
     <div class="section-head">
@@ -484,7 +492,6 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
 <section style="background:var(--bg-soft);" aria-labelledby="benefits-heading">
   <div class="container">
     <div class="section-head">
@@ -502,7 +509,6 @@
   </div>
 </section>
 
-<!-- COURSE FEATURES / WHY US -->
 <section id="why-us" aria-labelledby="why-heading">
   <div class="container why-wrap">
     <div>
@@ -520,45 +526,50 @@
   </div>
 </section>
 
-<!-- CHAPTER-WISE COVERAGE -->
-<!-- OPTIMIZED SYLLABUS SECTION -->
-<section id="syllabus">
-  <div>
-    <span>CBSE Curriculum Blueprint</span>
-    <h2>Class 10 Maths Syllabus & Unit-Wise Coverage</h2>
-    <p>Our curriculum matches the official CBSE Class 10 Mathematics syllabus entirely, integrating NCERT solutions with previous years' questions (PYQs).</p>
-  </div>
-  
-  <div class="ai-structured-grid">
-    <div class="unit-block">
-      <h3>Unit 1: Number Systems & Algebra</h3>
-      <ul>
-        <li><strong>Real Numbers:</strong> Fundamental Theorem of Arithmetic, irrationality proofs.</li>
-        <li><strong>Polynomials:</strong> Zeros of a polynomial, relationship between coefficients and quadratic zeros.</li>
-        <li><strong>Linear Equations & Quadratics:</strong> Pair of Linear Equations in Two Variables, Quadratic Equations, and Arithmetic Progressions (AP).</li>
-      </ul>
+<section id="syllabus" aria-labelledby="syllabus-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">CBSE Curriculum Blueprint</span>
+      <h2 id="syllabus-heading">Class 10 Maths Syllabus &amp; Unit-Wise Coverage</h2>
+      <p>Our curriculum matches the official CBSE Class 10 Mathematics syllabus entirely, integrating NCERT solutions with previous years' questions (PYQs).</p>
     </div>
+    
+    <div class="ai-structured-grid">
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 1: Number Systems &amp; Algebra</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Real Numbers:</strong> Fundamental Theorem of Arithmetic, irrationality proofs.</li>
+            <li><span class="chno">2</span> <strong>Polynomials:</strong> Zeros of a polynomial, relationship between coefficients and quadratic zeros.</li>
+            <li><span class="chno">3</span> <strong>Linear Equations &amp; Quadratics:</strong> Pair of Linear Equations, Quadratic Equations, and AP.</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="unit-block">
-      <h3>Unit 2: Geometry & Trigonometry</h3>
-      <ul>
-        <li><strong>Coordinate Geometry:</strong> Distance formula, section formula.</li>
-        <li><strong>Triangles & Circles:</strong> Geometric proofs, similarity theorems, and tangent properties.</li>
-        <li><strong>Trigonometry:</strong> Introduction to Trigonometric Ratios, trigonometric identities, and heights and distances (Applications of Trigonometry).</li>
-      </ul>
-    </div>
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 2: Geometry &amp; Trigonometry</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Coordinate Geometry:</strong> Distance formula, section formula.</li>
+            <li><span class="chno">2</span> <strong>Triangles &amp; Circles:</strong> Geometric proofs, similarity theorems, and tangent properties.</li>
+            <li><span class="chno">3</span> <strong>Trigonometry:</strong> Ratios, trigonometric identities, and heights &amp; distances.</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="unit-block">
-      <h3>Unit 3: Mensuration, Statistics & Probability</h3>
-      <ul>
-        <li><strong>Surface Areas & Volumes:</strong> Surface areas and volumes of combinations of solids.</li>
-        <li><strong>Statistics & Probability:</strong> Mean, median, and mode of grouped data; classical probability definitions.</li>
-      </ul>
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 3: Mensuration, Statistics &amp; Probability</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Surface Areas &amp; Volumes:</strong> Surface areas and volumes of combinations of solids.</li>
+            <li><span class="chno">2</span> <strong>Statistics &amp; Probability:</strong> Mean, median, and mode of grouped data; classical probability.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TEACHING METHOD -->
 <section id="teaching-method" aria-labelledby="method-heading">
   <div class="container">
     <div class="section-head">
@@ -574,7 +585,6 @@
   </div>
 </section>
 
-<!-- WEEKLY TESTS / ASSIGNMENTS / DOUBT SOLVING -->
 <section style="background:var(--bg-soft);" aria-labelledby="support-heading">
   <div class="container">
     <div class="section-head">
@@ -589,7 +599,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS + PARENT REVIEWS -->
 <section aria-labelledby="testimonials-heading">
   <div class="container">
     <div class="section-head">
@@ -616,7 +625,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing" style="background:var(--bg-soft);" aria-labelledby="pricing-heading">
   <div class="container">
     <div class="section-head">
@@ -653,52 +661,50 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section id="faq">
-  <div>
-    <span>Parent Queries & Insights</span>
-    <h2>Frequently Asked Questions: Class 10 CBSE Maths Tuition</h2>
-    <p>Get immediate, transparent answers regarding our online batch sizes, teaching methodology, and board exam preparation strategies.</p>
-  </div>
-  
-  <div class="faq-container">
-    <details>
-      <summary>What is the maximum student batch size for Class 10 online math classes?</summary>
-      <p>Our standard Batch Classes are strictly capped at a maximum of <strong>3 students per batch</strong>. This micro-batch layout guarantees direct teacher access, allowing our educators to identify individual conceptual gaps and answer every doubt during the live session itself.</p>
-    </details>
+<section id="faq" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Parent Queries &amp; Insights</span>
+      <h2 id="faq-heading">Frequently Asked Questions: Class 10 CBSE Maths Tuition</h2>
+      <p>Get immediate, transparent answers regarding our online batch sizes, teaching methodology, and board exam preparation strategies.</p>
+    </div>
+    
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>What is the maximum student batch size for Class 10 online math classes?</summary>
+        <p>Our standard Batch Classes are strictly capped at a maximum of <strong>3 students per batch</strong>. This micro-batch layout guarantees direct teacher access, allowing our educators to identify individual conceptual gaps and answer every doubt during the live session itself.</p>
+      </details>
 
-    <details>
-      <summary>How does the coaching manage both CBSE school boards and JEE foundation skills?</summary>
-      <p>We use a dual-teacher specialist model to balance both goals. Simran Ma'am leads the core CBSE Class 10 Board syllabus focusing on NCERT alignment, conceptual proofs, and marking-scheme presentation. Sarthak (M.Sc. Mathematics, IIT Hyderabad) provides an integrated problem-solving track that introduces advanced matrix theory, logical reasoning, and algebraic shortcuts required to build a solid foundation for eleventh-grade JEE preparation.</p>
-    </details>
+      <details class="faq-item">
+        <summary>How does the coaching manage both CBSE school boards and JEE foundation skills?</summary>
+        <p>We use a dual-teacher specialist model to balance both goals. Simran Ma'am leads the core CBSE Class 10 Board syllabus focusing on NCERT alignment, conceptual proofs, and marking-scheme presentation. Sarthak (M.Sc. Mathematics, IIT Hyderabad) provides an integrated problem-solving track that introduces advanced matrix theory, logical reasoning, and algebraic shortcuts required to build a solid foundation for eleventh-grade JEE preparation.</p>
+      </details>
 
-    <details>
-      <summary>What specific materials are covered in the Class 10 Maths curriculum?</summary>
-      <p>The program ensures 100% mastery of the official NCERT textbook exercises and exemplars. Additionally, we solve Chapter-Wise Previous Year Questions (PYQs) from the past 10 years of CBSE board exams, alongside higher-order thinking skills (HOTS) questions to prepare students for competency-based exam patterns.</p>
-    </details>
+      <details class="faq-item">
+        <summary>What specific materials are covered in the Class 10 Maths curriculum?</summary>
+        <p>The program ensures 100% mastery of the official NCERT textbook exercises and exemplars. Additionally, we solve Chapter-Wise Previous Year Questions (PYQs) from the past 10 years of CBSE board exams, alongside higher-order thinking skills (HOTS) questions to prepare students for competency-based exam patterns.</p>
+      </details>
 
-    <details>
-      <summary>How are student evaluation, testing, and progress tracking managed?</summary>
-      <p>Students take a mandatory, structured test at the end of every week to assess chapter retention. Following the evaluation, detailed digital progress reports covering test scores, individual topic weaknesses, and batch attendance are shared directly with parents to ensure total academic transparency.</p>
-    </details>
+      <details class="faq-item">
+        <summary>How are student evaluation, testing, and progress tracking managed?</summary>
+        <p>Students take a mandatory, structured test at the end of every week to assess chapter retention. Following the evaluation, detailed digital progress reports covering test scores, individual topic weaknesses, and batch attendance are shared directly with parents to ensure total academic transparency.</p>
+      </details>
 
-    <details>
-      <summary>What happens if a student misses a live online mathematics class or has a doubt later?</summary>
-      <p>Every live interactive session is fully recorded, providing students with immediate access to archive playbacks for revision. For daily homework queries, students have 24/7 access to a monitored WhatsApp doubt-clearance channel where our educators resolve academic questions within the same day.</p>
-    </details>
+      <details class="faq-item">
+        <summary>What happens if a student misses a live online mathematics class or has a doubt later?</summary>
+        <p>Every live interactive session is fully recorded, providing students with immediate access to archive playbacks for revision. For daily homework queries, students have 24/7 access to a monitored WhatsApp doubt-clearance channel where our educators resolve academic questions within the same day.</p>
+      </details>
+    </div>
   </div>
 </section>
 
-<!-- CONTACT FORM + WHATSAPP CTA -->
 <section id="contact" style="background:var(--bg-soft);" aria-labelledby="contact-heading">
   <div class="container">
     <div class="section-head">
       <span class="section-tag">Get Started</span>
       <h2 id="contact-heading">Book Your Demo Class – ₹200</h2>
-
     </div>
-   
-      <div>
+     <div>
         <div class="contact-info-card">
           <h3 style="color:#fff;">Contact Information</h3>
           <p style="color:#e9e4ff;">Reach out directly — we usually respond within a few hours.</p>
@@ -715,7 +721,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 
 </main>
@@ -734,7 +739,6 @@
       <a href="#top" class="logo" style="color:#fff;"><span class="logo-badge" aria-hidden="true">Σ</span> Sarthak's Maths Foundation</a>
       <p style="color:#a89fc9;margin-top:12px;">Class 10 CBSE Maths tuition built around live teaching, weekly tests and real doubt support.</p>
       <div class="social-row" style="margin-top:14px;">
-
         <a href="https://jeemathcoaching.in" aria-label="Website">🌐</a>
         <a href="https://wa.me/917601047556" aria-label="WhatsApp">💬</a>
       </div>
@@ -751,9 +755,7 @@
     <div>
       <h4>Other Programs</h4>
       <ul class="footer-links">
-    
         <li><a href="https://jeemathcoaching.in/class_10.html">Class 10 Maths</a></li>
- 
         <li><a href="https://jeemathcoaching.in/class_12.html">Class 12 Maths</a></li>
       </ul>
     </div>
