@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -167,7 +168,7 @@
     "name": "How does this program help with the CBSE marking scheme?",
     "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Answers are taught step-by-step exactly as CBSE examiners award marks, so students don't lose marks on steps they actually understand \u2014 a common issue in Calculus and Vectors."
+      "text": "Answers are taught step-by-step exactly as CBSE examiners award marks, so students don't lose marks on steps they actually understand — a common issue in Calculus and Vectors."
     }
   },
   {
@@ -340,11 +341,16 @@
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(31,185,86,0.5);}70%{box-shadow:0 0 0 14px rgba(31,185,86,0);}100%{box-shadow:0 0 0 0 rgba(31,185,86,0);}}
   .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--border);box-shadow:0 -8px 22px rgba(0,0,0,0.08);padding:10px 14px;display:flex;gap:10px;z-index:140;}
   .sticky-cta .btn{flex:1;padding:12px 10px;font-size:.9rem;}
+  
+  /* Layout Classes added for proper layout rendering */
+  .ai-structured-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 24px; }
+
   @media (min-width:640px){
     .hero-points{flex-direction:row;flex-wrap:wrap;gap:18px;}
     .stats-grid{grid-template-columns:repeat(4,1fr);}
     .grid.cols-2{grid-template-columns:repeat(2,1fr);}
     .grid.cols-3{grid-template-columns:repeat(3,1fr);}
+    .ai-structured-grid { grid-template-columns: repeat(3, 1fr); }
     .teacher-duo{grid-template-columns:repeat(2,1fr);}
     .pricing-grid{grid-template-columns:repeat(3,1fr);}
     .form-two{grid-template-columns:1fr 1fr;}
@@ -390,9 +396,8 @@
 <section class="hero" id="top" aria-labelledby="hero-heading">
   <div class="container">
     <span class="hero-badge">⭐ 4.9/5 from 187+ students &amp; parents</span>
-    <!-- OPTIMIZED FOR AI EXTRACTABILITY -->
-<h1>Online Class 12 CBSE Maths Tuition — Advanced Board Exam Coaching</h1>
-<p>Sarthak's Maths Foundation provides premium live online math classes tailored explicitly for CBSE Class 12 board exams. Led by an IIT Hyderabad mathematics educator and curriculum professionals, the program simplifies high-weightage topics like Calculus, Vectors, and 3D Geometry while training students in step-by-step presentation aligned with the official CBSE marking scheme.</p>
+    <h1 id="hero-heading">Online Class 12 CBSE Maths Tuition — Advanced Board Exam Coaching</h1>
+    <p class="hero-sub">Sarthak's Maths Foundation provides premium live online math classes tailored explicitly for CBSE Class 12 board exams. Led by an IIT Hyderabad mathematics educator and curriculum professionals, the program simplifies high-weightage topics like Calculus, Vectors, and 3D Geometry while training students in step-by-step presentation aligned with the official CBSE marking scheme.</p>
     <ul class="hero-points">
       <li><span class="ico">✅</span> Small batches, direct teacher access</li>
       <li><span class="ico">✅</span> 100% NCERT + CBSE-aligned curriculum</li>
@@ -419,7 +424,6 @@
   </div>
 </div>
 
-<!-- ABOUT TEACHERS -->
 <section aria-labelledby="about-heading">
   <div class="container">
     <div class="section-head">
@@ -458,7 +462,6 @@
   </div>
 </section>
 
-<!-- BENEFITS -->
 <section style="background:var(--bg-soft);" aria-labelledby="benefits-heading">
   <div class="container">
     <div class="section-head">
@@ -476,7 +479,6 @@
   </div>
 </section>
 
-<!-- COURSE FEATURES / WHY US -->
 <section id="why-us" aria-labelledby="why-heading">
   <div class="container why-wrap">
     <div>
@@ -494,46 +496,52 @@
   </div>
 </section>
 
-<!-- OPTIMIZED SYLLABUS GRID -->
-<section id="syllabus">
-  <div>
-    <span>CBSE Academic Alignment</span>
-    <h2>Class 12 Maths Syllabus & Unit-Wise Breakdown</h2>
-    <p>Our curriculum perfectly maps to the latest CBSE Class 12 Mathematics board layout, bridging NCERT concepts with intensive step-marking practice.</p>
-  </div>
-  
-  <div class="ai-structured-grid">
-    <div class="unit-block">
-      <h3>Unit 1: Relations, Functions & Algebra</h3>
-      <ul>
-        <li><strong>Relations and Functions:</strong> Types of relations, one-to-one and onto functions.</li>
-        <li><strong>Inverse Trigonometric Functions:</strong> Definition, range, domain, and principal value branches.</li>
-        <li><strong>Matrices & Determinants:</strong> Operations, properties, symmetric matrices, inverses, and solving simultaneous linear equations.</li>
-      </ul>
+<section id="syllabus" aria-labelledby="syllabus-heading">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">CBSE Academic Alignment</span>
+      <h2 id="syllabus-heading">Class 12 Maths Syllabus &amp; Unit-Wise Breakdown</h2>
+      <p>Our curriculum perfectly maps to the latest CBSE Class 12 Mathematics board layout, bridging NCERT concepts with intensive step-marking practice.</p>
     </div>
+    
+    <div class="ai-structured-grid">
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 1: Relations, Functions &amp; Algebra</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Relations and Functions:</strong> Types of relations, one-to-one and onto functions.</li>
+            <li><span class="chno">2</span> <strong>Inverse Trigonometric Functions:</strong> Definition, range, domain, and values.</li>
+            <li><span class="chno">3</span> <strong>Matrices &amp; Determinants:</strong> Matrix operations, determinants, properties, and systemic equations.</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="unit-block">
-      <h3>Unit 2: Complete Calculus Track (High Weightage)</h3>
-      <ul>
-        <li><strong>Continuity & Differentiability:</strong> Derivative rules, chain rule, and higher-order derivatives.</li>
-        <li><strong>Applications of Derivatives (AoD):</strong> Rate of change, increasing/decreasing functions, maxima, and minima.</li>
-        <li><strong>Integrals & Applications:</strong> Definite and indefinite integration, evaluation of specific integrals, and calculating areas under simple curves.</li>
-        <li><strong>Differential Equations:</strong> Order and degree, variable-separable methods, and homogeneous linear differential equations.</li>
-      </ul>
-    </div>
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 2: Complete Calculus Track (High Weightage)</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Continuity &amp; Differentiability:</strong> Derivative rules, chain rule, and limits.</li>
+            <li><span class="chno">2</span> <strong>Applications of Derivatives (AoD):</strong> Maxima, minima, rate of change calculations.</li>
+            <li><span class="chno">3</span> <strong>Integrals &amp; Applications:</strong> Definite/indefinite tracks and area under curves.</li>
+            <li><span class="chno">4</span> <strong>Differential Equations:</strong> Homogeneous systems and variable-separable methods.</li>
+          </ul>
+        </div>
+      </div>
 
-    <div class="unit-block">
-      <h3>Unit 3: Vectors, 3D Geometry, LPP & Probability</h3>
-      <ul>
-        <li><strong>Vector Algebra & 3D Geometry:</strong> Direction cosines, scalar and vector products, skew lines, and shortest distance vectors.</li>
-        <li><strong>Linear Programming (LPP):</strong> Mathematical formulation, graphical solution methods, and feasible regions.</li>
-        <li><strong>Probability:</strong> Conditional probability, multiplication theorem, Bayes' Theorem, and independent events.</li>
-      </ul>
+      <div class="syllabus-panel">
+        <div class="panel-head"><h3>Unit 3: Vectors, 3D Geometry, LPP &amp; Probability</h3></div>
+        <div class="panel-body">
+          <ul class="chapter-list">
+            <li><span class="chno">1</span> <strong>Vector Algebra &amp; 3D Geometry:</strong> Lines, skew lines, products, shortest distance.</li>
+            <li><span class="chno">2</span> <strong>Linear Programming (LPP):</strong> Graphical solution models, bounding feasible areas.</li>
+            <li><span class="chno">3</span> <strong>Probability:</strong> Conditional theorems, independent layouts, Bayes' Theorem.</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TEACHING METHOD -->
 <section id="teaching-method" aria-labelledby="method-heading">
   <div class="container">
     <div class="section-head">
@@ -549,7 +557,6 @@
   </div>
 </section>
 
-<!-- WEEKLY TESTS / ASSIGNMENTS / DOUBT SOLVING -->
 <section style="background:var(--bg-soft);" aria-labelledby="support-heading">
   <div class="container">
     <div class="section-head">
@@ -564,7 +571,6 @@
   </div>
 </section>
 
-<!-- TESTIMONIALS + PARENT REVIEWS -->
 <section aria-labelledby="testimonials-heading">
   <div class="container">
     <div class="section-head">
@@ -591,7 +597,6 @@
   </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing" style="background:var(--bg-soft);" aria-labelledby="pricing-heading">
   <div class="container">
     <div class="section-head">
@@ -628,7 +633,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
 <section id="faq" aria-labelledby="faq-heading">
   <div class="container">
     <div class="section-head">
@@ -668,28 +672,25 @@
   </div>
 </section>
 
-<!-- CONTACT FORM + WHATSAPP CTA -->
 <section id="contact" style="background:var(--bg-soft);" aria-labelledby="contact-heading">
   <div class="container">
     <div class="section-head">
       <span class="section-tag">Get Started</span>
       <h2 id="contact-heading">Book Your Demo Class – ₹200</h2>
-     
     </div>
-    
-        <div class="contact-info-card">
-          <h3 style="color:#fff;">Contact Information</h3>
-          <p style="color:#e9e4ff;">Reach out directly — we usually respond within a few hours.</p>
-          <ul class="contact-info-list">
-            <li>📞 <a href="tel:+917601047556">+91 76010 47556</a></li>
-            <li>💬 <a href="https://wa.me/917601047556?text=Hi%2C%20I%20want%20a%20free%20demo%20class">WhatsApp: +91 76010 47556</a></li>
-            <li>✉️ <a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a></li>
-            <li>📍 IIT Hyderabad, Kandi, Hyderabad, Telangana</li>
-            <li>🕒 Mon–Sat, 9:00 AM – 9:00 PM IST</li>
-          </ul>
-          <div class="hero-ctas" style="margin-top:18px;">
-            <a href="https://wa.me/917601047556?text=Hi%2C%20I%20want%20a%20free%20demo%20class" class="btn btn-whatsapp">💬 WhatsApp Now</a>
-          </div>
+    <div>
+      <div class="contact-info-card">
+        <h3 style="color:#fff;">Contact Information</h3>
+        <p style="color:#e9e4ff;">Reach out directly — we usually respond within a few hours.</p>
+        <ul class="contact-info-list">
+          <li>📞 <a href="tel:+917601047556">+91 76010 47556</a></li>
+          <li>💬 <a href="https://wa.me/917601047556?text=Hi%2C%20I%20want%20a%20free%20demo%20class">WhatsApp: +91 76010 47556</a></li>
+          <li>✉️ <a href="mailto:fillform101@gmail.com">fillform101@gmail.com</a></li>
+          <li>📍 IIT Hyderabad, Kandi, Hyderabad, Telangana</li>
+          <li>🕒 Mon–Sat, 9:00 AM – 9:00 PM IST</li>
+        </ul>
+        <div class="hero-ctas" style="margin-top:18px;">
+          <a href="https://wa.me/917601047556?text=Hi%2C%20I%20want%20a%20free%20demo%20class" class="btn btn-whatsapp">💬 WhatsApp Now</a>
         </div>
       </div>
     </div>
@@ -712,7 +713,6 @@
       <a href="#top" class="logo" style="color:#fff;"><span class="logo-badge" aria-hidden="true">Σ</span> Sarthak's Maths Foundation</a>
       <p style="color:#a89fc9;margin-top:12px;">Class 12 CBSE Maths tuition built around live teaching, weekly tests and real doubt support.</p>
       <div class="social-row" style="margin-top:14px;">
-
         <a href="https://jeemathcoaching.in" aria-label="Website">🌐</a>
         <a href="https://wa.me/917601047556" aria-label="WhatsApp">💬</a>
       </div>
@@ -729,9 +729,7 @@
     <div>
       <h4>Other Programs</h4>
       <ul class="footer-links">
-       
         <li><a href="https://jeemathcoaching.in/class_10.html">Class 10 Maths</a></li>
-
         <li><a href="https://jeemathcoaching.in/class_12.html">Class 12 Maths</a></li>
       </ul>
     </div>
@@ -740,7 +738,7 @@
       <ul class="footer-links">
         <li><a href="/privacy-policy">Privacy Policy</a></li>
         <li><a href="https://jeemathcoaching.in/terms.html">Terms &amp; Conditions</a></li>
-             <li><a href="https://jeemathcoaching.in/refund_policy.html">Refund Policy</a></li>
+        <li><a href="https://jeemathcoaching.in/refund_policy.html">Refund Policy</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
     </div>
